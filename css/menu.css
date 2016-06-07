@@ -1,0 +1,49 @@
+#top a, #top img {
+    height: 3rem;
+    line-height: 3rem;
+}
+
+#top ul, #top li {   
+    display: inline-block;
+}
+
+#top div, #top ul, #top li, #top a {
+    height: 100%;
+}
+
+/* BACKGROUND AND POSITIONS */
+#logo {
+    padding: 0;
+}
+
+#logo, .left, .wave {
+    background-color: #f0f0f0;
+}
+
+.right, .right-border {
+    background-color: #cccccc;
+}
+
+.wave img, .right-border img {
+    float: right;
+}
+
+/* DISTRIBUIRE ORIZZONTALMENTE I LINK */
+
+div.left, div.right, div.wave, div.right-border {
+    padding: 0;
+}
+
+#top ul {
+    width: 100%;
+}
+
+#top ul, #top li, #top a {
+    text-align: center;
+}
+
+/* GENERAL STYLE */ 
+a {
+    color: black;
+    font-size: 1.4rem;
+}

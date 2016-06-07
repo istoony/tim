@@ -1,0 +1,49 @@
+html {
+    font-size: 62.5%;
+    font-family: Arial;
+}
+
+#page {
+    margin-top: 1rem;
+}
+
+#content {
+    margin: 0;
+    padding: 2rem 0;
+    min-height: 80rem;
+    float: none;
+}
+
+/* FOOTER */
+
+#footer {
+    background-color: #004890;
+}
+
+#footer-logo img {
+    height: 8rem;
+}
+
+#footer-social img {
+    height: 2rem;
+}
+
+#footer div { /*used to vertically center all the contents in the footer*/
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+/* FOOTER MENU */
+
+#footer-social {
+    text-align: center;
+}
+
+#footer a, #footer div, #footer p {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: lighter;
+    line-height: 130%;
+}
