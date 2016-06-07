@@ -6,7 +6,7 @@
     function dbConnect()
     {
 
-        $conn = new mysqli("db4free.net:3306/guidoantoniomatt", "guidoantoniomatt", "guidoantoniomatteo", "guidoantoniomatt");
+        $conn = new mysqli("sql8.freemysqlhosting.net", "sql8122761", "mJ9xC5JtvW", "sql8122761");
 
         if (mysqli_connect_errno()) 
         { //verify connection
