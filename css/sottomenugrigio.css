@@ -1,0 +1,18 @@
+.sottomenugrigio{
+    
+   background-color: #F0F0F0;
+}
+
+.sottomenugrigio div{
+    
+    color: #004890;
+    font-weight: bold;
+    padding: 10px 0px 5px 0px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#cellasottolineatablu{
+    
+    border-bottom: solid 5px #004890;
+}
