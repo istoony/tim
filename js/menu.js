@@ -4,6 +4,7 @@ $(document).ready(function(){
 
 	$('#top ul li a, #footer ul li a').click(function (e){
 
+            alert(this.hash);
 			checkURL(this.hash);	//.. and assign them a new onclick event, using their own hash as a parameter (#page1 for example)
 
 	});
