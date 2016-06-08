@@ -19,6 +19,7 @@ html {
 #footer {
     background-color: #004890;
     clear:both;
+    margin-top: 50px;
 }
 
 #footer-logo img {

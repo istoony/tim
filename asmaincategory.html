@@ -16,10 +16,12 @@
         <link rel="stylesheet" type="text/css" href="css/eric-meyer-reset.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/menu.css">
+        <link rel="stylesheet" type="text/css" href="css/standardimport.css">
+        
         
         <script>
             var xmlhttp = new XMLHttpRequest();
-            var url = "http://localhost/Template/components/as/getMainCategory.php";
+            var url = "http://localhost/tim/components/as/getMainCategory.php";
 
             xmlhttp.onreadystatechange=function() 
             {
@@ -32,22 +34,24 @@
             function myFunction(response) {
                 var arr = JSON.parse(response);
                 var i;
-                var out = "<table>";
+                var out = "";
 
-                for(i = 0; i < arr.length; i++) {
-                    out += "<tr><td>" +
-                        "<a href=\"assubcategory.html?id=" + arr[i].id + "\" >" +
+                for(i = 0; i < arr.length; i++) 
+                {
+                    out += "<div class=\"col-md-3 nopadding\"><div class=\"sfondotitoloblu\">" +
                             arr[i].titolo + 
-                        "</a>" + 
-                     "</td><td>" +
+                        "</div>" + 
+                     "<div class=\"sfondogrigio\">" +
+                        "<a href=\"assubcategory.html?id=" + arr[i].id + "\" >" +
                         "<img src=\"" + arr[i].foto + "\" />"+
-                    "</td></tr>";
+                        "</a>"+
+                    "</div>";
+                    out += "</div>";
                 }
-                out += "</table>";
-                document.getElementById("id01").innerHTML = out;
+                
+                document.getElementById("categorie").innerHTML = out;
             }
         </script>
-
         
     </head>
 
@@ -109,9 +113,18 @@
             </div>
         
             <div id="content">
-        
-                <h1>Titolo</h1>
-                <div id="id01"></div>
+            <div><h1 class="titolorosso">Assistenza Tecnica</h1></div>
+            <div class="col-md-8">
+                <img src="img/as/assistenza.jpg" alt="assistenza tecnica" style="width:100%;" />
+            </div>
+            <div class="col-md-4 nopadding" style="padding-top: 50px;">
+                <div class="sfondotitoloblu">In Evidenza</div>
+                <div class="sfondogrigio">
+                    <img src="img/as/assistenza-tecnica1.png" alt="assistenza tecnica" width="100%" />
+                    <p class="center">Qui trovi le risposte alle domande più frequenti</p>
+                </div>
+            </div>
+            <div id="categorie" class="col-md-12 nopadding"></div>
 
             </div>
 
