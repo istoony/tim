@@ -7,7 +7,7 @@
     {
 
         //$conn = new mysqli("sql8.freemysqlhosting.net", "sql8122761", "mJ9xC5JtvW", "sql8122761");
-        $conn = new mysqli("localhost", "root", "", "tim");
+        $conn = new mysqli("localhost", "root", "profligo", "tim");
 
         if (mysqli_connect_errno()) 
         { //verify connection

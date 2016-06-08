@@ -23,6 +23,44 @@
         <link rel="stylesheet" type="text/css" href="css/standardimport.css">
         <link rel="stylesheet" type="text/css" href="css/innovazione.css">
         
+        <style>
+        @media only screen and (max-width: 500px) {
+
+            h1 { font-size: 13px;
+            color: #FFFFFF;}
+
+            }
+        </style>
+         <script>
+            var xmlhttp = new XMLHttpRequest();
+            var url = "http://localhost/tim/components/testimonial/getTestimonial.php";
+
+            xmlhttp.onreadystatechange=function() 
+            {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    myFunction(xmlhttp.responseText);
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+            function myFunction(response) {
+                var arr = JSON.parse(response);
+                var i;
+                var out="";
+
+                for(i = 0; i < arr.length; i++) {
+                    out += "<div class=\"col-md-12\"\">"+
+                        "<div style=\"z-index: 2;\"><img class=\"img-responsive\"src=\"" + arr[i].foto + "\" alt=\""+ arr[i].nome +"tim\" ></div><div style=\"z-index: 5; position: absolute; bottom: 300px; width: 40%;\"><h1>" + arr[i].nome + 
+                     "</h1></div><div style=\"z-index: 5; position: absolute; bottom: 140px; width: 40%; padding: 20px;\"><h1>" +
+                    arr[i].frase1 + "</h1><br><h1>"
+                   + arr[i].frase2 
+                    +"</h1></div><div style=\"z-index: 5; background-color: #004890; position: absolute; bottom: 300px; right: 0; width: 40%;\">" 
+                    + "<a href=\"" +arr[i].linkspot +"\">guarda lo spot</a>"+
+                    "</div></div>";
+                }
+                document.getElementById("id01").innerHTML = out;
+            }
+        </script>
     </head>
 
     <body>
@@ -84,43 +122,20 @@
         
             <div id="content" >
                 <div class="sottomenugrigio col-md-12 nopadding">
-                    <div class="col-md-4 sottomenugrigiodiv" id="cellasottolineatablu"><h2 class="titoloblu">INNOVAZIONE</h2></div>
-                    <div class="col-md-4 sottomenugrigiodiv"><h2 class="titoloblu">TESTIMONIAL</h2></div>
+                    <div class="col-md-4 sottomenugrigiodiv"><h2 class="titoloblu">INNOVAZIONE</h2></div>
+                    <div class="col-md-4 sottomenugrigiodiv" id="cellasottolineatablu"><h2 class="titoloblu">TESTIMONIAL</h2></div>
                     <div class="col-md-4 sottomenugrigiodiv"><h2 class="titoloblu">PROGETTI</h2></div>
                 </div>
-                <img class="immaginepresentazione" src="img/innovazione/presentazioneinnovazione.png" alt="innovazione tim" />
+                <img class="immaginepresentazione" src="img/testimonial/testimonial.png" alt="testimonial tim" />
                 <div class="col-md-12 nopadding">
-                    <div class="col-md-2" ></div>
-                    <div class="col-md-8" >
-                        <br><br><h1 class="titoloblu">PROTAGONISTA DEL CAMBIAMENTO</h1><br><br>
-                        <p class="center">
-                            Il futuro è un orizzonte che si sposta giorno dopo giorno. La tecnologia permette alle persone di esprimersi e di cogliere le infinite opportunità di un presente in costante cambiamento. La TIM di oggi è protagonista di questo cambiamento, perché porta in sé la solidità tecnologica di Telecom Italia e la visione dinamica e innovatrice che hanno da sempre caratterizzato TIM.  Perché è rivolta a chi nella tecnologia non vede solo uno scambio di dati, ma una condivisione di esperienze, pensieri ed emozioni.  Qualcosa che ci rende tutti più aperti, generosi, ispirati, umani.
-                        </p>
-                    </div>
-                    <div class="col-md-2" ></div>
+                    <p class="center">
+                           Negli ultimi anni il nostro modo di comunicare è radicalmente cambiato. Forse non si può nemmeno più parlare di comunicazione, le nuove tecnologie infatti ci stanno portando verso un’era dove le connessioni tra gli individui sono più profonde e significative. TIM, che da sempre è sinonimo di comunicazione, si trasforma radicalmente per diventare un’azienda che la cui tecnologia consente alle persone di connettersi tra loro e comunicare. La campagna di lancio del nuovo posizionamento di TIM è nata per raccontare questo nuovo mondo connesso, attraverso il coinvolgimento di tre testimonial d’eccezione che presentano il loro punto di vista:  Sir Tim Berners-Lee, Fabio Fazio e Pif.
+                    </p>
                 </div>
-                <div class="col-md-12 nopadding">
-                     <img class="immaginepresentazione" src="img/innovazione/innovazionedescrizione.png" alt="descrizione inovazione tim" style="padding-top: 20px;"/>
-                </div>                      
-                    <div class="col-md-12" style="text-align:center;">
-                        <img class="img-responsive" style="margin: 0 auto;" src="img/innovazione/nnovazionecerchio.png" alt="cerchio innovativo">
-                    </div>                   
-                <div class="col-md-12 nopadding"  >
-                    <div class="col-md-3" style="padding-top:30px;">
-                        <img class="img-responsive" style="margin: 0 auto;" src="img/innovazione/phone.png" alt="telefono tim">
-                        <p class="center">Offriamo gli strumenti tramite i quali ognuno di noi può perseguire i propri sogni: avere più tempo, più energia, più libertà.</p>
-                    </div>
-                    <div class="col-md-1"></div>
-                     <div class="col-md-4" style="padding-top:30px;">
-                        <img class="img-responsive" style="margin: 0 auto;" src="img/innovazione/antenna.png" alt="telefono tim">
-                          <p class="center">Mettiamo la migliore rete fissa e mobile al servizio di tutti per garantire qualità, sicurezza evicinanza, con un servizio competente ed esperto, raggiungibile attraverso tutti i canali online e offline.</p>
-                    </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-3" style="padding-top:30px;">
-                        <img class="img-responsive" style="margin: 0 auto;" src="img/innovazione/device.png" alt="device tim">
-                         <p class="center">Abilitiamo la vita digitale di tutti, perché la cultura dell’accesso diffuso possa creare beneficio a un numero sempre maggiore di persone.</p>
-                    </div>
-                </div>
+                <div id="id01"></div>
+                
+            </div>
+            
             </div>
 
             <div id="footer" class="row"><!--
