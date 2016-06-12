@@ -1,14 +1,15 @@
 #top a, #top img {
-    height: 3rem;
-    line-height: 3rem;
+    height: 5rem;
+    line-height: 3.5rem;
 }
 
 #top ul, #top li {   
     display: inline-block;
 }
 
-#top div, #top ul, #top li, #top a {
-    height: 100%;
+#top li {
+	margin-top: 0.8rem;
+	margin-bottom: -0.8rem;
 }
 
 /* BACKGROUND AND POSITIONS */
