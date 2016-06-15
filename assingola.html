@@ -13,7 +13,6 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
         <!-- website CSS -->
-        <link rel="stylesheet" type="text/css" href="css/eric-meyer-reset.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/menu.css">
         <link rel="stylesheet" type="text/css" href="css/standardimport.css">
@@ -40,7 +39,10 @@
             var result = captured ? captured : 'id';
             var id = result;
             var xmlhttp = new XMLHttpRequest();
-            var url = "http://guidoantoniomatteo.altervista.org/components/as/getSubCategory.php?id=" + id;
+            var url = "http://guidoantoniomatteo.altervista.org/components/as/getSingleAs.php?id="+ id;
+            
+            printSecondCatAs(id);
+           
             
             xmlhttp.onreadystatechange=function() 
             {
@@ -49,62 +51,14 @@
             }
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
-            
+           
             function myFunction(response) 
             {
                 var arr = JSON.parse(response);
-                var i;
-                document.getElementById("titolocategoria").innerHTML = "<h1 class=\"titolorosso\">" + arr[0].catnome + "</h1>";
-                
-                var out = "";
-                
-                for(i = 0; i < arr.length; i++) 
-                {
-                    out += "<div class=\"col-md-12 nopadding subcategory\">" +
-                                "<a href=\"#\">" + 
-                                "<h2 class=\"titoloblu\" style=\"text-align: left;\">" + arr[i].titolo +
-                                "</h2></a>";
-                    out += "</div><div id=\"" + arr[i].id+ "\"></div>";
-                }
-                document.getElementById("sottocategorie").innerHTML = out;
-                
-                var assingle = new XMLHttpRequest();
-                var getastitle = "http://guidoantoniomatteo.altervista.org/components/as/getAsTitle.php";
-                
-                assingle.open("GET", getastitle, true);
-                assingle.send();
-                
-                assingle.onreadystatechange=function() 
-                {
-                if (assingle.readyState == 4 && assingle.status == 200)
-                    stampaassingole(assingle.responseText);
-                }
+                document.getElementById("titolocategoria").innerHTML = "<h1 class=\"titolorosso\" style=\"text-align: left;\">" + arr[0].titolo + "</h1>";
+                var out = "<p>" + decodeHTMLEntities(arr[0].descrizione) + "</p>";
+                document.getElementById("descrizione").innerHTML = out;
             }
-            
-            function stampaassingole(response) 
-            {
-                var arr = JSON.parse(response);
-                var i; 
-                var out = "";
-                var id = arr[0].sottocategoria;
-                for(i = 0; i < arr.length; i++) 
-                {
-                    if(id != arr[i].sottocategoria)
-                    {
-                        document.getElementById(id).innerHTML = out;
-                        out = "";
-                        id = arr[i].sottocategoria;
-                    }
-                    out += "<div class=\"col-md-12\">" +
-                                "<a href=\"assingola.html?id=" + arr[i].id +"\">" + 
-                                "<h2>" + arr[i].titolo +
-                                "</h2></a>";
-                    out += "</div>";
-                }
-                document.getElementById(arr[i - 1].sottocategoria).innerHTML = out;
-                
-            }
-            
             
         </script>
                 
@@ -169,13 +123,11 @@
         
             <div id="content">
                 <div id="categorie"></div>
+                <div class="col-md-12 nopadding" id="barragrigia"></div>
                 <div class="col-md-12 nopadding">
-                    <div style="position: relative; top: 100px; left: 20px; z-index: 10; width:250px;" id="titolocategoria"></div>
-                    <div style="position: relative; top: 0px; left: 0px; z-index: 1;">
-                        <img src="img/as/sottocategorie.jpg" alt="Assistenza Tecnica" class="immaginepresentazione">
-                    </div>
+                    <div class="col-md-12" id="titolocategoria"></div>
                 </div>
-                <div id="sottocategorie"></div>
+                <div id="descrizione"></div>
 
             </div>
 
