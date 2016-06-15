@@ -16,43 +16,119 @@
         <link rel="stylesheet" type="text/css" href="css/eric-meyer-reset.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/menu.css">
+        <link rel="stylesheet" type="text/css" href="css/standardimport.css">
+        
+        <style>
+            .subcategory
+            {
+                padding: 20px;
+                background-color: #F0F0F0;
+                border-bottom: solid 2px #000000;
+                color: black;
+                text-align: left;
+            }
+        </style>
         
         <script>
-            var url = location.href;
-            var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
-            var result = captured ? captured : 'id';
-            var id = result;
+            //var url = location.href;
+            //var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+            //var result = captured ? captured : 'id';
+            //var id = result;
             var xmlhttp = new XMLHttpRequest();
-            var url = "http://localhost/Template/components/as/getSubcategory.php?id=" + id;
-
+            var url = "http://guidoantoniomatteo.altervista.org/components/as/getSubCategory.php?id=1";// + id;
+            
+            var maincategory = new XMLHttpRequest();
+            var main = "http://guidoantoniomatteo.altervista.org/components/as/getMainCategory.php";
+            
             xmlhttp.onreadystatechange=function() 
             {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
                     myFunction(xmlhttp.responseText);
             }
+            maincategory.onreadystatechange=function() 
+            {
+                if (maincategory.readyState == 4 && maincategory.status == 200)
+                    maincat(maincategory.responseText);
+            }
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
-
-            function myFunction(response) {
+            
+            maincategory.open("GET", main, true);
+            maincategory.send();
+            
+            function myFunction(response) 
+            {
                 var arr = JSON.parse(response);
                 var i;
-                var out = "<table>";
-
-                for(i = 0; i < arr.length; i++) {
-                    out += "<tr><td>" +
-                    arr[i].id +
-                    "</td><td>" +
-                    arr[i].titolo +
-                     "</td><td>" +
-                    arr[i].foto +
-                    "</td></tr>";
+                document.getElementById("titolocategoria").innerHTML = "<h1 class=\"titolorosso\">" +                                                                       arr[0].catnome + "</h1>";
+                
+                var out = "";
+                
+                for(i = 0; i < arr.length; i++) 
+                {
+                    out += "<div class=\"col-md-12 nopadding subcategory\">" +
+                                "<a href=\"assinglesubcategory.html?id=" + arr[i].id +"\">" + 
+                                "<h2 class=\"titoloblu\" style=\"text-align: left;\">" + arr[i].titolo +
+                                "</h2></a>";
+                    out += "</div><div id=\"" + arr[i].id+ "\"></div>";
                 }
-                out += "</table>";
-                document.getElementById("id01").innerHTML = out;
+                document.getElementById("sottocategorie").innerHTML = out;
+                
+                var assingle = new XMLHttpRequest();
+                var getastitle = "http://guidoantoniomatteo.altervista.org/components/as/getAsTitle.php";
+                
+                assingle.open("GET", getastitle, true);
+                assingle.send();
+                
+                assingle.onreadystatechange=function() 
+                {
+                if (assingle.readyState == 4 && assingle.status == 200)
+                    stampaassingole(assingle.responseText);
+                }
             }
+            
+            function maincat(response) 
+            {
+                var arr = JSON.parse(response);
+                var i; 
+                var out = "";
+                for(i = 0; i < arr.length; i++) 
+                {
+                    out += "<div class=\"col-md-3 sfondotitoloblu\">" +
+                                "<a href=\"asmaincategory.html?id=" + arr[i].id +"\">" + 
+                                "<h2 style=\"color: #FFF;\">" + arr[i].titolo +
+                                "</h2></a>";
+                    out += "</div>";
+                }
+                document.getElementById("categorie").innerHTML = out;
+            }
+            
+            function stampaassingole(response) 
+            {
+                var arr = JSON.parse(response);
+                var i; 
+                var out = "";
+                var id = arr[0].sottocategoria;
+                for(i = 0; i < arr.length; i++) 
+                {
+                    if(id != arr[i].sottocategoria)
+                    {
+                        document.getElementById(id).innerHTML = out;
+                        out = "";
+                        id = arr[i].sottocategoria;
+                    }
+                    out += "<div class=\"col-md-12\">" +
+                                "<a href=\"asmaincategory.html?id=" + arr[i].id +"\">" + 
+                                "<h2>" + arr[i].titolo +
+                                "</h2></a>";
+                    out += "</div>";
+                }
+                document.getElementById(arr[i - 1].sottocategoria).innerHTML = out;
+                
+            }
+            
         </script>
-
-        
+                
     </head>
 
     <body>
@@ -113,9 +189,14 @@
             </div>
         
             <div id="content">
-        
-                <h1>Titolo</h1>
-                <div id="id01"></div>
+                <div id="categorie"></div>
+                <div class="col-md-12 nopadding">
+                    <div style="position: relative; top: 100px; left: 20px; z-index: 10; width:250px;" id="titolocategoria"></div>
+                    <div style="position: relative; top: 0px; left: 0px; z-index: 1;">
+                        <img src="img/as/sottocategorie.jpg" alt="Assistenza Tecnica" class="immaginepresentazione">
+                    </div>
+                </div>
+                <div id="sottocategorie"></div>
 
             </div>
 

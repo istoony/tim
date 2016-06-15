@@ -6,8 +6,10 @@
     function dbConnect()
     {
 
-        //$conn = new mysqli("sql8.freemysqlhosting.net", "sql8122761", "mJ9xC5JtvW", "sql8122761");
-        $conn = new mysqli("localhost", "root", "profligo", "tim");
+        $conn = new mysqli("localhost", "guidoantoniomatteo", "", "my_guidoantoniomatteo");
+        //$conn = new mysqli("localhost", "root", "profligo", "tim");
+        //A toony serve questa
+        //$conn = new mysqli("localhost", "root", "", "tim");
 
         if (mysqli_connect_errno()) 
         { //verify connection
