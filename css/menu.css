@@ -12,21 +12,16 @@
 	margin-bottom: -0.8rem;
 }
 
+@media (max-width:1200px) and (min-width:768px) {
+	#top-large div a:first-child {
+		margin-left: 2rem;
+	}
+}
+
 /* BACKGROUND AND POSITIONS */
 #logo-large {
     padding: 0;
-}
-
-@media (max-width: @screen-md-max) {
-	#logo-large {
-		background-color: white;
-	}
-}
-
-@media (min-width: @screen-lg-min) {
-	#logo-large {
-		background-color: white;
-	}
+    background-color: white;
 }
 
 #top-large .left, #top-large .wave {
@@ -41,13 +36,7 @@
     float: right;
 }
 
-#top-large {
-	padding-left: 15px;
-}
 
-#top-large .no-right-padding{
-	padding-right: 0px;
-}
 
 /* DISTRIBUIRE ORIZZONTALMENTE I LINK */
 
@@ -83,32 +72,29 @@
 
 
 /* SMALL */
-#top-menu-small {
-	margin-top: 2rem;
-}
-
 #top-small img {
 	height: 5rem;
 }
+#top-menu-button-small {
+	padding-right: 2rem;
+}
+
+#top-small .first-menu a:first-child {
+	margin-top: 2rem;
+}
+
 #top-small a {
-	padding: 0.5rem 0;
+	padding: 0 3rem;
     font-size: 1.6rem;
     line-height: 3.2rem;
+    display: inline-block;
+    width: 100%;
 }
 #top-small .first-menu a {
 	color: white;
-}
-#top-small .first-menu {
 	background-color: #004592;
 }
 #top-small .second-menu a{
 	color: #004592;
-}
-#top-small .second-menu {
 	background-color: #CCCCCC;
-}
-#top-small ul {
-	list-style-type: none;
-	padding: 0 3rem;
-	margin: 0;
 }
