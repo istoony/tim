@@ -7,33 +7,42 @@ html {
 	margin-top: 3rem;
 }
 
-#content {
-    margin: 0;
-    padding: 3rem 0;
-    min-height: 80rem;
-    float: none;
+@media only screen and (max-width: 768px) {
+
+	#content {
+		padding: 0 1.5rem;
+	}
+	
 }
 
 /* FOOTER */
 
 #footer {
     background-color: #004890;
-    clear:both;
-    padding-top: 1rem;
+    margin-top: 2rem;
+    padding: 1rem 0;
 }
 
 #footer-logo img {
     height: 8rem;
+}
+#footer-social {
+    padding-left: 0;	
 }
 
 #footer-social img {
     height: 2rem;
 }
 
-#footer div { /*used to vertically center all the contents in the footer*/
+.vertical-centered { /*used to vertically center all the contents in the footer*/
     display: inline-block;
     vertical-align: middle;
     float: none;
+}
+
+#footer a {
+	width: 100%;
+	display: inline-block;
 }
 
 /* FOOTER MENU */
@@ -49,7 +58,7 @@ html {
 #footer a, #footer div, #footer p {
     color: white;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: lighter;
     line-height: 130%;
 }
