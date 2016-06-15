@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8"> 
+        <title>Page Title</title>
+        
+        <!-- Bootstrap: Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <!-- Bootstrap library -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        <!-- website CSS -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/menu.css">
+        <link rel="stylesheet" type="text/css" href="css/standardimport.css">        
+
+        <script type="application/javascript">
+            var xmlhttp = new XMLHttpRequest();
+            var url = "http://guidoantoniomatteo.altervista.org/components/as/getMainCategory.php";
+
+            xmlhttp.onreadystatechange=function() 
+            {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    myFunction(xmlhttp.responseText);
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+            function myFunction(response) {
+                var arr = JSON.parse(response);
+                var i;
+                var out = "";
+
+                for(i = 0; i < arr.length; i++) 
+                {
+                    out += "<div class=\"col-sm-3 nopadding\"><div class=\"barratitolo sfondoblu\">" +
+                            arr[i].titolo + 
+                        "</div>" + 
+                     "<div class=\"barratitolo sfondogrigio\">" +
+                        "<a href=\"assubcategory.html?id=" + arr[i].id + "\" >" +
+                        "<img src=\"" + arr[i].foto + "\" />"+
+                        "</a>"+
+                    "</div>";
+                    out += "</div>";
+                }
+                
+                document.getElementById("categorie").innerHTML = out;
+            }
+        </script>
+    </head>
+
+    <body>
+        
+	<div id="page" class="container">
+
+		<div id="top-large" class="row hidden-xs">
+
+			<div id="logo-large" class="col-lg-2">
+				<img src="img/logo.png" />
+			</div>
+
+			<div class="col-lg-10" >
+				<div class="row">
+
+					<div class="col-lg-7 left">
+						<div class="row">
+							<a class="col-lg-2" href="piani">Piani</a>
+							<a class="col-lg-2" href="offerte">Offerte</a>
+							<a class="col-lg-3" href="smart-life">Smart Life</a>
+							<a class="col-lg-3" href="dispositi">Dispositivi</a>
+							<a class="col-lg-2" href="assistenza">Assistenza</a>
+						</div>
+					</div>
+
+					<div class="col-lg-1 hidden-md hidden-sm hidden-xs wave">
+						<img src="img/ondina.png" />
+					</div>
+
+					<div class="col-lg-3 right">
+						<div class="row">
+							<a class="col-lg-6" href="chi-siamo">Chi Siamo</a>
+							<a class="col-lg-6" href="gruppo">Gruppo</a>
+						</div>
+					</div>
+
+					<div class="col-lg-1 hidden-md hidden-sm hidden-xs right-border">
+						<img src="img/menu-right.png" />
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div id="top-small" class="row hidden-sm hidden-md hidden-lg">
+
+			<div id="logo-small" class="col-xs-4">
+				<img src="img/logo.png" />
+			</div>
+
+			<div id="top-menu-button-small" class="col-xs-2 col-xs-offset-6">
+				<img src="img/menu-mobile-closed.png" class="menu-closed"/>
+				<img src="img/menu-mobile-open.png" class="menu-open"/>
+			</div>
+
+			<div id="top-menu-small">
+				<div class="first-menu">
+					<ul>
+						<li><a href="piani">PIANI</a></li>
+						<li><a href="offerte">OFFERTE</a></li>
+						<li><a href="smart-life">SMART LIFE</a></li>
+						<li><a href="dispositi">DISPOSITIVI</a></li>
+						<li><a href="assistenza">ASSISTENZA</a></li>
+					</ul>
+				</div>
+				<div class="second-menu">
+					<ul>
+						<li><a href="chi-siamo">CHI SIAMO</a></li>
+						<li><a href="gruppo">GRUPPO</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+            <div id="content">
+            <div><h1 class="titolorosso">Assistenza Tecnica</h1></div>
+            <div class="col-sm-8">
+                <img src="img/as/assistenza.jpg" alt="assistenza tecnica" class="img-responsive" />
+            </div>
+            <div class="col-sm-4 nopadding" style="padding-top: 50px;">
+                <div class="barratitolo sfondoblu">In Evidenza</div>
+                <div class="barratitolo sfondogrigio">
+                <img src="img/as/assistenza-tecnica1.png" alt="assistenza tecnica" width="100%"/>
+                    <p class="center">Qui trovi le risposte alle domande più frequenti</p>
+                </div>
+            </div>
+            <div id="categorie" class="col-md-12 nopadding"></div>
+
+        </div>
+        
+      
+		<div id="footer" class="row"><!--
+                
+			--><div id="footer-logo" class="col-sm-2 hidden-xs" >
+				<img src="img/footer_logo.png" />
+			</div><!--
+			--><div id="footer-logo" class="col-xs-2 hidden-sm hidden-md hidden-lg" >
+				<img src="img/footer_logo_small.png" />
+			</div><!--
+            
+			--><div class="col-sm-2 col-sm-offset-1 col-xs-4 menu">
+				<ul>
+					<li><a href="">Contattaci</a></li>
+					<li><a href="">Privacy</a></li>
+					<li><a href="">Lavora con noi</a></li>
+					<li><a href="">Tutela dei minori</a></li>
+					<li><a href="">Assistenza legale</a></li>
+				</ul>
+			</div><!--
+			
+            --><div class="col-sm-2 col-sm-offset-1 col-xs-4 menu">
+				<ul>
+					<li><a href="">Chi siamo</a></li>
+					<li><a href="">Il gruppo</a></li>
+				</ul>
+			</div><!--
+                
+            --><div id="footer-social" class="col-sm-3 col-sm-offset-1 col-xs-2">
+				<img src="img/footer_social_1.png" />
+				<img src="img/footer_social_2.png" />
+				<p class="hidden-xs">
+					<br/>Seguici sui principali<br/>Social Network
+				</p>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+
+</html>
