@@ -3,6 +3,10 @@ html {
     font-family: Arial;
 }
 
+#page {
+	margin-top: 3rem;
+}
+
 #content {
     margin: 0;
     padding: 3rem 0;
