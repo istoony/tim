@@ -34,7 +34,7 @@ html {
     height: 2rem;
 }
 
-.vertical-centered { /*used to vertically center all the contents in the footer*/
+.middle-align div { /*used to vertically center all the contents in the footer*/
     display: inline-block;
     vertical-align: middle;
     float: none;
