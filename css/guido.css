@@ -1,0 +1,5 @@
+.horizontal-align div { /*used to vertically center all the contents in the footer*/
+    display: inline-block;
+    text-align: center;
+    float: none;
+}

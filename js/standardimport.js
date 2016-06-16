@@ -31,10 +31,9 @@ function maincat(response)
     var out = "";
     for(i = 0; i < arr.length; i++) 
     {
-        out += "<div class=\"col-md-3 barratitolo sfondoblu\">" +
-                    "<a href=\"asmaincategory.html?id=" + arr[i].id +"\">" + 
-                            "<h2 style=\"color: #FFF;\">" + arr[i].titolo +
-                        "</h2></a>";
+        out += "<div class=\"col-md-3\">" +
+                    "<a href=\"asmaincategory.html?id=" + arr[i].id +"\">" + arr[i].titolo +
+                        "</a>";
         out += "</div>";
     }
     document.getElementById("categorie").innerHTML = out;
