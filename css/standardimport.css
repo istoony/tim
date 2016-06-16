@@ -21,34 +21,6 @@ p.center {
 	line-height: 25px;
 }
 
-/**********************************************/
-/*************BLUE & GREY BAR******************/
-/**********************************************/
-
-.sfondoblu, .blu-background {
-	background-color: #004890;
-    border-bottom: 4px solid #004890;
-    
-}
-.blu-background a{
-	color: #FFFFFF;
-}
-.blu-background a:hover{
-	color: #FFFFFF;
-    text-decoration: none;
-    padding-bottom: 5px;
-}
-
-.blu-background div:hover {
-    border-bottom: 4px solid white;
-
-}
-
-.sfondogrigio, .grey-background {
-	background-color: #F0F0F0;
-	color: #000000;
-}
-
 .titolorosso, .red-title {
 	color: #FF0000;
 }
@@ -56,12 +28,6 @@ p.center {
 .nopadding {
 	padding-left: 0px;
 	padding-right: 0px;
-}
-
-div.sottomenugrigiodiv, .grey-submenu {
-	padding: 13px 0px 6px 0px;
-	background-color: #F0F0F0;
-	border-bottom: solid 7px #F0F0F0;
 }
 
 #cellasottolineatablu, .blu-underlined-cell {
