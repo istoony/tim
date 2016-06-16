@@ -1,64 +1,56 @@
-.immaginepresentazione{
-    
-    width: 100%;
+h1, h2 {
+	font-weight: bold;
+	text-align: center;
 }
 
-h1{
-    font-weight: bold;
-    text-align: center;
+.titoloblu, .blu-title {
+	color: #004890;
+	text-align: center;
 }
 
-h2{
-    font-weight: bold;
-    text-align: center;
+p.center {
+	text-align: center;
+	line-height: 25px;
 }
 
-.titoloblu{
-    
-    color: #004890;
-    text-align: center;
+.sfondoblu, .blu-background {
+	color: #FFFFFF;
+	background-color: #004890;
 }
 
-p.center{
-    font-size: 20px;    
-    text-align: center;
-    line-height: 25px;
+.sfondogrigio, .grey-background {
+	background-color: #F0F0F0;
+	color: #000000;
 }
 
-.sfondoblu
-{
-    color: #FFFFFF;
-    background-color: #004890;
-}
-.barratitolo
-{
-    padding: 15px 0px;
-    text-align: center;
-    font-size: 20px;
-}
-.sfondogrigio
-{
-    background-color: #F0F0F0;
-    color: #000000;
-}
-h1.titolorosso
-{
-    color: #FF0000;
-}
-.nopadding
-{
-    padding-left: 0px;
-    padding-right: 0px;
+.titolorosso, .red-title {
+	color: #FF0000;
 }
 
-div.sottomenugrigiodiv{
-       
-    padding: 13px 0px 6px 0px;    
-    background-color: #F0F0F0;
-    border-bottom: solid 7px #F0F0F0;
+.nopadding {
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
-#cellasottolineatablu{
-    
-    border-bottom: solid 7px #004890;
+div.sottomenugrigiodiv, .grey-submenu {
+	padding: 13px 0px 6px 0px;
+	background-color: #F0F0F0;
+	border-bottom: solid 7px #F0F0F0;
+}
+
+#cellasottolineatablu, .blu-underlined-cell {
+	border-bottom: solid 7px #004890;
+}
+
+/*GUIDO*/
+
+.immaginepresentazione {
+	width: 100%;
+}
+
+
+.barratitolo, .title-bar {
+	padding: 15px 0px;
+	text-align: center;
+	font-size: 20px;
 }
