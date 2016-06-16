@@ -28,7 +28,7 @@
     .carousel-inner > .item > img,
     .carousel-inner > .item > a > img {
         width: 70%;
-        margin: auto;
+        margin: 0 auto;
     }
     .carousel-control.left{
         background-image: none;
@@ -55,14 +55,14 @@
             var i;
             var out = "";
             for(i=0; i< arr.length;i++) {
-            out += "<div class=\"row\"><div class=\"col-md-12 nopadding\"><div class=\"row middle-align\">"+
-                            "<div class = \"col-md-4 horizontal-align\"><div>"+
-                                "<img class=\"img-responsive\" src=\""+arr[i].foto+"\" alt=\""+arr[i].nome+" tim\">"
+            out += "<div class=\"row middle-align\"><div class=\"col-md-12 \"><div class=\"row\">"+
+                            "<div class = \"col-md-4\"><div>"+
+                                "<img class=\"img-responsive img-center\" src=\""+arr[i].foto+"\" alt=\""+arr[i].nome+" tim\">"
                             +"</div></div>"+
-                            "<div class = \"col-md-3 horizontal-align\"><div>"+
-                                "<h4 class=\"center\">"+arr[i].descrizione+"</h4>"
+                            "<div class = \"col-md-3\"><div>"+
+                                "<h3 class=\"center middle-align\">"+arr[i].descrizione+"</h3>"
                             +"</div></div>"+
-                            "<div id=\"myCarousel" + arr[i].id + "\" class=\"col-md-5 carousel slide middle-align horizontal-align\" data-ride=\"carousel\"><div class=\"carousel-inner\" role=\"listbox\" id=\"" + arr[i].id + "\"></div><a class=\"left carousel-control\" href=\"#myCarousel" + arr[i].id + "\" role=\"button\" data-slide=\"prev\"><span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span><span class=\"sr-only\">Previous</span></a><a class=\"right carousel-control\" href=\"#myCarousel" + arr[i].id + "\" role=\"button\" data-slide=\"next\"><span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span><span class=\"sr-only\">Next</span></a></div>"+
+                            "<div id=\"myCarousel" + arr[i].id + "\" class=\"col-md-5 carousel slide\" data-ride=\"carousel\"><div class=\"carousel-inner\" role=\"listbox\" id=\"" + arr[i].id + "\"></div><a class=\"left carousel-control\" href=\"#myCarousel" + arr[i].id + "\" role=\"button\" data-slide=\"prev\"><span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span><span class=\"sr-only\">Previous</span></a><a class=\"right carousel-control\" href=\"#myCarousel" + arr[i].id + "\" role=\"button\" data-slide=\"next\"><span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span><span class=\"sr-only\">Next</span></a></div>"+
                     "</div></div></div>";
             }
             document.getElementById("id01").innerHTML = out;
@@ -108,138 +108,131 @@
 
 <body>
 
-    <div id="page" class="container">
+	<div id="page" class="container">
 
-        <div id="top" class="row">
+		<div id="top-large" class="row hidden-xs">
 
-            <div id="logo" class="col-md-2">
-                <img src="img/logo.png" />
-            </div>
+			<div id="logo-large" class="col-lg-2">
+				<img src="img/logo.png" />
+			</div>
 
-            <div id="top-menu" class="col-md-10">
-                <div class="row">
+			<div class="col-lg-10" >
+				<div class="row">
 
-                    <div class="col-md-7 left">
-                        <ul class="row">
-                            <li class="col-md-2">
-                                <a href="">Piani</a>
-                            </li>
-                            <li class="col-md-2">
-                                <a href="">Offerte</a>
-                            </li>
-                            <li class="col-md-3">
-                                <a href="">Smart Life</a>
-                            </li>
-                            <li class="col-md-3">
-                                <a href="">Dispositivi</a>
-                            </li>
-                            <li class="col-md-2">
-                                <a href="">Assistenza</a>
-                            </li>
-                        </ul>
-                    </div>
+					<div class="col-lg-7 left">
+						<div class="row">
+							<a class="col-lg-2" href="piani">Piani</a>
+							<a class="col-lg-2" href="offerte">Offerte</a>
+							<a class="col-lg-3" href="smart-life">Smart Life</a>
+							<a class="col-lg-3" href="dispositi">Dispositivi</a>
+							<a class="col-lg-2" href="assistenza">Assistenza</a>
+						</div>
+					</div>
 
-                    <div class="col-md-1 wave">
-                        <img src="img/ondina.png" />
-                    </div>
+					<div class="col-lg-1 hidden-md hidden-sm hidden-xs wave">
+						<img src="img/ondina.png" />
+					</div>
 
-                    <div class="col-md-3 right">
-                        <ul class="row">
-                            <li class="col-md-6">
-                                <a href="">Chi Siamo</a>
-                            </li>
-                            <li class="col-md-6">
-                                <a href="">Gruppo</a>
-                            </li>
-                        </ul>
-                    </div>
+					<div class="col-lg-3 right">
+						<div class="row">
+							<a class="col-lg-6" href="chi-siamo">Chi Siamo</a>
+							<a class="col-lg-6" href="gruppo">Gruppo</a>
+						</div>
+					</div>
 
-                    <div class="col-md-1 right-border">
-                        <img src="img/menu-right.png" />
-                    </div>
+					<div class="col-lg-1 hidden-md hidden-sm hidden-xs right-border">
+						<img src="img/menu-right.png" />
+					</div>
 
-                </div>
-            </div>
+				</div>
+			</div>
 
-        </div>
+		</div>
+
+		<div id="top-small" class="row hidden-sm hidden-md hidden-lg">
+
+			<div id="logo-small" class="col-xs-4">
+				<img src="img/logo.png" />
+			</div>
+
+			<div id="top-menu-button-small" class="col-xs-2 col-xs-offset-5">
+				<img src="img/menu-mobile-closed.png" class="menu-closed"/>
+				<img src="img/menu-mobile-open.png" class="menu-open"/>
+			</div>
+
+			<div id="top-menu-small">
+				<div class="first-menu">
+					<div>
+						<a href="piani">PIANI</a>
+						<a href="offerte">OFFERTE</a>
+						<a href="smart-life">SMART LIFE</a>
+						<a href="dispositi">DISPOSITIVI</a>
+						<a href="assistenza">ASSISTENZA</a>
+					</div>
+				</div>
+				<div class="second-menu">
+					<div>
+						<a href="chi-siamo">CHI SIAMO</a>
+						<a href="gruppo">GRUPPO</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
 
         <div id="content">
-            <div class="sottomenugrigio col-md-12 nopadding">
-                <div class="col-md-4 sottomenugrigiodiv">
-                    <h2 class="titoloblu">INNOVAZIONE</h2></div>
-                <div class="col-md-4 sottomenugrigiodiv">
-                    <h2 class="titoloblu">TESTIMONIAL</h2></div>
-                <div class="col-md-4 sottomenugrigiodiv" id="cellasottolineatablu">
-                    <h2 class="titoloblu">PROGETTI</h2></div>
+            <div class="row grey-menu">
+
+                <div class="col-md-4 "><a href="innovazione.html">INNOVAZIONE</a></div>
+                <div class="col-md-4 current-link"><a href="testimonial.html">TESTIMONIAL</a></div>
+                <div class="col-md-4 "><a href="progetti.html">PROGETTI</a></div>
+
             </div>
 
+            <div class="row">
+                <div class="col-md-12 nopadding">
 
-            <div class="col-md-12 nopadding">
+                    <img class=" img-responsive" src="img/progetti/progetti.jpg" alt="progetti tim">
 
-                <img class=" img-responsive" src="img/progetti/progetti.jpg" alt="progetti tim">
-
-                <div style=" padding-bottom:10%;" class="carousel-caption">
-                    <h1>I progetti TIM disegnano il futuro che immaginiamo.</h1>
+                    <div style=" padding-bottom:10%;" class="carousel-caption">
+                        <h1>I progetti TIM disegnano il futuro che immaginiamo.</h1>
+                    </div>
                 </div>
             </div>
             <div id="id01"></div>
             
         </div>
 
-        <div id="footer" class="row">
-            <!--
-                -->
-            <div id="footer-logo" class="col-md-3">
-                <img src="img/footer_logo.png" />
-            </div>
-            <!--
-                -->
-            <div class="col-md-1"></div>
-            <!--
-                -->
-            <div class="col-md-2 menu">
-                <ul>
-                    <li>
-                        <a href="">Contattaci</a>
-                    </li>
-                    <li>
-                        <a href="">Privacy</a>
-                    </li>
-                    <li>
-                        <a href="">Lavora con noi</a>
-                    </li>
-                    <li>
-                        <a href="">Tutela dei minori</a>
-                    </li>
-                    <li>
-                        <a href="">Assistenza legale</a>
-                    </li>
-                </ul>
-            </div>
-            <!--
-                -->
-            <div class="col-md-2 menu">
-                <ul>
-                    <li>
-                        <a href="">Chi siamo</a>
-                    </li>
-                    <li>
-                        <a href="">Il gruppo</a>
-                    </li>
-                </ul>
-            </div>
-            <!--
-                -->
-            <div class="col-md-1"></div>
-            <!--
-                -->
-            <div id="footer-social" class="col-md-3">
-                <img src="img/footer_social.png" />
-                <p>
-                    <br/>Seguici sui principali
-                    <br/>Social Network</p>
-            </div>
-        </div>
+       	<div id="footer" class="row middle-align"><!--
+
+			--><div id="footer-logo" class="col-sm-2 hidden-xs" >
+				<img src="img/footer_logo.png" />
+			</div><!--
+			--><div id="footer-logo" class="col-xs-2 hidden-sm hidden-md hidden-lg" >
+				<img src="img/footer_logo_small.png" />
+			</div><!--
+
+			--><div class="col-sm-2 col-sm-offset-1 col-xs-4 menu">
+				<a href="">Contattaci</a>
+				<a href="">Privacy</a>
+				<a href="">Lavora con noi</a>
+				<a href="">Tutela dei minori</a>
+				<a href="">Assistenza legale</a>
+			</div><!--
+
+            --><div class="col-sm-2 col-sm-offset-1 col-xs-4 menu">
+				<a href="">Chi siamo</a>
+				<a href="">Il gruppo</a>
+			</div><!--
+
+            --><div id="footer-social" class="col-sm-3 col-sm-offset-1 col-xs-2">
+				<img src="img/footer_social_1.png" />
+				<img src="img/footer_social_2.png" />
+				<p class="hidden-xs">
+					<br/>Seguici sui principali<br/>Social Network
+				</p>
+			</div>
+		</div>
 
     </div>
 
