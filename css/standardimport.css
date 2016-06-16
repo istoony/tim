@@ -86,3 +86,56 @@ p.big {
 	font-size: 25px;
 }
 
+
+/* MENU */
+
+.blu-menu {
+	background-color: #004890;
+}
+
+.blu-menu a {
+	color: white;
+	text-align: center;
+	font-size: 22px;
+	margin: auto;
+	display: block;
+	padding: 4px 0;
+}
+
+.blu-menu a:hover {
+	text-decoration: none;
+}
+.blu-menu div {
+	border-bottom: 5px solid #004890;
+}
+
+.blu-menu div:hover , .blu-menu div.current-link {
+	border-bottom: 5px solid white;
+	border-left: 20px solid #004890;
+	border-right: 20px solid #004890;
+}
+
+
+.grey-menu {
+	background-color: #f0f0f0;
+}
+
+.grey-menu a {
+	color: black;
+	text-align: center;
+	font-size: 22px;
+	margin: auto;
+	display: block;
+	padding: 4px 0;
+}
+
+.grey-menu a:hover {
+	text-decoration: none;
+}
+.grey-menu div {
+	border-bottom: 5px solid #f0f0f0;
+}
+
+.grey-menu div:hover , .grey-menu div.current-link {
+	border-bottom: 5px solid #004890;
+}

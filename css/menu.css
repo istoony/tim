@@ -55,19 +55,23 @@
 /* GENERAL STYLE */ 
 #top-large a {
     color: black;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     line-height: 5rem;
     height: 5rem;
     padding-bottom: 1rem;
+    padding-left: 0;
+    padding-right: 0;
 }
 
-#top-large .highlight:first-child {
+#top-large a:first-child, #top-large a:first-child:hover {
 	margin-left: 1.6rem;
 	margin-right: -1.6rem;
+	
 }
 
-#top-large .highlight {
+#top-large .current-link, #top-large a:hover  {
 	border-bottom: solid 7px #004890; 
+	text-decoration: none;
 }
 
 
@@ -98,3 +102,4 @@
 	color: #004592;
 	background-color: #CCCCCC;
 }
+
