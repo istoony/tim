@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Page Title</title>
 
     <!-- Bootstrap: Latest compiled and minified CSS -->
@@ -55,13 +56,13 @@
             var i;
             var out = "";
             for(i=0; i< arr.length;i++) {
-            out += "<div class=\"row middle-align\"><div class=\"col-md-12 \"><div class=\"row\">"+
-                            "<div class = \"col-md-4\"><div>"+
-                                "<img class=\"img-responsive img-center\" src=\""+arr[i].foto+"\" alt=\""+arr[i].nome+" tim\">"
+            out += "<div class=\"row middle-align-block\"><div class=\"col-md-12 \"><div class=\"row\">"+
+                            "<div class = \"col-md-4 cn\">"+
+                                "<img class=\"img-responsive img-center\" src=\""+arr[i].foto+"\" alt=\""+arr[i].nome+" tim\"><div class\"row\"><div class=\"col-md-12 inner-center\"><h2>" + arr[i].nome + "</h2></div>"
                             +"</div></div>"+
-                            "<div class = \"col-md-3\"><div>"+
-                                "<h3 class=\"center middle-align\">"+arr[i].descrizione+"</h3>"
-                            +"</div></div>"+
+                            "<div class = \"col-md-3\">"+
+                                "<h2 class=\"center middle-align-block\">"+arr[i].descrizione+"</h2>"
+                            +"</div>"+
                             "<div id=\"myCarousel" + arr[i].id + "\" class=\"col-md-5 carousel slide\" data-ride=\"carousel\"><div class=\"carousel-inner\" role=\"listbox\" id=\"" + arr[i].id + "\"></div><a class=\"left carousel-control\" href=\"#myCarousel" + arr[i].id + "\" role=\"button\" data-slide=\"prev\"><span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span><span class=\"sr-only\">Previous</span></a><a class=\"right carousel-control\" href=\"#myCarousel" + arr[i].id + "\" role=\"button\" data-slide=\"next\"><span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span><span class=\"sr-only\">Next</span></a></div>"+
                     "</div></div></div>";
             }
@@ -183,9 +184,9 @@
         <div id="content">
             <div class="row grey-menu">
 
-                <div class="col-md-4 "><a href="innovazione.html">INNOVAZIONE</a></div>
-                <div class="col-md-4 current-link"><a href="testimonial.html">TESTIMONIAL</a></div>
-                <div class="col-md-4 "><a href="progetti.html">PROGETTI</a></div>
+                <div class="col-xs-4 "><a href="innovazione.html">INNOVAZIONE</a></div>
+                <div class="col-xs-4 current-link"><a href="testimonial.html">TESTIMONIAL</a></div>
+                <div class="col-xs-4 "><a href="progetti.html">PROGETTI</a></div>
 
             </div>
 
@@ -194,7 +195,7 @@
 
                     <img class=" img-responsive" src="img/progetti/progetti.jpg" alt="progetti tim">
 
-                    <div style=" padding-bottom:10%;" class="carousel-caption">
+                    <div style=" padding-bottom:10%;" class="inner-center">
                         <h1>I progetti TIM disegnano il futuro che immaginiamo.</h1>
                     </div>
                 </div>

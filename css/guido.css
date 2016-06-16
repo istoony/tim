@@ -7,3 +7,21 @@
 .img-center {
     margin: 0 auto;
 }
+
+div.middle-align-block { /*used to vertically center all the contents in the footer*/
+    display: block;
+    vertical-align: middle;
+    float: none;
+}
+
+.inner-center {
+   position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+}
+
+.cn{
+    display: flex;
+    justify-content: center;
+}
