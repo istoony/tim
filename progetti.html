@@ -1,173 +1,248 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8"> 
-        <title>Page Title</title>
-        
-        <!-- Bootstrap: Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-        <!-- Bootstrap library -->
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        
-        <!-- website Javascript -->
-        <script src="js/menu.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
 
-        <!-- website CSS -->
-        <link rel="stylesheet" type="text/css" href="css/eric-meyer-reset.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/menu.css">
-        <link rel="stylesheet" type="text/css" href="css/sottomenugrigio.css">
-        <link rel="stylesheet" type="text/css" href="css/standardimport.css">
-        <link rel="stylesheet" type="text/css" href="css/innovazione.css">
+    <!-- Bootstrap: Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Bootstrap library -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- website Javascript -->
+    <script src="js/menu.js"></script>
+
+    <!-- website CSS -->
+    <link rel="stylesheet" type="text/css" href="css/eric-meyer-reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/sottomenugrigio.css">
+    <link rel="stylesheet" type="text/css" href="css/standardimport.css">
+    <link rel="stylesheet" type="text/css" href="css/innovazione.css">
+    <link rel="stylesheet" type="text/css" href="css/guido.css">
+
+<style>
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        width: 70%;
+        margin: auto;
+    }
+    .carousel-control.left{
+        background-image: none;
+    }
+    .carousel-control.right{
+        background-image: none;
+    }
+</style>
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        var url = "http://guidoantoniomatteo.altervista.org/components/progetti/getProgetti.php";
         
-    </head>
 
-    <body>
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                myFunction(xmlhttp.responseText);
+        }
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+
+        function myFunction(response) {
+            var arr = JSON.parse(response);
+            var i;
+            var out = "";
+            for(i=0; i< arr.length;i++) {
+            out += "<div class=\"row\"><div class=\"col-md-12 nopadding\"><div class=\"row middle-align\">"+
+                            "<div class = \"col-md-4 horizontal-align\"><div>"+
+                                "<img class=\"img-responsive\" src=\""+arr[i].foto+"\" alt=\""+arr[i].nome+" tim\">"
+                            +"</div></div>"+
+                            "<div class = \"col-md-3 horizontal-align\"><div>"+
+                                "<h4 class=\"center\">"+arr[i].descrizione+"</h4>"
+                            +"</div></div>"+
+                            "<div id=\"myCarousel" + arr[i].id + "\" class=\"col-md-5 carousel slide middle-align horizontal-align\" data-ride=\"carousel\"><div class=\"carousel-inner\" role=\"listbox\" id=\"" + arr[i].id + "\"></div><a class=\"left carousel-control\" href=\"#myCarousel" + arr[i].id + "\" role=\"button\" data-slide=\"prev\"><span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span><span class=\"sr-only\">Previous</span></a><a class=\"right carousel-control\" href=\"#myCarousel" + arr[i].id + "\" role=\"button\" data-slide=\"next\"><span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span><span class=\"sr-only\">Next</span></a></div>"+
+                    "</div></div></div>";
+            }
+            document.getElementById("id01").innerHTML = out;
+
+            var progettiEvidenza = new XMLHttpRequest();
+            var evidenza = "http://guidoantoniomatteo.altervista.org/components/progetti/getProgettiInEvidenza.php";
+            progettiEvidenza.onreadystatechange = function () {
+            if (progettiEvidenza.readyState == 4 && progettiEvidenza.status == 200)
+                getProgettiInEvidenza(progettiEvidenza.responseText);
+             }
+            progettiEvidenza.open("GET", evidenza, true);
+            progettiEvidenza.send();
         
-        <div id="page" class="container">
+        }
+
         
-            <div id="top" class="row">
+        function getProgettiInEvidenza(response) {
+        var arr = JSON.parse(response);
+        var i;
+        var j=0;
+        var out = "";
+        var id = arr[0].idprogetto;
+                for(i = 0; i < arr.length; i++)
+                {
 
-                <div id="logo" class="col-md-2">
-                    <img src="img/logo.png" />
-                </div>
-
-                <div id="top-menu" class="col-md-10">
-                    <div class="row">
-                        
-                        <div class="col-md-7 left">
-                            <ul class="row">
-                                <li class="col-md-2">
-                                    <a href="">Piani</a>
-                                </li>
-                                <li class="col-md-2">
-                                    <a href="">Offerte</a>
-                                </li>
-                                <li class="col-md-3">
-                                    <a href="">Smart Life</a>
-                                </li>
-                                <li class="col-md-3">
-                                    <a href="">Dispositivi</a>
-                                </li>
-                                <li class="col-md-2">
-                                    <a href="">Assistenza</a>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="col-md-1 wave">
-                            <img src="img/ondina.png" />
-                        </div>
-                    
-                        <div class="col-md-3 right">
-                            <ul class="row">
-                                <li class="col-md-6">
-                                    <a href="">Chi Siamo</a>
-                                </li>
-                                <li  class="col-md-6">
-                                    <a href="">Gruppo</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-md-1 right-border">
-                            <img src="img/menu-right.png"  />
-                        </div>
-                            
-                    </div>
-                </div>
-
-            </div>
+                    if(id != arr[i].idprogetto)
+                    {
+                        document.getElementById(id).innerHTML = out;
+                        out = "";
+                        id = arr[i].idprogetto;
+                        j=0;
+                    }
+                    if (j==0) out+="<div class=\"item active\"><h4 class=\"center\">" + arr[i].descrizioneevidenza + "</h4></div>";
+                    else out+="<div class=\"item\"><h4 class=\"center\">" + arr[i].descrizioneevidenza + "</h4></div>";
+                    j++;
+                }
+                document.getElementById(arr[i - 1].idprogetto).innerHTML = out;
         
-            <div id="content" >
-                <div class="sottomenugrigio col-md-12 nopadding">
-                    <div class="col-md-4 sottomenugrigiodiv"><h2 class="titoloblu">INNOVAZIONE</h2></div>
-                    <div class="col-md-4 sottomenugrigiodiv"><h2 class="titoloblu">TESTIMONIAL</h2></div>
-                    <div class="col-md-4 sottomenugrigiodiv" id="cellasottolineatablu"><h2 class="titoloblu">PROGETTI</h2></div>
-                </div>
-                   
-      
-                        <div class="col-md-12 nopadding">
-          
-                                <img class=" img-responsive" src="img/progetti/progetti.jpg" alt="progetti tim">
-          
-                                        <div style=" padding-bottom:10%;" class="carousel-caption">
-                                                <h1>I progetti TIM disegnano il futuro che immaginiamo.</h1>
-                                        </div>         
-                        </div> 
-                <div class="col-md-12 ">
-                    <div class="col-md-4 ">
-                        <img class="img-responsive" src="img/progetti/ambientesociale.png" alt="ambiente sociale tim">
-                           
-                    </div>
-                    <div class="col-md-4 "></div>
-                    <div class="col-md-4 "></div>
-                </div> 
-                <div class="col-md-12 ">
-                    <div class="col-md-4 ">
-                        <img class="img-responsive" src="img/progetti/cultura.png" alt="cultura tim">
-                            
-                    </div>
-                    <div class="col-md-4 "></div>
-                    <div class="col-md-4 "></div>
-                </div> 
-                <div class="col-md-12 ">
-                    <div class="col-md-4 ">
-                        <img class="img-responsive" src="img/progetti/sport.png" alt="sport tim">
-                            
-                    </div>
-                    <div class="col-md-4 "></div>
-                    <div class="col-md-4 "></div>
-                </div>
-                    
+    }
+    </script>
+
+</head>
+
+<body>
+
+    <div id="page" class="container">
+
+        <div id="top" class="row">
+
+            <div id="logo" class="col-md-2">
+                <img src="img/logo.png" />
             </div>
 
-            <div id="footer" class="row"><!--
-                --><div id="footer-logo" class="col-md-3">
-                    <img src="img/footer_logo.png" />
-                </div><!--
-                --><div class="col-md-1"></div><!--
-                --><div class="col-md-2 menu">
-                    <ul>
-                        <li>
-                            <a href="">Contattaci</a>
-                        </li>
-                        <li>
-                            <a href="">Privacy</a>
-                        </li>
-                        <li>
-                            <a href="">Lavora con noi</a>
-                        </li>
-                        <li>
-                            <a href="">Tutela dei minori</a>
-                        </li>
-                        <li>
-                            <a href="">Assistenza legale</a>
-                        </li>
-                    </ul>
-                </div><!--
-                --><div class="col-md-2 menu">
-                    <ul>
-                        <li>
-                            <a href="">Chi siamo</a>
-                        </li>
-                        <li>
-                            <a href="">Il gruppo</a>
-                        </li>
-                    </ul>
-                </div><!--
-                --><div class="col-md-1"></div><!--
-                --><div id="footer-social" class="col-md-3">
-                    <img src="img/footer_social.png" />
-                    <p><br/>Seguici sui principali<br/>Social Network</p>
+            <div id="top-menu" class="col-md-10">
+                <div class="row">
+
+                    <div class="col-md-7 left">
+                        <ul class="row">
+                            <li class="col-md-2">
+                                <a href="">Piani</a>
+                            </li>
+                            <li class="col-md-2">
+                                <a href="">Offerte</a>
+                            </li>
+                            <li class="col-md-3">
+                                <a href="">Smart Life</a>
+                            </li>
+                            <li class="col-md-3">
+                                <a href="">Dispositivi</a>
+                            </li>
+                            <li class="col-md-2">
+                                <a href="">Assistenza</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-1 wave">
+                        <img src="img/ondina.png" />
+                    </div>
+
+                    <div class="col-md-3 right">
+                        <ul class="row">
+                            <li class="col-md-6">
+                                <a href="">Chi Siamo</a>
+                            </li>
+                            <li class="col-md-6">
+                                <a href="">Gruppo</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-1 right-border">
+                        <img src="img/menu-right.png" />
+                    </div>
+
                 </div>
             </div>
+
+        </div>
+
+        <div id="content">
+            <div class="sottomenugrigio col-md-12 nopadding">
+                <div class="col-md-4 sottomenugrigiodiv">
+                    <h2 class="titoloblu">INNOVAZIONE</h2></div>
+                <div class="col-md-4 sottomenugrigiodiv">
+                    <h2 class="titoloblu">TESTIMONIAL</h2></div>
+                <div class="col-md-4 sottomenugrigiodiv" id="cellasottolineatablu">
+                    <h2 class="titoloblu">PROGETTI</h2></div>
+            </div>
+
+
+            <div class="col-md-12 nopadding">
+
+                <img class=" img-responsive" src="img/progetti/progetti.jpg" alt="progetti tim">
+
+                <div style=" padding-bottom:10%;" class="carousel-caption">
+                    <h1>I progetti TIM disegnano il futuro che immaginiamo.</h1>
+                </div>
+            </div>
+            <div id="id01"></div>
             
         </div>
-        
-    </body>
 
-</html> 
+        <div id="footer" class="row">
+            <!--
+                -->
+            <div id="footer-logo" class="col-md-3">
+                <img src="img/footer_logo.png" />
+            </div>
+            <!--
+                -->
+            <div class="col-md-1"></div>
+            <!--
+                -->
+            <div class="col-md-2 menu">
+                <ul>
+                    <li>
+                        <a href="">Contattaci</a>
+                    </li>
+                    <li>
+                        <a href="">Privacy</a>
+                    </li>
+                    <li>
+                        <a href="">Lavora con noi</a>
+                    </li>
+                    <li>
+                        <a href="">Tutela dei minori</a>
+                    </li>
+                    <li>
+                        <a href="">Assistenza legale</a>
+                    </li>
+                </ul>
+            </div>
+            <!--
+                -->
+            <div class="col-md-2 menu">
+                <ul>
+                    <li>
+                        <a href="">Chi siamo</a>
+                    </li>
+                    <li>
+                        <a href="">Il gruppo</a>
+                    </li>
+                </ul>
+            </div>
+            <!--
+                -->
+            <div class="col-md-1"></div>
+            <!--
+                -->
+            <div id="footer-social" class="col-md-3">
+                <img src="img/footer_social.png" />
+                <p>
+                    <br/>Seguici sui principali
+                    <br/>Social Network</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
