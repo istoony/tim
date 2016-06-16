@@ -139,3 +139,28 @@ p.big {
 .grey-menu div:hover , .grey-menu div.current-link {
 	border-bottom: 5px solid #004890;
 }
+
+
+.grey-red-menu {
+	background-color: #f0f0f0;
+}
+
+.grey-red-menu a {
+	color: black;
+	text-align: center;
+	font-size: 22px;
+	margin: auto;
+	display: block;
+	padding: 4px 0;
+}
+
+.grey-red-menu a:hover {
+	text-decoration: none;
+}
+.grey-red-menu div {
+	border-bottom: 5px solid #f0f0f0;
+}
+
+.grey-red-menu div:hover , .grey-red-menu div.current-link {
+	border-bottom: 5px solid eb0028;
+}
