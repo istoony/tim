@@ -13,7 +13,6 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
         <!-- website CSS -->
-        <link rel="stylesheet" type="text/css" href="css/eric-meyer-reset.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/menu.css">
         <link rel="stylesheet" type="text/css" href="css/standardimport.css">
@@ -56,23 +55,28 @@
             {
                 var arr = JSON.parse(response);
                 var i;
-                document.getElementById("titolocategoria").innerHTML = "<h1 class=\"titolorosso\">" + arr[0].catnome + "</h1>";
-                
+                                
                 var out = "";
                 
                 for(i = 0; i < arr.length; i++) 
                 {
-                    out += "<div class=\"col-md-12 nopadding subcategory\">" +
-                                "<a href=\"#\">" + 
-                                "<h2 class=\"titoloblu\" style=\"text-align: left;\">" + arr[i].titolo +
-                                "</h2></a>";
-                    out += "</div><div id=\"" + arr[i].id+ "\"></div>";
+                    out += "<div class=\"row grey-bar\"><div class=\"col-md-12\">" +
+                                "<a href=\"#\">" + arr[i].titolo + "</a>";
+                    out += "</div></div><div class=\"row\" id=\"" + arr[i].id+ "\"></div>";
                 }
+                
                 document.getElementById("sottocategorie").innerHTML = out;
                 
+                var url = location.href;
+                var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+                var result = captured ? captured : 'id';
+                var id = result;
                 var assingle = new XMLHttpRequest();
-                var getastitle = "http://guidoantoniomatteo.altervista.org/components/as/getAsTitle.php";
-                
+                if(id==0)
+                    document.getElementById("titolocategoria").innerHTML = "<h1 class=\"titolorosso\">In Evidenza</h1>";
+                else
+                    document.getElementById("titolocategoria").innerHTML = "<h1 class=\"titolorosso\">" + arr[0].catnome + "</h1>";
+                    var getastitle = "http://guidoantoniomatteo.altervista.org/components/as/getAsTitle.php?id=" +id;
                 assingle.open("GET", getastitle, true);
                 assingle.send();
                 
@@ -98,9 +102,7 @@
                         id = arr[i].sottocategoria;
                     }
                     out += "<div class=\"col-md-12\">" +
-                                "<a href=\"assingola.html?id=" + arr[i].id +"\">" + 
-                                "<h2>" + arr[i].titolo +
-                                "</h2></a>";
+                                "<a href=\"assingola.html?id=" + arr[i].id +"\">" + arr[i].titolo + "</a>";
                     out += "</div>";
                 }
                 document.getElementById(arr[i - 1].sottocategoria).innerHTML = out;
@@ -170,7 +172,7 @@
             </div>
         
             <div id="content">
-                <div class="row" id="categorie"></div>
+                <div class="row blu-menu" id="categorie"></div>
                 <div class="row">
                     <div class="col-md-12 nopadding">
                         <div style="position: absolute; top: 100px; left: 20px; z-index: 10; width:250px;" id="titolocategoria"></div>
@@ -179,7 +181,9 @@
                     </div>
                     </div>
                 </div>
-                <div class="row" id="sottocategorie"></div>
+                <div class="row">
+                    <div class="col-md-12" id="sottocategorie"></div>
+                </div>
 
             </div>
 

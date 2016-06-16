@@ -16,6 +16,8 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/menu.css">
         <link rel="stylesheet" type="text/css" href="css/standardimport.css">
+        <link rel="stylesheet" type="text/css" href="css/antnio.css">
+        
         
         <script type="application/javascript" src="js/standardimport.js"></script>
         
@@ -60,13 +62,15 @@
                 document.getElementById("titolocategoria").innerHTML = "FAQ:" + arr[0].titolo_assistenza;
                 for(i=0; i< arr.length; i++)
                 {   
-                    out +="<div class=\"col-md-12 barratitolo sfondogrigio\" style=\"text-align: left;\">"                                  + arr[i].titolo + 
-                          "</div>"+
-                        "<div class=\"col-md-8\">" + decodeHTMLEntities(arr[i].descrizione) + "</div>";
+                    out +="<div class='row grey-bar'>"+
+                        "<div class=\"col-md-12\">"+ arr[i].titolo + 
+                          "</div></div>"+
+                        "<div class='row'>"+
+                              "<div class=\"col-md-8\">" + decodeHTMLEntities(arr[i].descrizione) + "</div>";
                     if(arr[i].foto!="")
-                    out +="<div class=\"col-md-4\">"+
+                    out +="<div class=\"col-md-4 \" style='text-align: center;'>"+
                             "<img src=\""+ arr[i].foto+"\" alt=\""+ arr[i].titolo +"\">"+
-                        "</div>";
+                        "</div></div>";
                 }
                 document.getElementById("descrizione").innerHTML = out;
             }
@@ -133,13 +137,15 @@
             </div>
         
             <div id="content">
-                <div id="categorie"></div>
-                <div class="col-md-12 nopadding" id="barragrigia"></div>
-                <div class="col-md-12 nopadding">
+                <div class="row blu-menu" id="categorie"></div>
+                <div class="row grey-menu" id="barragrigia"></div>
+                <div class="row">
                     <div class="col-md-12">
                         <h1 class="titolorosso" id="titolocategoria" style="text-align: left;"></h1>
                     </div>
-                    <div class="col-md-12 nopadding" id="descrizione"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="descrizione"></div>
                 </div>
 
             </div>
