@@ -10,9 +10,16 @@
         $id_main_category = $_GET['id'];
     else
         return;
-    $result = $conn->query("SELECT sottocategorieassistenza.*, categorieassistenza.nome AS catnome, categorieassistenza.id AS catid  
-    FROM sottocategorieassistenza, categorieassistenza 
-    WHERE categoria = $id_main_category AND sottocategorieassistenza.categoria = categorieassistenza.id");
+    if($id_main_category!=0)
+        $q = "SELECT sottocategorieassistenza.*, 
+                     categorieassistenza.nome AS catnome, 
+                     categorieassistenza.id AS catid  
+              FROM sottocategorieassistenza, categorieassistenza 
+              WHERE categoria = $id_main_category AND 
+                     sottocategorieassistenza.categoria = categorieassistenza.id";
+    else
+        $q ="SELECT DISTINCT sottocategorieassistenza.*, categorieassistenza.nome AS catnome, categorieassistenza.id AS catid FROM assistenza, sottocategorieassistenza, categorieassistenza WHERE evidenza = 1 AND sottocategorieassistenza.id = assistenza.sottocategoria AND sottocategorieassistenza.categoria = categorieassistenza.id";
+        $result = $conn->query($q);
     $outp = "[";
     while($rs = $result->fetch_array(MYSQLI_ASSOC))
     {

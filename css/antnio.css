@@ -1,3 +1,7 @@
-.sfondoblu .blu-background a.focus, .sfondoblu .blu-background a.hover, .sfondoblu .blu-background a.link{
-	color: #FFFFFF;
-}
+.grey-bar
+            {
+                background-color: #F0F0F0;
+                padding: 13px;
+                color: #004890;
+                font-size: 20px;
+            }

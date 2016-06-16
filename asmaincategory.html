@@ -37,10 +37,10 @@
                 
                 for(i = 0; i < arr.length; i++) 
                 {
-                    out += "<div class=\"col-sm-3 blu-menu\"><a href=\"assubcategory.html?id=" + arr[i].id + "\" >" +
+                    out += "<div class=\"col-sm-3\"><a href=\"assubcategory.html?id=" + arr[i].id + "\" >" +
                             arr[i].titolo + 
                         "</a></div>"; 
-                    out2 += "<div class=\"col-sm-3 grey-menu\">" +
+                    out2 += "<div class=\"col-sm-3\">" +
                                 "<a href=\"assubcategory.html?id=" + arr[i].id + "\" >" +
                                     "<img src=\"" + arr[i].foto + "\" />"+
                                 "</a>"+
@@ -131,12 +131,19 @@
             <div class="col-sm-8">
                 <img src="img/as/assistenza.jpg" alt="assistenza tecnica" class="img-responsive" />
             </div>
-            <div class="col-sm-4 nopadding" style="padding-top: 50px;">
-                <div class="barratitolo sfondoblu">In Evidenza</div>
-                <div class="barratitolo sfondogrigio">
-                <img src="img/as/assistenza-tecnica1.png" alt="assistenza tecnica" width="100%"/>
-                    <p class="center">Qui trovi le risposte alle domande più frequenti</p>
+            <div class="col-sm-4" style="padding-top: 50px;">
+                <div class="row blu-menu">
+                    <div class="col-md-12"><a href="assubcategory.html?id=0">In Evidenza</a></div>
                 </div>
+                <div class="row grey-menu">
+                   <div class="col-md-12">
+                       <a href="assubcategory.html?id=0">
+                        <img src="img/as/assistenza-tecnica1.png" alt="assistenza tecnica" width="100%"/>
+                       </a>
+                        <p class="center">Qui trovi le risposte alle domande più frequenti</p>
+                    </div>
+                </div>
+                
             </div>
             </div>
              <div class="col-xs-12 nopadding">
