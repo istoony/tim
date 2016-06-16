@@ -26,6 +26,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/standardimport.css">
 <link rel="stylesheet" type="text/css" href="css/antnio.css">
+<link rel="stylesheet" type="text/css" href="css/guido.css">
     
 <script type="application/javascript">
     var xmlhttp = new XMLHttpRequest();
@@ -50,9 +51,13 @@
         var i;
         var out = "";
         var out2 = "";
-        document.getElementById("fotogrande").innerHTML = "<img src=\"" + arr[0].fotogrande + "\" style='width:100%'/>";
-        document.getElementById("titolocategoria").innerHTML = "<h1>" + arr[0].categorianome + "</h1>";
-        document.getElementById("descrizione").innerHTML = "<h2>" + arr[0].descrizione + "</h2>";
+        document.getElementById("presentationphoto").innerHTML = "<img src=\"" + arr[0].fotogrande + "\" style='width:100%'/>"+
+            "<div class='row'>"+
+                "<div class='col-xs-8 inner-presentation'>"+
+                    "<div><h1>" + arr[0].categorianome + "</h1></div>"+
+                    "<div><h2>" + arr[0].descrizione + "</h2></div>"+
+                "</div>"+
+            "</div>";
         for(i = 0; i < arr.length; i++) 
         {
             out += "<div class=\"col-sm-3\"><div class='row'><div class='col-md-12'>"+
@@ -149,9 +154,7 @@
 
 		<div id="content" class="row">
             <div class="row">
-                <div class="col-md-12" id="fotogrande"></div>
-                <div class="col-md-12" id="titolocategoria"></div>
-                <div class="col-md-12" id="descrizione"></div>
+                <div class="col-md-12" id="presentationphoto"></div>
             </div>
             <div class="row" id="piani"></div>	
 		</div>

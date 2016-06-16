@@ -31,19 +31,14 @@
         </style>
         
         <script>
-            
-            printMainCat();
-            
+                
             var url = location.href;
             var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
             var result = captured ? captured : 'id';
             var id = result;
             var xmlhttp = new XMLHttpRequest();
-            var url = "http://guidoantoniomatteo.altervista.org/components/as/getSingleAs.php?id="+ id;
-            
-            printSecondCatAs(id);
-           
-            
+            var url = "http://guidoantoniomatteo.altervista.org/components/as/getSingloPiano.php?id="+ id;
+                
             xmlhttp.onreadystatechange=function() 
             {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
@@ -55,7 +50,7 @@
             function myFunction(response) 
             {
                 var arr = JSON.parse(response);
-                document.getElementById("titolocategoria").innerHTML = "<h1 class=\"titolorosso\" style=\"text-align: left;\">" + arr[0].titolo + "</h1>";
+                document.getElementById("nome").innerHTML = "<h1 class=\"titolorosso\" style=\"text-align: left;\">" + arr[0].titolo + "</h1>";
                 var out = "<p>" + decodeHTMLEntities(arr[0].descrizione) + "</p>";
                 document.getElementById("descrizione").innerHTML = out;
             }
