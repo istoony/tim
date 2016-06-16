@@ -31,7 +31,7 @@ function maincat(response)
     var out = "";
     for(i = 0; i < arr.length; i++) 
     {
-        out += "<div class=\"col-md-3\">" +
+        out += "<div class=\"col-md-3 grey-background\">" +
                     "<a href=\"asmaincategory.html?id=" + arr[i].id +"\">" + arr[i].titolo +
                         "</a>";
         out += "</div>";
@@ -56,13 +56,13 @@ function secondMenuAs(response)
 {
     var arr = JSON.parse(response);
     var barra_grigia = "";
-    barra_grigia  = "<div class=\"col-md-4 barratitolo sfondogrigio\"><a href=\"assubcategory.html?id="+ arr[0].categoria +"\">Altre Domande</a></div>";
+    barra_grigia  = "<div class=\"col-md-4 grey-background\"><a href=\"assubcategory.html?id="+ arr[0].categoria +"\">Altre Domande</a></div>";
     if(arr[0].numfaq > 0)
-        barra_grigia += "<div class=\"col-md-4 barratitolo sfondogrigio\">"+
+        barra_grigia += "<div class=\"col-md-4 grey-background\">"+
                                         "<a href=\"faqassistenza.html?id=" + arr[0].id +"\">FAQ</a>"+
                                     "</div>";
     if(arr[0].numdisp> 0)
-        barra_grigia += "<div class=\"col-md-4 barratitolo sfondogrigio\">"+
+        barra_grigia += "<div class=\"col-md-4 grey-background\">"+
                                     "<a href=\"deviceassistenza.html?id=" + arr[0].id +"\">Dispositivi"+
                                     "</a></div>";
     document.getElementById("barragrigia").innerHTML = barra_grigia;
