@@ -106,6 +106,9 @@ p.big {
 	border-bottom: 5px solid #004890;
 }
 
+.grey-menu img {
+	padding: 30px;
+}
 
 .grey-red-menu {
 	background-color: #f0f0f0;
@@ -130,3 +133,8 @@ p.big {
 .grey-red-menu div:hover , .grey-red-menu div.current-link {
 	border-bottom: 5px solid #eb0028;
 }
+
+.grey-red-menu img {
+	padding: 30px;
+}
+
