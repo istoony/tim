@@ -13,9 +13,27 @@ p.center {
 	line-height: 25px;
 }
 
+/**********************************************/
+/*************BLUE & GREY BAR******************/
+/**********************************************/
+
 .sfondoblu, .blu-background {
-	color: #FFFFFF;
 	background-color: #004890;
+    border-bottom: 4px solid #004890;
+    
+}
+.blu-background a{
+	color: #FFFFFF;
+}
+.blu-background a:hover{
+	color: #FFFFFF;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+.blu-background div:hover {
+    border-bottom: 4px solid white;
+
 }
 
 .sfondogrigio, .grey-background {
