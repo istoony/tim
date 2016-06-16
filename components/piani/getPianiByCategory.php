@@ -22,7 +22,7 @@
         $outp .= '"fotogrande":"'. $rs["fotocategoria"]. '",'; 
         $outp .= '"descrizione":"'. $rs["descrizione"]. '",'; 
         $outp .= '"categorianome":"'. $rs["categorianome"]. '",'; 
-        $outp .= '"prezzo":"'. str_replace("€","&euro;",$rs["prezzo"]). '",'; 
+        $outp .= '"prezzo":"'. $rs["prezzo"] . '",'; 
         $outp .= '"foto":"'. $rs["foto"]. '"}';
     }
     $outp .= "]";
