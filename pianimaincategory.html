@@ -19,14 +19,48 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <!-- website Javascript -->
-<script src="../js/menu.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/standardimport.js"></script>
 
 <!-- website CSS -->
-<link rel="stylesheet" type="text/css" href="../css/menu.css">
-<link rel="stylesheet" type="text/css" href="../css/style.css">
-<link rel="stylesheet" type="text/css" href="../css/standardimport.css">
+<link rel="stylesheet" type="text/css" href="css/menu.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/standardimport.css">
 
-<link rel="stylesheet" type="text/css" href="sky.css">
+<script type="application/javascript">
+    var xmlhttp = new XMLHttpRequest();
+    var url = "http://guidoantoniomatteo.altervista.org/components/piani/getMainCategoryPiani.php";
+
+    xmlhttp.onreadystatechange=function() 
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                myFunction(xmlhttp.responseText);
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+
+    function myFunction(response) {
+        var arr = JSON.parse(response);
+        var i;
+        var out = "";
+        var out2 ="";
+        
+        for(i = 0; i < arr.length; i++) 
+        {
+            out += "<div class='col-sm-4 grey-background current-link'>" +
+                        "<a href=\"pianisubcategory.html?id=" + arr[i].id + "\" >" +
+                        "<img src=\"" + arr[i].foto + "\" style='padding: 30px;'/>"+
+                        "</a></div>";
+            out2 +="<div class=\"col-sm-4 blu-menu\">"+
+                "<a href=\"pianisubcategory.html?id=" + arr[i].id + "\" >" +
+                            arr[i].nome + "</a></div>";
+                    out += "</div>";
+                }
+                
+                document.getElementById("categorie_grey").innerHTML = out;
+                document.getElementById("categorie_blu").innerHTML = out2;
+            }
+    </script>
 
 
 </head>
@@ -38,7 +72,7 @@
 		<div id="top-large" class="row hidden-xs">
 
 			<div id="logo-large" class="col-lg-2">
-				<img src="../img/logo.png" />
+				<img src="img/logo.png" />
 			</div>
 
 			<div class="col-lg-10" >
@@ -55,7 +89,7 @@
 					</div>
 
 					<div class="col-lg-1 hidden-md hidden-sm hidden-xs wave">
-						<img src="../img/ondina.png" />
+						<img src="img/ondina.png" />
 					</div>
 
 					<div class="col-lg-3 right">
@@ -66,7 +100,7 @@
 					</div>
 
 					<div class="col-lg-1 hidden-md hidden-sm hidden-xs right-border">
-						<img src="../img/menu-right.png" />
+						<img src="img/menu-right.png"/>
 					</div>
 
 				</div>
@@ -77,12 +111,12 @@
 		<div id="top-small" class="row hidden-sm hidden-md hidden-lg">
 
 			<div id="logo-small" class="col-xs-4">
-				<img src="../img/logo.png" />
+				<img src="img/logo.png" />
 			</div>
 
 			<div id="top-menu-button-small" class="col-xs-2 col-xs-offset-5">
-				<img src="../img/menu-mobile-closed.png" class="menu-closed"/>
-				<img src="../img/menu-mobile-open.png" class="menu-open"/>
+				<img src="img/menu-mobile-closed.png" class="menu-closed"/>
+				<img src="img/menu-mobile-open.png" class="menu-open"/>
 			</div>
 
 			<div id="top-menu-small">
@@ -105,40 +139,32 @@
 		</div>
 
 		<div id="content" class="row">
-			<div class="col-xs-12">
-				<div class="row blu-menu">
-					<div class="col-xs-3 current-link"><a href="">BENESSERE</a></div>
-					<div class="col-xs-3"><a href="">FAMIGLIA</a></div>
-					<div class="col-xs-3"><a href="">SERVIZI</a></div>
-					<div class="col-xs-3"><a href="">TV & FUN</a></div>
-				</div>
-				
-				<div class="row grey-menu">
-					<div class="col-xs-2"><a href="" class="">Tv</a></div>
-					<div class="col-xs-2 current-link"><a href="" class="">Music</a></div>
-					<div class="col-xs-3"><a href="" class="">Reading</a></div>
-					<div class="col-xs-2"><a href="" class="">Games</a></div>
-					<div class="col-xs-3"><a href="" class="">Calcio</a></div>
-					
-				</div>
-				
-				<div class="row grey-red-menu">
-					<div class="col-xs-4"><a href="" class="">Descrizione</a></div>
-					<div class="col-xs-4 current-link"><a href="" class="">Attivazione & Regole</a></div>
-					<div class="col-xs-4"><a href="" class="">FAQ</a></div>
-					
-				</div>
-			</div>
+
+			<div class="row">
+                <div class="col-md-12">
+                    <img src="img/piani/maincatpiani.jpg"  class="img-responsive" alt="Categorie Piani Tariffari" />
+                </div>
+            </div>
+                <div class="col-xs-12">
+                    <div class="row grey-menu" id="categorie_grey" ></div>
+                    <div class="row blu-menu" id="categorie_blu" ></div>
+                </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="img/piani/maincatfooter.jpg" class="img-responsive" alt="entra nella rete più grande d'italia" width="100%" />
+                </div>
+            </div>
 
 		</div>
 
-		<div id="footer" class="row"><!--
+		<div id="footer" class="row middle-align"><!--
                 
 			--><div id="footer-logo" class="col-sm-2 hidden-xs" >
-				<img src="../img/footer_logo.png" />
+				<img src="img/footer_logo.png" />
 			</div><!--
 			--><div id="footer-logo" class="col-xs-2 hidden-sm hidden-md hidden-lg" >
-				<img src="../img/footer_logo_small.png" />
+				<img src="img/footer_logo_small.png" />
 			</div><!--
             
 			--><div class="col-sm-2 col-sm-offset-1 col-xs-4 menu">
@@ -155,8 +181,8 @@
 			</div><!--
                 
             --><div id="footer-social" class="col-sm-3 col-sm-offset-1 col-xs-2">
-				<img src="../img/footer_social_1.png" />
-				<img src="../img/footer_social_2.png" />
+				<img src="img/footer_social_1.png" />
+				<img src="img/footer_social_2.png" />
 				<p class="hidden-xs">
 					<br/>Seguici sui principali<br/>Social Network
 				</p>

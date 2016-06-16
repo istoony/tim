@@ -59,9 +59,17 @@
     line-height: 5rem;
     height: 5rem;
     padding-bottom: 1rem;
-    padding-left: 0;
-    padding-right: 0;
 }
+
+@media (min-width:1200px) {
+
+	#top-large a {
+	    padding-left: 0;
+	    padding-right: 0;
+	}
+	
+}
+
 
 #top-large a:first-child, #top-large a:first-child:hover {
 	margin-left: 1.6rem;

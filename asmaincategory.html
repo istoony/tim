@@ -33,21 +33,22 @@
                 var arr = JSON.parse(response);
                 var i;
                 var out = "";
-
+                var out2 = "";
+                
                 for(i = 0; i < arr.length; i++) 
                 {
-                    out += "<div class=\"col-sm-3 nopadding\"><div class=\"barratitolo sfondoblu\">" +
+                    out += "<div class=\"col-sm-3 blu-menu\"><a href=\"assubcategory.html?id=" + arr[i].id + "\" >" +
                             arr[i].titolo + 
-                        "</div>" + 
-                     "<div class=\"barratitolo sfondogrigio\">" +
-                        "<a href=\"assubcategory.html?id=" + arr[i].id + "\" >" +
-                        "<img src=\"" + arr[i].foto + "\" />"+
-                        "</a>"+
-                    "</div>";
-                    out += "</div>";
+                        "</a></div>"; 
+                    out2 += "<div class=\"col-sm-3 grey-menu\">" +
+                                "<a href=\"assubcategory.html?id=" + arr[i].id + "\" >" +
+                                    "<img src=\"" + arr[i].foto + "\" />"+
+                                "</a>"+
+                            "</div>";
                 }
                 
-                document.getElementById("categorie").innerHTML = out;
+                document.getElementById("categorie_blu").innerHTML = out;
+                document.getElementById("categorie_grey").innerHTML = out2;
             }
         </script>
     </head>
@@ -138,7 +139,10 @@
                 </div>
             </div>
             </div>
-            <div id="categorie" class="row nopadding"></div>
+             <div class="col-xs-12 nopadding">
+                <div class="row blu-menu" id="categorie_blu" ></div>
+                <div class="row grey-menu" id="categorie_grey" ></div>
+            </div>
 
         </div>
         
