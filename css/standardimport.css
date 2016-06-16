@@ -42,6 +42,10 @@ div.sottomenugrigiodiv, .grey-submenu {
 	border-bottom: solid 7px #004890;
 }
 
+p span.bigger {
+	font-size: 18px;
+}
+
 /*GUIDO*/
 
 .immaginepresentazione {
@@ -54,3 +58,8 @@ div.sottomenugrigiodiv, .grey-submenu {
 	text-align: center;
 	font-size: 20px;
 }
+
+p.big {
+	font-size: 25px;
+}
+
