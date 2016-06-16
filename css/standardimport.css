@@ -1,6 +1,14 @@
+html * {
+	font-family: 'calibri', Tahoma; 
+}
+
 h1, h2 {
 	font-weight: bold;
 	text-align: center;
+}
+
+p span.bigger {
+	font-size: 18px;
 }
 
 .titoloblu, .blu-title {
@@ -42,9 +50,6 @@ div.sottomenugrigiodiv, .grey-submenu {
 	border-bottom: solid 7px #004890;
 }
 
-p span.bigger {
-	font-size: 18px;
-}
 
 /*GUIDO*/
 
