@@ -11,16 +11,11 @@
         $id = $_GET['id'];
     else
         return;
-    $result = $conn->query("SELECT pianotariffario.*, descrizionepiano.* FROM pianotariffario, descrizionepiano WHERE pianotariffario.id=$id AND descrizionepiano.piano = pianotariffario.id");
+    $result = $conn->query("SELECT pianotariffario.*, descrizionepiano.*, categoriepiani.fotogrande FROM pianotariffario, descrizionepiano, categoriepiani WHERE pianotariffario.id=$id AND descrizionepiano.piano = pianotariffario.id AND pianotariffario.categoria = categoriepiani.id");
     $tot = array();
     while($rs = $result->fetch_array(MYSQLI_ASSOC))
     {
-        if ($outp != "[") 
-            $outp .= ",";
-        //$rs["descrizione"] = str_replace("\n","<br/>", $rs["descrizione"]);
-        //$rs["descrizione"] = str_replace("'","\'", $rs["descrizione"]);
         $rs["descrizione"] = htmlentities(utf8_encode($rs["descrizione"]), 0, "UTF-8");
-        
         $tot[]= $rs;
     }
     dbClose($conn);
