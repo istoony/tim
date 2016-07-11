@@ -11,7 +11,7 @@
         $id = $_GET['id'];
     else
         return;
-    $result = $conn->query("SELECT pianotariffario.*, descrizionepiano.*, categoriepiani.fotogrande FROM pianotariffario, descrizionepiano, categoriepiani WHERE pianotariffario.id=$id AND descrizionepiano.piano = pianotariffario.id AND pianotariffario.categoria = categoriepiani.id");
+    $result = $conn->query("SELECT pianotariffario.*, descrizionepiano.descrizione, descrizionepiano.titolo, categoriepiani.fotogrande FROM pianotariffario, descrizionepiano, categoriepiani WHERE pianotariffario.id=$id AND descrizionepiano.piano = pianotariffario.id AND pianotariffario.categoria = categoriepiani.id");
     $tot = array();
     while($rs = $result->fetch_array(MYSQLI_ASSOC))
     {
