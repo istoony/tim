@@ -11,8 +11,8 @@
         $id = $_GET['id'];
     else
         return;
-    $result = $conn->query("SELECT dispositivo.id, dispositivo.nome, dispositivo.descrizione, dispositivo.id_categoria, marcadispositivo.nome AS marca FROM dispositivo, marcadispositivo
-WHERE dispositivo.id = $id AND marcadispositivo.id = dispositivo.id_marca");
+    $result = $conn->query("SELECT dispositividescrizione.*
+FROM dispositividescrizione, dispositivosudescrizione WHERE dispositivosudescrizione.id_descrizione = dispositividescrizione.id AND $id = dispositivosudescrizione.id_dispositivo");
     $tot = array();
     while($rs = $result->fetch_array(MYSQLI_ASSOC))
     {
@@ -20,9 +20,7 @@ WHERE dispositivo.id = $id AND marcadispositivo.id = dispositivo.id_marca");
         $tot[]= $rs;
     }
     /*
-    *
-    *id, nome, descrizione, id_categoria, marca
-    *[N] Titolo, testodescrizione
+    *   titolo, descrizione
     */
     dbClose($conn);
     echo json_encode($tot);
