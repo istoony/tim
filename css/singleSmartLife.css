@@ -1,0 +1,33 @@
+.single-smart-life {
+	min-height: 10rem;
+}
+
+.smart-life-navbar div {
+	height: 8rem;
+	text-align: center;
+}
+
+.smart-life-navbar img {
+	height: 80%;
+	padding-top: 10%;
+}
+
+.smart-life-navbar .smart-life-logo img{
+	height: 100%;
+	padding: 0;
+}
+
+.smart-life-spot {
+	margin-left: 5%;
+}
+
+@media screen and (max-width: 500px) { 
+	.smart-life-spot {
+		margin: 0;
+	}
+}
+
+
+.smart-life-spot span, .smart-life-spot h1 {
+	text-align: left;
+}
