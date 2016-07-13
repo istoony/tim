@@ -54,7 +54,7 @@
                 var out="";
 
                 for(i = 0; i < arr.length; i++) {
-                    out+='<div class="row father-center marginforrow" style="background-color:#F0F0F0"><div class="col-md-3 nopaddingfull child-center"><img class="img-responsive" src="' + arr[i].foto + '" alt = "' + arr[i].descrizione + '"></div><div class="col-md-1 child-center"><p>' + arr[i].descrizione + '</p></div><div id="' + arr[i].id + '"></div><div class="col-md-1 child-center"><a href=""><img class="img-responsive child-center" src="img/offerte/next.png" alt="freccia tim"></a></div></div>';
+                    out+='<div class="row father-center marginforrow" style="background-color:#F0F0F0"><div class="col-md-3 nopaddingfull child-center"><img class="img-responsive" src="' + arr[i].foto + '" alt = "' + arr[i].descrizione + '"></div><div class="col-md-1 child-center"><p>' + arr[i].descrizione + '</p></div><div class="col-md-6" ><div class="row" id=' + arr[i].id + '></div></div><div class="col-md-1 child-center"><a href=""><img class="img-responsive child-center" src="img/offerte/next.png" alt="freccia tim"></a></div></div>';
                 }
                 document.getElementById("id01").innerHTML = out;
 
@@ -80,7 +80,7 @@
             for(i = 0; i < arr.length; i++)
             {
 
-                out+= '<div class="col-md-3 nomarginfull promotiontile"><div class="promotionbox1" ></div><div class="promotionbox2" >2</div></div>'
+                out+= '<div class="col-md-6 nomarginfull promotiontile"><div class="promotionbox1" ></div><div class="promotionbox2" >2</div></div>'
             }
             document.getElementById(arr[i - 1].idfoto).innerHTML = out;
             }
