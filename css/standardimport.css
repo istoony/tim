@@ -30,6 +30,10 @@ p.center {
 	padding-right: 0px;
 }
 
+.nopaddingfull{
+    padding: 0px;
+}
+
 #cellasottolineatablu, .blu-underlined-cell {
 	border-bottom: solid 7px #004890;
 }
