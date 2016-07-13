@@ -55,6 +55,12 @@ p.big {
 
 /* MENU */
 
+@media screen and (min-width: 768px) {
+
+
+}
+
+
 .blu-menu {
 	background-color: #004890;
 }
@@ -138,3 +144,21 @@ p.big {
 	padding: 30px;
 }
 
+
+/*MENU MOBILE */
+
+.blu-menu div, .grey-menu div, .grey-red-menu div {
+	height: 5rem;
+	z-index: 500;
+}
+
+.blu-menu img, .grey-menu img, .grey-red-menu img {
+	padding: 0;
+	height: 90%;
+	padding-top: 5%;
+	padding-left: 12%;
+}
+
+.menu-header , .menu-header div, .menu-header div:hover {
+	border: 0 !important;
+}
