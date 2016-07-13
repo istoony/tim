@@ -13,27 +13,26 @@ div.plans-review
 .plans-review div
 {
     background-color: #F0F0F0;
-
 }
-.plans-review div.buttons
+div.buttons
 {
     padding-bottom: 2px;
     padding-top: 2px;
     color: #FFFFFF;
-    border-top: solid 5px #FEFEFE;
-    border-bottom: solid 5px #FEFEFE;
-    border-left: solid 5px #FEFEFE;
+    border-top: solid 5px #F0F0F0;
+    border-bottom: solid 5px #F0F0F0;
+    border-left: solid 5px #F0F0F0;
 
 }
-.plans-review .red
+div.buttons.red
 {
      background-color: #eb0028;
 }
-.plans-review .blue
+div.buttons.blue
 {
      background-color: #004890;
 }
-.plans-review div.buttons h3
+div.buttons h3
 {
     color: #FFFFFF;
     margin: 5px 0px 5px;
@@ -100,4 +99,17 @@ div.plans-review
     border-bottom: solid 2px #000000;
     color: black;
     text-align: left;
+}
+
+img.myimg-responsive
+{
+    max-width: 100%;
+}
+.left
+{
+    text-align: left;
+}
+.titoloblu
+{
+    color: #004890;
 }

@@ -20,16 +20,37 @@
 
 <!-- website Javascript -->
 <script src="js/menu.js"></script>
+<script src="js/standardimport.js"></script>
 
 <!-- website CSS -->
 <link rel="stylesheet" type="text/css" href="css/menu.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/standardimport.css">
+<link rel="stylesheet" type="text/css" href="css/antnio.css">
+
+<style>
+    #immagine 
+    {
+        text-align: center;
+        display: block;
+    }
+</style>
     
 <script type="application/javascript">
+    var url = location.href;
+    var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+    var result = captured ? captured : 'id';
+    var id = result;
+    
     var xmlhttp = new XMLHttpRequest();
-    var url = "http://guidoantoniomatteo.altervista.org/components/device/getSingoloDevice.php";
-
+    var url = "http://guidoantoniomatteo.altervista.org/components/device/getSingoloDevice.php?id=" + id;
+    
+    var foto = new XMLHttpRequest();
+    var pathfoto = "http://guidoantoniomatteo.altervista.org/components/device/getSingoloDeviceFoto.php?id=" + id;
+    
+    var promozioni = new XMLHttpRequest();
+    var pr = "http://guidoantoniomatteo.altervista.org/components/device/getSingoloDevicePromozioni.php?id=" + id;
+    
     xmlhttp.onreadystatechange=function() 
     {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
@@ -37,23 +58,83 @@
     }
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
+    
+    foto.onreadystatechange=function() 
+    {
+        if (foto.readyState == 4 && foto.status == 200)
+                printFoto(foto.responseText);
+    }
+    
+    foto.open("GET", pathfoto, true);
+    foto.send();
 
-    function myFunction(response) {
+    promozioni.onreadystatechange=function() 
+    {
+        if (promozioni.readyState == 4 && promozioni.status == 200)
+                printPromozioni(promozioni.responseText);
+    }
+    
+    promozioni.open("GET", pr, true);
+    promozioni.send();
+
+    function myFunction(response) 
+    {
         var arr = JSON.parse(response);
         var i;
-        var out = "";
-        
-        for(i = 0; i < arr.length; i++) 
-        {
-            out += "<div class='col-sm-4 grey-background current-link'>" +
-                        "<a href=\"pianisubcategory.html?id=" + arr[i].id + "\" >" +
-                        "<img src=\"" + arr[i].foto + "\"/>"+
-                        "</a></div>";
-        }
                 
-                document.getElementById("categorie_grey").innerHTML = out;
-                document.getElementById("categorie_blu").innerHTML = out2;
-            }
+        document.getElementById("titolo").innerHTML = arr[0].marca + ' - ' + arr[0].nome;
+        //document.getElementById("categorie_blu").innerHTML = out2;
+    }
+        
+    function printFoto(response) 
+    {
+        var arr = JSON.parse(response);
+        var i = 1; 
+        var out = "";
+        document.getElementById("immagine").innerHTML = '<img src="' + arr[0].path + '" class="myimg-responsive"/>';
+        for(i;i<arr.length; i++)
+        {
+        out +='<div class="col-md-12 col-sm-3 col-xs-4"><img src="' +arr[i].path +'" class="img-responsive" /></div>';
+        }
+        out +='<div class="col-md-12 col-sm-3 col-xs-4">'+
+                '<img src="' +arr[1].path +'" class="img-responsive" />'+
+            '</div>';
+        out +='<div class="col-md-12 col-sm-3 col-xs-4">'+
+                '<img src="' +arr[1].path +'" class="img-responsive" />'+
+            '</div>';
+        out +='<div class="col-md-12 col-sm-3 col-xs-4">'+
+                '<img src="' +arr[1].path +'" class="img-responsive" />'+
+            '</div>';
+        //document.getElementById("categorie_blu").innerHTML = out2;
+         document.getElementById("secondarie").innerHTML = out;
+    }
+    
+    function printPromozioni(response) 
+    {
+        var arr = JSON.parse(response);
+        var i = 0; 
+        var out = "";
+        if(arr.length > 0)
+            out += '<h1 class="titolorosso left">Incluso nel Prezzo</h1>'+
+                        '<div class="row">'+
+                            '<div class="col-md-12">';
+        for(i;i<arr.length; i++)
+        {
+            out +='<div class="row">'+
+                        '<div class="col-md-3">'+
+                            '<img src="'+ arr[i].path +'" class="img-responsive" />'+
+                        '</div>'+
+                        '<div class="col-md-9">'+
+                            '<h2 class="titoloblu">'+ arr[i].titolo +'</h2>'+
+                            '<p>'+ decodeHTMLEntities(arr[i].descrizione) +'</p>'+
+                        '</div>'+
+                    '</div>';
+            
+        }
+        out +='</div>'+'</div>';
+        document.getElementById("promozioni").innerHTML = out;
+    }
+    
     </script>
 
 </head>
@@ -134,23 +215,36 @@
 		<div id="content" class="row">
 			<div class="col-xs-12">
                 <div class="row grey-menu">
-                    <div class="col-xs-2">torna ai dispositivi</div>
-                    <div class="col-xs-2"><a href="singolodevice.html">Presentazione</a></div>
-                    <div class="col-xs-2">Caratteristiche</div>
-                    <div class="col-xs-2">Recensioni</div>
-                    <div class="col-xs-2">Assistenza Tecnica</div>
+                    <div class="col-sm-3"><a href="singolodevice.html">torna ai dispositivi</a></div>
+                    <div class="col-sm-2"><a href="singolodevice.html">Presentazione</a></div>
+                    <div class="col-sm-2"><a href="singolodevice.html">Caratteristiche</a></div>
+                    <div class="col-sm-2"><a href="singolodevice.html">Recensioni</a></div>
+                    <div class="col-sm-3"><a href="singolodevice.html">Assistenza Tecnica</a></div>
                 </div>
                 <div class="row">
-                <div col="col-sm-3">Immagine</div>
-                <div col="col-sm-3">
-                    <div class="row">
-                        <div class="col-md-12" id="titolo"></div>
-                        <div class="col-md-12" id="caratteristiche"></div>
-                        <div class="col-md-12" id="prezzo"></div>
-                        <div class="col-md-4">Acquista con un piano</div> 
+                    <div class="col-sm-8 hidden-xs"></div>
+                    <div class="col-sm-4 col-xs-12  buttons red">
+                        <h3>Aggiungi al carrello</h3>
                     </div>
                 </div>
-                
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-md-10" id="immagine"></div>
+                            <div class="col-md-2">
+                                <div class="row" id="secondarie"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-md-12"><h1 class="titolorosso" id="titolo"></h1></div>
+                            <div class="col-md-12" id="caratteristiche"></div>
+                            <div class="col-md-12" id="prezzo"></div>
+                            <div class="col-md-4">Acquista con un piano</div> 
+                        </div>
+                    </div>
+                    <div class="col-md-12" id="promozioni"></div>
                 </div>
 			</div>
 		</div>

@@ -28,6 +28,65 @@
 <link rel="stylesheet" type="text/css" href="css/innovazione.css">
 <link rel="stylesheet" type="text/css" href="css/guido.css">
 
+     <script>
+
+            var link=location.href;
+            var captured = /id=([^&]+)/.exec(link)[1]; // Value is in [1] ('384' in our case)
+            var result = captured ? captured : 'id';
+            var id = result;
+
+
+
+            var xmlhttp = new XMLHttpRequest();
+            var url = "http://guidoantoniomatteo.altervista.org/components/offerte/getOfferteCategorie.php";
+
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    myFunction(xmlhttp.responseText);
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+            function myFunction(response) {
+                var arr = JSON.parse(response);
+                var i;
+                var out="";
+
+                for(i = 0; i < arr.length; i++) {
+                    out+='<div class="row father-center marginforrow" style="background-color:#F0F0F0"><div class="col-md-3 nopaddingfull child-center"><img class="img-responsive" src="' + arr[i].foto + '" alt = "' + arr[i].descrizione + '"></div><div class="col-md-1 child-center"><p>' + arr[i].descrizione + '</p></div><div class="col-md-6" ><div class="row" id=' + arr[i].id + '></div></div><div class="col-md-1 child-center"><a href=""><img class="img-responsive child-center" src="img/offerte/next.png" alt="freccia tim"></a></div></div>';
+                }
+                document.getElementById("id01").innerHTML = out;
+
+                var offertePiani = new XMLHttpRequest();
+                var piani = "http://guidoantoniomatteo.altervista.org/components/offerte/getOffertePiani.php?id=" + id;
+                offertePiani.onreadystatechange = function () {
+                if (offertePiani.readyState == 4 && offertePiani.status == 200)
+                    getOffertePiani(offertePiani.responseText);
+                }
+                offertePiani.open("GET", piani, true);
+                offertePiani.send();
+
+
+            }
+
+
+
+            function getOffertePiani(response) {
+            var arr = JSON.parse(response);
+            var i;
+            var j=0;
+            var out = "";
+            for(i = 0; i < arr.length; i++)
+            {
+
+                out+= '<div class="col-md-6 nomarginfull promotiontile"><div class="promotionbox1" ></div><div class="promotionbox2" >2</div></div>'
+            }
+            document.getElementById(arr[i - 1].idfoto).innerHTML = out;
+            }
+
+        </script>
+
 </head>
 
 <body>
@@ -121,6 +180,21 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="id01"></div>
+                </div>
+            </div>
+                <div class="col-md-12">
+                    <div class="col-md-3">
+                        <div class="promotiontile">
+                            <div class="promotionbox1" >1</div>
+                            <div class="promotionbox2" >2</div>
+                            <div class="promotionbox" >3</div>
+                        </div>
+                    </div>
+                </div>
+
 		</div>
 
 		<div id="footer" class="row middle-align"><!--
