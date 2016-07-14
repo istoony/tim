@@ -54,7 +54,7 @@
                 var out="";
 
                 for(i = 0; i < arr.length; i++) {
-                    out+='<div class="row father-center marginforrow" style="background-color:#F0F0F0"><div class="col-md-3 nopaddingfull child-center"><img class="img-responsive" src="' + arr[i].foto + '" alt = "' + arr[i].descrizione + '"></div><div class="col-md-1 child-center"><p>' + arr[i].descrizione + '</p></div><div class="col-md-6" ><div class="row" id=' + arr[i].id + '></div></div><div class="col-md-1 child-center"><a href=""><img class="img-responsive child-center" src="img/offerte/next.png" alt="freccia tim"></a></div></div>';
+                    out+='<div class="row father-center marginforrow" style="background-color:#F0F0F0"><div class="col-md-2 nopaddingfull nomarginfull child-center"><img  src="' + arr[i].foto + '" style=""alt = "' + arr[i].descrizione + '"></div><div class="col-md-2 child-center nomarginLR nopadding"><h3 class="description-blu text-bold">' + arr[i].descrizione + '</h3></div><div id=' + arr[i].id + ' ></div><div class="col-md-1 child-center"><a href=""><img class="img-responsive child-center" src="img/offerte/next.png" alt="freccia tim"></a></div></div>';
                 }
                 document.getElementById("id01").innerHTML = out;
 
@@ -67,6 +67,15 @@
                 offertePiani.open("GET", piani, true);
                 offertePiani.send();
 
+                var offerteDispositivi = new XMLHttpRequest();
+                var dispositivi = "http://guidoantoniomatteo.altervista.org/components/offerte/getOfferteDispositivi.php?id=" + id;
+                offerteDispositivi.onreadystatechange = function () {
+                if (offerteDispositivi.readyState == 4 && offerteDispositivi.status == 200)
+                    getOfferteDispositivi(offerteDispositivi.responseText);
+                }
+                offerteDispositivi.open("GET", dispositivi, true);
+                offerteDispositivi.send();
+
 
             }
 
@@ -75,14 +84,25 @@
             function getOffertePiani(response) {
             var arr = JSON.parse(response);
             var i;
-            var j=0;
             var out = "";
             for(i = 0; i < arr.length; i++)
             {
 
-                out+= '<div class="col-md-6 nomarginfull promotiontile"><div class="promotionbox1" ></div><div class="promotionbox2" >2</div></div>'
+                out+= '<div class="col-md-3 nomarginfull promotiontile"><div class="promotionbox1" ><h3 class="description-white text-bold">' + arr[i].nome + '</h3><p class="description description-white text-lighter">' + arr[i].descrizionepiano + '</p></div><div class="promotionbox2" ></br><h1 class="description-red">' + arr[i].prezzo + '</h1><p class="description description-black">' + arr[i].descrizioneattivazione + '</p></div></div>'
             }
-            document.getElementById(arr[i - 1].idfoto).innerHTML = out;
+            document.getElementById(1).innerHTML = out;
+            }
+
+
+            function getOfferteDispositivi(response) {
+            var arr = JSON.parse(response);
+            var i;
+            var out = "";
+            for(i = 0; i < arr.length; i++)
+            {
+                out+= '<div class="col-md-3 nomarginfull promotiontile"><img class="img-responsive devicesize center-block" src="' + arr[i].path + '" alt="' + arr[i].nome +'"><h2 class="nomargintop">' + arr[i].nome + '</h2><h1 class="nomargintop description-red">' + arr[i].prezzoscontato + '</h1> </div>';
+            }
+            document.getElementById(3).innerHTML = out;
             }
 
         </script>
@@ -188,9 +208,9 @@
                 <div class="col-md-12">
                     <div class="col-md-3">
                         <div class="promotiontile">
-                            <div class="promotionbox1" >1</div>
-                            <div class="promotionbox2" >2</div>
-                            <div class="promotionbox" >3</div>
+
+                            <div class="promotionbox3" >2</div>
+
                         </div>
                     </div>
                 </div>

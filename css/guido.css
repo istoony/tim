@@ -197,6 +197,19 @@ div.middle-align-block { /*used to vertically center all the contents in the foo
     z-index: 5;
 }
 
+.promotionbox3{
+
+    position: absolute;
+    margin: 100px 25px 25px 25px;
+    border-radius: 25px;
+    background-color: #CCCCCC;
+    height: 250px;
+    width: 250px;
+    text-align: center;
+    font-size: 40px;
+    z-index: 5;
+}
+
 .button-next{
 
     width: 15%;
@@ -219,7 +232,55 @@ div.middle-align-block { /*used to vertically center all the contents in the foo
     margin: 7% 0%;
 }
 
+.marginLR{
+
+    margin-left: 0;
+    margin-right: auto;
+}
+
 .nomarginfull{
 
     margin:0;
 }
+
+.description{
+
+    font-size: 20px;
+}
+
+.description-white{
+
+    color: white;
+}
+
+.description-black{
+
+    color: black;
+}
+
+.description-red{
+
+    color: #EB0028;
+}
+
+.description-blu{
+
+    color: #004890;
+}
+
+.text-bold{
+
+    font-weight: bold;
+}
+
+.text-light{
+
+    font-weight: lighter;
+}
+
+.devicesize{
+
+    height: 200px;
+}
+
+

@@ -15,9 +15,9 @@
 
     if($id == 0){
 
-        $result = $conn->query("SELECT offertepiani.id AS idofferta, nome, pianotariffario.descrizione AS descrizionepiano, offertepiani.prezzo AS prezzo, attivazione.id AS idattivazione, attivazione.descrizione AS descrizioneattivazione, offertepiani.foto AS idfoto FROM offertepiani, attivazione, pianotariffario WHERE offertepiani.attivazione = attivazione.id AND offertepiani.id=pianotariffario.id");
+        $result = $conn->query("SELECT nome, pianotariffario.descrizione AS descrizionepiano, pianotariffario.prezzoscontato AS prezzo, pianotariffario.attivazionesconto AS descrizioneattivazione FROM pianotariffario WHERE prezzoscontato IS NOT NULL");
     } else  {
-        $result = $conn->query("SELECT offertepiani.id AS idofferta, nome, pianotariffario.descrizione AS descrizionepiano, offertepiani.prezzo AS prezzo, attivazione.id AS idattivazione, attivazione.descrizione AS descrizioneattivazione, offertepiani.foto AS idfoto FROM offertepiani, attivazione, pianotariffario WHERE offertepiani.attivazione = attivazione.id AND offertepiani.id=pianotariffario.id LIMIT 2");
+        $result = $conn->query("SELECT nome, pianotariffario.descrizione AS descrizionepiano, pianotariffario.prezzoscontato AS prezzo, pianotariffario.attivazionesconto AS descrizioneattivazione FROM pianotariffario WHERE prezzoscontato IS NOT NULL LIMIT 2");
     }
 
 
@@ -26,12 +26,9 @@
     {
         if ($outp != "[")
             $outp .= ",";
-        $outp .= '{"idofferta":"'  .$rs["idofferta"]. '",';
-        $outp .= '"nome":"'. $rs["nome"]. '",';
+        $outp .= '{"nome":"'. $rs["nome"]. '",';
         $outp .= '"descrizionepiano":"'. htmlentities(utf8_encode($rs["descrizionepiano"]), 0, "UTF-8"). '",';
         $outp .= '"prezzo":"'. $rs["prezzo"]. '",';
-        $outp .= '"idattivazione":"'. $rs["idattivazione"]. '",';
-        $outp .= '"idfoto":"'  .$rs["idfoto"]. '",';
         $outp .= '"descrizioneattivazione":"'. htmlentities(utf8_encode($rs["descrizioneattivazione"]), 0, "UTF-8"). '"}';
     }
     $outp .= "]";
