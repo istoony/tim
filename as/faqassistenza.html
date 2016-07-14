@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8"> 
+        <title>Faq Assistenza</title>
+        
+        <!-- Bootstrap: Latest compiled and minified CSS -->
+    <link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Bootstrap library -->
+    <script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- website Javascript -->
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/menu.js"></script>
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/template.js"></script>
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js"></script>    
+        
+    <!-- website CSS -->
+        <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/menu.css">
+        <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/style.css">
+        <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/standardimport.css">
+        <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/antonio.css">
+        
+        <style>
+            .subcategory
+            {
+                padding: 20px;
+                background-color: #F0F0F0;
+                border-bottom: solid 2px #000000;
+                color: black;
+                text-align: left;
+            }
+        </style>
+        
+        <script>
+            
+            printMainCat();
+            
+            var url = location.href;
+            var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+            var result = captured ? captured : 'id';
+            var id = result;
+            var xmlhttp = new XMLHttpRequest();
+            var url = "http://guidoantoniomatteo.altervista.org/components/as/getSingleFaq.php?id="+ id;
+            
+            printSecondCatAs(id);
+           
+            
+            xmlhttp.onreadystatechange=function() 
+            {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    myFunction(xmlhttp.responseText);
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+           
+            function myFunction(response) 
+            {
+                var arr = JSON.parse(response);
+                var i;
+                var out = "";
+                document.getElementById("titolocategoria").innerHTML = "FAQ:" + arr[0].titolo_assistenza;
+                for(i=0; i< arr.length; i++)
+                {   
+                    out +="<div class='row grey-bar'>"+
+                        "<div class=\"col-md-12\">"+ arr[i].titolo + 
+                          "</div></div>"+
+                        "<div class='row'>"+
+                              "<div class=\"col-md-8\">" + decodeHTMLEntities(arr[i].descrizione) + "</div>";
+                    if(arr[i].foto!="")
+                    out +="<div class=\"col-md-4 \" style='text-align: center;'>"+
+                            "<img src=\""+ arr[i].foto+"\" alt=\""+ arr[i].titolo +"\">"+
+                        "</div></div>";
+                }
+                document.getElementById("descrizione").innerHTML = out;
+            }
+            
+        </script>
+                
+    </head>
+
+    <body>
+    <div id="page" class="container">
+        <div id="header"></div>
+        
+        <div id="content">
+            <div class="row blu-menu" id="categorie"></div>
+            <div class="row grey-menu" id="barragrigia"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="titolorosso" id="titolocategoria" style="text-align: left;"></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="descrizione"></div>
+            </div>
+        </div>
+
+        <div id="footer"></div>
+            
+    </div>
+        
+</body>
+
+</html>

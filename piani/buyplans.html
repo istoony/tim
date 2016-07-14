@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Acquista un piano</title>
+        
+    <!-- Bootstrap: Latest compiled and minified CSS -->
+    <link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Bootstrap library -->
+    <script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- website Javascript -->
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/menu.js"></script>
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/template.js"></script>
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js"></script>
+
+    <!-- website CSS -->
+    <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/menu.css">
+    <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/standardimport.css">
+<style>
+    #prefix
+    {
+        border: solid 2px #004890;
+        padding: 6px;
+        width: 10%;
+    }
+    
+    #number
+    {
+        border: solid 2px #004890;
+        padding: 6px;
+        margin-left: 3%;
+    }
+</style>
+<script>
+    
+    var url = location.href;
+    var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+    var result = captured ? captured : 'id';
+    var id = result;
+    var xmlhttp = new XMLHttpRequest();
+    var url = "http://guidoantoniomatteo.altervista.org/components/piani/getBuyPiani.php?id="+ id;
+                
+    xmlhttp.onreadystatechange=function() 
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+            myFunction(xmlhttp.responseText);
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+      
+    function myFunction(response) 
+    {   /**
+        *   id, nome, chiamate, messaggi, internet, categoria, foto, prezzo, fotogrande
+        *   [N] descrizione, titolo [N]
+        */
+        var arr = JSON.parse(response);
+        document.getElementById("foto").innerHTML = '<img src="' + arr[0].foto + '" class="img-responsive" />';
+        document.getElementById("nome").innerHTML = arr[0].titolo;
+        document.getElementById("prezzo").innerHTML = arr[0].prezzo;
+        document.getElementById("goback").innerHTML = '<a href="piano.html?id=' + arr[0].id + '">Torna Indietro</a>'
+    }
+</script>
+
+</head>
+
+<body>
+
+	<div id="page" class="container">
+
+	<div id="header"></div>
+
+        <div id="content" class="row">
+			<div class="col-xs-12">
+                <div class="row grey-menu">
+                    <div class="col-sm-3" id="goback"></div>
+                    <div class="col-sm-3"><a href="#">Dati Linea</a></div>
+                    <div class="col-sm-3"><a href="#">Dati Personali</a></div>
+                    <div class="col-sm-3"><a href="#">Riepilogo Ordini</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12" style="padding-top: 20px;"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                    <div class="row">
+                        <div class="col-md-12" id="foto"></div>
+                        <div class="col-md-12" id="foto">
+                            <h1 class="titolorosso" id="nome"></h1>
+                            <h2 id="prezzo"></h2>
+                        </div>    
+                    </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <h1 class="titolorosso" style="text-align: left;">
+                            Inserisci i dati del tuo Piano.
+                        </h1>
+                        <form>
+                            <span style="padding-right: 7%;">prefisso</span><span>numero telefono</span><br/>
+                            <input type="text" name="prefix" id="prefix" />
+                            <input type="text" name="number" id="number" />
+                        </form>
+                    </div>
+                </div>
+			</div>
+		</div>
+
+        <div id="footer"></div>
+
+	</div>
+
+</body>
+
+</html>

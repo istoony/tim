@@ -33,7 +33,7 @@ function maincat(response)
     for(i = 0; i < arr.length; i++) 
     {
         out += "<div class=\"col-md-3\">" +
-                    "<a href=\"asmaincategory.html?id=" + arr[i].id +"\">" + arr[i].titolo +
+                    "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/assubcategory.html?id=" + arr[i].id +"\">" + arr[i].titolo +
                         "</a>";
         out += "</div>";
     }
@@ -57,14 +57,20 @@ function secondMenuAs(response)
 {
     var arr = JSON.parse(response);
     var barra_grigia = "";
-    barra_grigia  = "<div class=\"col-md-4\"><a href=\"assubcategory.html?id="+ arr[0].categoria +"\">Altre Domande</a></div>";
+    if(location.pathname != "/tim/as/assingola.html")
+        barra_grigia  += "<div class=\"col-md-3\">"+
+                        "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/assingola.html?id="+ arr[0].id +"\">Torna alla domanda</a>"+
+                    "</div>";
+    barra_grigia +="<div class=\"col-md-3\">"+
+                        "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/assubcategory.html?id="+ arr[0].categoria +"\">Altre Domande</a>"+
+                    "</div>";
     if(arr[0].numfaq > 0)
-        barra_grigia += "<div class=\"col-md-4\">"+
-                                "<a href=\"faqassistenza.html?id=" + arr[0].id +"\">FAQ</a>"+
+        barra_grigia += "<div class=\"col-md-3\">"+
+                                "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/faqassistenza.html?id=" + arr[0].id +"\">FAQ</a>"+
                         "</div>";
     if(arr[0].numdisp> 0)
-        barra_grigia += "<div class=\"col-md-4\">"+
-                            "<a href=\"deviceassistenza.html?id=" + arr[0].id +"\">Dispositivi"+
+        barra_grigia += "<div class=\"col-md-3\">"+
+                            "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/deviceassistenza.html?id=" + arr[0].id +"\">Dispositivi"+
                         "</a></div>";
     document.getElementById("barragrigia").innerHTML = barra_grigia;
 }
@@ -104,7 +110,7 @@ var out ='<div class="col-md-12">'+
             '<div class="hidden-xs col-sm-4"><h1>'+ arr.nome +'</h1></div>'+
             '<div class="col-sm-4"><h2>'+ arr.prezzo +'</h2></div>'+
             '<div class="col-sm-2 buttons red"><h3>Acquista con device</h3></div>'+
-            '<a href="buyplans.html?id=' + arr.id + '"><div class="col-sm-2 buttons blue"><h3>Attiva Immediatamente</h3></div></a>'+
+            '<a href="http://guidoantoniomatteo.altervista.org/tim/piani/buyplans.html?id=' + arr.id + '"><div class="col-sm-2 buttons blue"><h3>Attiva Immediatamente</h3></div></a>'+
         '</div>'+
     '</div>'+
     '<div class="col-md-12 plans-description">';
@@ -112,7 +118,7 @@ var out ='<div class="col-md-12">'+
     {
         out +='<div class="row">'+
             '<div class="col-sm-1 col-xs-3 photo">'+
-                '<img src="img/piani/util/sms.png" alt="sms" />'+
+                '<img src="http://guidoantoniomatteo.altervista.org/tim/img/piani/util/sms.png" alt="sms" />'+
             '</div>'+
             '<div class="col-sm-6 col-xs-9 bar">'+
                 '<div class="blue" style="width: 80%;"></div>'+
@@ -125,7 +131,7 @@ var out ='<div class="col-md-12">'+
     {
         out +='<div class="row">'+
             '<div class="col-sm-1 col-xs-3 photo">'+
-                '<img src="img/piani/util/internet.png" alt="internet" />'+
+                '<img src="http://guidoantoniomatteo.altervista.org/tim/img/piani/util/internet.png" alt="internet" />'+
             '</div>'+
             '<div class="col-sm-6 col-xs-9 bar">'+
                 '<div class="blue" style="width: 30%;"></div>'+
@@ -138,7 +144,7 @@ var out ='<div class="col-md-12">'+
     {
         out +='<div class="row">'+
             '<div class="col-sm-1 col-xs-3 photo">'+
-                '<img src="img/piani/util/voice.png" alt="chiamate" />'+
+                '<img src="http://guidoantoniomatteo.altervista.org/tim/img/piani/util/voice.png" alt="chiamate" />'+
             '</div>'+
             '<div class="col-sm-6 col-xs-9 bar">'+
                 '<div class="blue" style="width: 60%;"></div>'+
@@ -180,7 +186,7 @@ function asAssociati(response)
         for(var i = 0; i< arr.length; i++)
             out += '<div class=\"row grey-bar\">'+
                         '<div class=\"col-md-12\">' +
-                                '<a href=\"assingola.html?id='+arr[i].id+'\">' + arr[i].nome + '</a>';
+                                '<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/assingola.html?id='+arr[i].id+'\">' + arr[i].nome + '</a>';
                     out += '</div></div>';
         document.getElementById("asrelative").innerHTML = out;
     }

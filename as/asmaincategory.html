@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    <meta charset="utf-8"> 
+    <title>Assistenza Tecnica</title>
+        
+    <!-- Bootstrap: Latest compiled and minified CSS -->
+    <link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Bootstrap library -->
+    <script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- website Javascript -->
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/menu.js"></script>
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/template.js"></script>
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js"></script>
+        
+    <!-- website CSS -->
+<link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/menu.css">
+<link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/style.css">
+<link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/standardimport.css">
+
+        <script type="application/javascript">
+            var xmlhttp = new XMLHttpRequest();
+            var url = "http://guidoantoniomatteo.altervista.org/components/as/getMainCategory.php";
+
+            xmlhttp.onreadystatechange=function() 
+            {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    myFunction(xmlhttp.responseText);
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+            function myFunction(response) {
+                var arr = JSON.parse(response);
+                var i;
+                var out = "";
+                var out2 = "";
+                
+                for(i = 0; i < arr.length; i++) 
+                {
+                    out += "<div class=\"col-sm-3\">"+
+                        "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/assubcategory.html?id=" + arr[i].id + "\" >" +
+                            arr[i].titolo + 
+                        "</a></div>"; 
+                    out2 += "<div class=\"col-sm-3\" style=\"height: inherit !important;\">" +
+                            "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/assubcategory.html?id=" + arr[i].id + "\" >" +
+                                    "<img src=\"" + arr[i].foto + "\" class=\"center\"/>"+
+                                "</a>"+
+                            "</div>";
+                }
+                
+                document.getElementById("categorie_blu").innerHTML = out;
+                document.getElementById("categorie_grey").innerHTML = out2;
+            }
+        </script>
+    </head>
+
+    <body>
+        
+	<div id="page" class="container">
+
+        <div id="header"></div>
+		
+        <div id="content">
+            <div><h1 class="titolorosso">Assistenza Tecnica</h1></div>
+            <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-6">
+                <img src="http://guidoantoniomatteo.altervista.org/tim/img/as/assistenza.jpg" alt="assistenza tecnica" class="img-responsive" />
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4" style="padding-top: 50px;">
+                <div class="row blu-menu">
+                    <div class="col-md-12">
+                        <a href="http://guidoantoniomatteo.altervista.org/tim/as/assubcategory.html?id=0">
+                            In Evidenza
+                        </a>
+                    </div>
+                </div>
+                <div class="row grey-menu">
+                   <div class="col-md-12" style="height: inherit !important;">
+                       <a href="http://guidoantoniomatteo.altervista.org/tim/as/assubcategory.html?id=0">
+                        <img src="http://guidoantoniomatteo.altervista.org/tim/img/as/assistenza-tecnica1.png" alt="assistenza tecnica" width="100%"/>
+                       </a>
+                        <p class="center">Qui trovi le risposte alle domande più frequenti</p>
+                    </div>
+                </div>
+                
+            </div>
+            </div>
+             <div class="col-xs-12 nopadding">
+                <div class="row blu-menu" id="categorie_blu" ></div>
+                <div class="row grey-menu" id="categorie_grey" ></div>
+            </div>
+
+        </div>
+        
+		<div id="footer"></div>
+
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Piani Tariffari - Categorie</title>
+        
+    <!-- Bootstrap: Latest compiled and minified CSS -->
+    <link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Bootstrap library -->
+    <script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- website Javascript -->
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/menu.js"></script>
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/template.js"></script>
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js"></script>
+
+    <!-- website CSS -->
+    <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/menu.css">
+    <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/standardimport.css">
+        <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/guido.css">
+
+<script type="application/javascript">
+    var xmlhttp = new XMLHttpRequest();
+    var url = "http://guidoantoniomatteo.altervista.org/components/piani/getMainCategoryPiani.php";
+
+    xmlhttp.onreadystatechange=function() 
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                myFunction(xmlhttp.responseText);
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+
+    function myFunction(response) {
+        var arr = JSON.parse(response);
+        var i;
+        var out = "";
+        var out2 ="";
+        
+        for(i = 0; i < arr.length; i++) 
+        {
+            out += "<div class='col-xs-4 grey-background current-link' style='height: inherit !important;'>" +
+                        "<a href=\"http://guidoantoniomatteo.altervista.org/tim/piani/pianisubcategory.html?id=" + arr[i].id + "\" >" +
+                        "<img src=\"" + arr[i].foto + "\" class=\"center\"/>"+
+                        "</a></div>";
+            out2 +="<div class=\"col-xs-4 blu-menu\">"+
+                "<a href=\"http://guidoantoniomatteo.altervista.org/tim/piani/pianisubcategory.html?id=" + arr[i].id + "\" >" +
+                            arr[i].nome + "</a></div>";
+                    out += "</div>";
+                }
+                
+                document.getElementById("categorie_grey").innerHTML = out;
+                document.getElementById("categorie_blu").innerHTML = out2;
+            }
+    </script>
+
+
+</head>
+
+<body>
+
+	<div id="page" class="container">
+
+		<div id="header"></div>
+
+		<div id="content" class="row">
+
+			<div class="row">
+                <div class="col-md-12">
+                    <img src="http://guidoantoniomatteo.altervista.org/tim/img/piani/maincatpiani.jpg"  class="img-responsive" alt="Categorie Piani Tariffari" />
+                    <div class="row inner-presentation">
+                        <div class="col-md-12">
+                            <div><h1>Piani Tariffari</h1></div>
+                            <div><h2>Cerca il piano tariffario pi&ugrave; adatto a te</h2></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-xs-12">
+                    <div class="row grey-menu" id="categorie_grey" ></div>
+                    <div class="row blu-menu" id="categorie_blu" ></div>
+                </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="http://guidoantoniomatteo.altervista.org/tim/img/piani/maincatfooter.jpg" class="img-responsive" alt="entra nella rete più grande d'italia" width="100%" />
+                </div>
+            </div>
+
+		</div>
+
+		<div id="footer"></div>
+
+	</div>
+
+</body>
+
+</html>
