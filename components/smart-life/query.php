@@ -14,7 +14,7 @@
     
         
     switch ($request) {
-    	case "smartLifeCategories":
+    	case "smartLifeMainCategories":
     		$query = "SELECT * FROM `categoriesmartlife`";
     		break;
     }

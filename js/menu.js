@@ -25,23 +25,6 @@ $(document).ready(function(){
 			 $("#top-menu-small .second-menu").fadeOut(800);
 		 }
 	 });
-	
-	
-	
-	
-	//URL CONTROL
-	 
-	//alert( window.location.href.toString().split(window.location.host + "/")[1]);
-	 
-	$('#top-large a, #top-small a').click(function (event){
-
-		   event.preventDefault(); 
-
-		   var url = $(this).attr('href');
-		   loadPage(url);
-
- 
-	});
 
 });
 
