@@ -5,28 +5,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
 <title>Page Title</title>
 
-<!-- Bootstrap: Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<!-- jQuery library -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<!-- Bootstrap library -->
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Acquista un piano</title>
+        
+    <!-- Bootstrap: Latest compiled and minified CSS -->
+    <link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Bootstrap library -->
+    <script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- website Javascript -->
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/menu.js"></script>
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/template.js"></script>
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js"></script>
+    <script src="http://guidoantoniomatteo.altervista.org/tim/js/device/device.js"></script>
 
-<!-- website Javascript -->
-<script src="js/menu.js"></script>
-<script src="js/standardimport.js"></script>
-
-<!-- website CSS -->
-<link rel="stylesheet" type="text/css" href="css/menu.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/standardimport.css">
-<link rel="stylesheet" type="text/css" href="css/antnio.css">
+    <!-- website CSS -->
+    <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/menu.css">
+    <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/standardimport.css">
+    <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/antonio.css">
+    
 
 <style>
     #immagine 
@@ -82,8 +82,9 @@
         var arr = JSON.parse(response);
         var i;
                 
-        document.getElementById("titolo").innerHTML = arr[0].marca + ' - ' + arr[0].nome;
-        //document.getElementById("categorie_blu").innerHTML = out2;
+        $("#titolo").html(arr[0].marca + ' - ' + arr[0].nome);
+        $("#caratteristiche").html('<p>' +  decodeHTMLEntities(arr[0].descrizione) + '</p>');
+        $("#prezzo").html(printPrezzo(arr[0].prezzo, arr[0].prezzoscontato));
     }
         
     function printFoto(response) 
@@ -91,22 +92,13 @@
         var arr = JSON.parse(response);
         var i = 1; 
         var out = "";
-        document.getElementById("immagine").innerHTML = '<img src="' + arr[0].path + '" class="myimg-responsive"/>';
+         $("#immagine").html('<img src="' + arr[0].path + '" class="myimg-responsive"/>');
         for(i;i<arr.length; i++)
         {
-        out +='<div class="col-md-12 col-sm-3 col-xs-4"><img src="' +arr[i].path +'" class="img-responsive" /></div>';
+        out +='<div class="col-md-12 col-sm-4 col-xs-4">'+
+            '<img src="' +arr[i].path +'" class="img-device" /></div>';
         }
-        out +='<div class="col-md-12 col-sm-3 col-xs-4">'+
-                '<img src="' +arr[1].path +'" class="img-responsive" />'+
-            '</div>';
-        out +='<div class="col-md-12 col-sm-3 col-xs-4">'+
-                '<img src="' +arr[1].path +'" class="img-responsive" />'+
-            '</div>';
-        out +='<div class="col-md-12 col-sm-3 col-xs-4">'+
-                '<img src="' +arr[1].path +'" class="img-responsive" />'+
-            '</div>';
-        //document.getElementById("categorie_blu").innerHTML = out2;
-         document.getElementById("secondarie").innerHTML = out;
+         $("#secondarie").html(out);
     }
     
     function printPromozioni(response) 
@@ -120,9 +112,9 @@
                             '<div class="col-md-12">';
         for(i;i<arr.length; i++)
         {
-            out +='<div class="row">'+
+            out +='<div class="row grey">'+
                         '<div class="col-md-3">'+
-                            '<img src="'+ arr[i].path +'" class="img-responsive" />'+
+                            '<img src="'+ arr[i].path +'" />'+
                         '</div>'+
                         '<div class="col-md-9">'+
                             '<h2 class="titoloblu">'+ arr[i].titolo +'</h2>'+
@@ -132,8 +124,10 @@
             
         }
         out +='</div>'+'</div>';
-        document.getElementById("promozioni").innerHTML = out;
+        $("#promozioni").html(out);
     }
+    
+    printCorrelati(id);
     
     </script>
 
@@ -143,88 +137,19 @@
 
 	<div id="page" class="container">
 
-		<div id="top-large" class="row hidden-xs">
-
-			<div id="logo-large" class="col-lg-2">
-				<img src="img/logo.png" />
-			</div>
-
-			<div class="col-lg-10" >
-				<div class="row">
-
-					<div class="col-lg-7 left">
-						<div class="row">
-							<a class="col-lg-2 highlight" href="piani">Piani</a>
-							<a class="col-lg-2" href="offerte">Offerte</a>
-							<a class="col-lg-3" href="smart-life">Smart Life</a>
-							<a class="col-lg-2" href="dispositi">Dispositivi</a>
-							<a class="col-lg-3" href="assistenza">Assistenza</a>
-						</div>
-					</div>
-
-					<div class="col-lg-1 hidden-md hidden-sm hidden-xs wave">
-						<img src="img/ondina.png" />
-					</div>
-
-					<div class="col-lg-3 right">
-						<div class="row">
-							<a class="col-lg-6" href="chi-siamo">Chi Siamo</a>
-							<a class="col-lg-6" href="gruppo">Gruppo</a>
-						</div>
-					</div>
-
-					<div class="col-lg-1 hidden-md hidden-sm hidden-xs right-border">
-						<img src="img/menu-right.png" />
-					</div>
-
-				</div>
-			</div>
-
-		</div>
-
-		<div id="top-small" class="row hidden-sm hidden-md hidden-lg">
-
-			<div id="logo-small" class="col-xs-4">
-				<img src="img/logo.png" />
-			</div>
-
-			<div id="top-menu-button-small" class="col-xs-2 col-xs-offset-5">
-				<img src="img/menu-mobile-closed.png" class="menu-closed"/>
-				<img src="img/menu-mobile-open.png" class="menu-open"/>
-			</div>
-
-			<div id="top-menu-small">
-				<div class="first-menu">
-					<div>
-						<a href="piani">PIANI</a>
-						<a href="offerte">OFFERTE</a>
-						<a href="smart-life">SMART LIFE</a>
-						<a href="dispositi">DISPOSITIVI</a>
-						<a href="assistenza">ASSISTENZA</a>
-					</div>
-				</div>
-				<div class="second-menu">
-					<div>
-						<a href="chi-siamo">CHI SIAMO</a>
-						<a href="gruppo">GRUPPO</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
+        <div id="header"></div>
+        
 		<div id="content" class="row">
-			<div class="col-xs-12">
-                <div class="row grey-menu">
-                    <div class="col-sm-3"><a href="singolodevice.html">torna ai dispositivi</a></div>
-                    <div class="col-sm-2"><a href="singolodevice.html">Presentazione</a></div>
-                    <div class="col-sm-2"><a href="singolodevice.html">Caratteristiche</a></div>
-                    <div class="col-sm-2"><a href="singolodevice.html">Recensioni</a></div>
-                    <div class="col-sm-3"><a href="singolodevice.html">Assistenza Tecnica</a></div>
-                </div>
+            <div class="col-xs-12">
                 <div class="row">
-                    <div class="col-sm-8 hidden-xs"></div>
-                    <div class="col-sm-4 col-xs-12  buttons red">
-                        <h3>Aggiungi al carrello</h3>
+                    <div class="col-md-12" id="menu-device"></div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-8 hidden-xs"></div>
+                            <div class="col-sm-4 col-xs-12  buttons red">
+                                <h3>Aggiungi al carrello</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -238,47 +163,31 @@
                     </div>
                     <div class="col-sm-8">
                         <div class="row">
-                            <div class="col-md-12"><h1 class="titolorosso" id="titolo"></h1></div>
-                            <div class="col-md-12" id="caratteristiche"></div>
-                            <div class="col-md-12" id="prezzo"></div>
+                            <div class="col-md-12">
+                                <h1 class="titolorosso" id="titolo"></h1>
+                            </div>
+                            <div class="col-sm-3 hidden-xs"></div>
+                            <div class="col-sm-9 col-xs-12">
+                                <div><h2 class="titoloblu left">Caratteristiche</h2></div>
+                                <div id="caratteristiche"></div>
+                            </div>
+                            <div class="col-sm-3 hidden-xs"></div>
+                            <div class="col-md-9 col-xs-12 prezzo">
+                                <div>
+                                    <h2 class="titoloblu left">Prezzo:</h2>
+                                </div>
+                                <div id="prezzo"></div>
+                            </div>
                             <div class="col-md-4">Acquista con un piano</div> 
                         </div>
                     </div>
+                    <div class="col-md-12" id="correlati"></div>
                     <div class="col-md-12" id="promozioni"></div>
                 </div>
 			</div>
 		</div>
 
-		<div id="footer" class="row middle-align"><!--
-                
-			--><div id="footer-logo" class="col-sm-2 hidden-xs" >
-				<img src="img/footer_logo.png" />
-			</div><!--
-			--><div id="footer-logo" class="col-xs-2 hidden-sm hidden-md hidden-lg" >
-				<img src="img/footer_logo_small.png" />
-			</div><!--
-            
-			--><div class="col-sm-2 col-sm-offset-1 col-xs-4 menu">
-				<a href="">Contattaci</a>
-				<a href="">Privacy</a>
-				<a href="">Lavora con noi</a>
-				<a href="">Tutela dei minori</a>
-				<a href="">Assistenza legale</a>
-			</div><!--
-			
-            --><div class="col-sm-2 col-sm-offset-1 col-xs-4 menu">
-				<a href="">Chi siamo</a>
-				<a href="">Il gruppo</a>
-			</div><!--
-                
-            --><div id="footer-social" class="col-sm-3 col-sm-offset-1 col-xs-2">
-				<img src="img/footer_social_1.png" />
-				<img src="img/footer_social_2.png" />
-				<p class="hidden-xs">
-					<br/>Seguici sui principali<br/>Social Network
-				</p>
-			</div>
-		</div>
+		<div id="footer"></div>
 
 	</div>
 
