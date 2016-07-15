@@ -1,0 +1,30 @@
+div.specifiche
+{
+}
+div.specifiche .row
+{
+    background-color: #F0F0F0;
+    border-bottom: solid 2px #004890;
+}
+div.specifiche .row h3
+{
+    color: #004890;
+}
+div.specifiche .right
+{
+    background-color: #FFFFFF;
+    padding: 15px;
+}
+div.specifiche .left
+{
+    text-align: center;
+}
+div.specifiche li
+{
+    padding: 10px;
+}
+div.specifiche ul
+{
+    text-align: center;
+    list-style: none;
+}

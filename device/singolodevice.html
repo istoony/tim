@@ -5,9 +5,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Page Title</title>
 
-    <title>Acquista un piano</title>
+<title>Dispositivo</title>
         
     <!-- Bootstrap: Latest compiled and minified CSS -->
     <link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -85,6 +84,7 @@
         $("#titolo").html(arr[0].marca + ' - ' + arr[0].nome);
         $("#caratteristiche").html('<p>' +  decodeHTMLEntities(arr[0].descrizione) + '</p>');
         $("#prezzo").html(printPrezzo(arr[0].prezzo, arr[0].prezzoscontato));
+        $("#menu-device").html(printMenuSecondario(id, arr[0].id_categoria));
     }
         
     function printFoto(response) 
@@ -128,6 +128,7 @@
     }
     
     printCorrelati(id);
+    $("#menu-device").html(printMenuSecondario(id));
     
     </script>
 
@@ -172,7 +173,7 @@
                                 <div id="caratteristiche"></div>
                             </div>
                             <div class="col-sm-3 hidden-xs"></div>
-                            <div class="col-md-9 col-xs-12 prezzo">
+                            <div class="col-sm-9 col-xs-12 prezzo">
                                 <div>
                                     <h2 class="titoloblu left">Prezzo:</h2>
                                 </div>
@@ -181,8 +182,8 @@
                             <div class="col-md-4">Acquista con un piano</div> 
                         </div>
                     </div>
-                    <div class="col-md-12" id="correlati"></div>
-                    <div class="col-md-12" id="promozioni"></div>
+                    <div class="col-sm-12" id="correlati"></div>
+                    <div class="col-sm-12" id="promozioni"></div>
                 </div>
 			</div>
 		</div>

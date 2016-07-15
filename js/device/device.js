@@ -37,9 +37,9 @@ function corr(response)
         {
             out+= '<div class="col-sm-3">'+
                         '<div class="row">'+
-                            '<div class="col-md-12">'+
-                                '<img src="'+ arr[i].path +'" alt="'+ arr[i].nome+'" class="img-responsive" />'+
-                            '</div>'+
+                            '<div class="col-md-12">'+'<a href="http://guidoantoniomatteo.altervista.org/tim/device/singolodevice.html?id='+arr[i].id +'">'+
+                                '<img src="'+ arr[i].path +'" alt="'+ arr[i].nome+'" />'+
+                            '</a></div>'+
                             '<div class="col-md-12">'+
                                 '<h3>'+arr[i].marca + ' - ' + arr[i].nome +'</h3>'+
                             '</div>'+
@@ -50,15 +50,45 @@ function corr(response)
          $("#correlati").html(out);
 }
 
-$( document ).ready(function()
+function printMenuSecondario(id, categoria) 
 {
     var menu = "";
     menu += '<div class="row grey-menu">'+
-        '<div class="col-sm-3"><a href="singolodevice.html">torna ai dispositivi</a></div>'+
-        '<div class="col-sm-2"><a href="singolodevice.html">Presentazione</a></div>'+
-        '<div class="col-sm-2"><a href="singolodevice.html">Caratteristiche</a></div>'+
-        '<div class="col-sm-2"><a href="singolodevice.html">Recensioni</a></div>'+
-        '<div class="col-sm-3"><a href="singolodevice.html">Assistenza Tecnica</a></div>'+
+        '<div class="col-md-3 col-sm-6"><a href="singolodevice.html">torna ai dispositivi</a></div>';
+    if(location.pathname == "/tim/device/singolodevice.html")
+        menu +='<div class="col-md-2 col-sm-6 current-link">';
+    else
+        menu +='<div class="col-md-2 col-sm-6">';
+    menu +='<a href="singolodevice.html?id='+ id +'">Presentazione</a>'+
+        '</div>';
+    
+    if(location.pathname == "/tim/device/specifichedevice.html")
+        menu +='<div class="col-md-2 col-sm-4 current-link">';
+    else
+        menu +='<div class="col-md-2 col-sm-4">';
+    menu +='<a href="specifichedevice.html?id='+id+'">Caratteristiche</a></div>';
+    
+    if(location.pathname == "/tim/device/recensionedispositivo.html")
+        menu +='<div class="col-md-2 col-sm-4 current-link">';
+    else
+        menu +='<div class="col-md-2 col-sm-4">';
+        menu +='<a href="recensionedispositivo.html?id='+ id +'">Recensioni</a>'+
+        '</div>'+
+        '<div class="col-md-3 col-sm-4"><a href="singolodevice.html">Assistenza Tecnica</a></div>'+
     '</div>';
-    $("#menu-device").html(menu);
-});
+    return menu;
+}
+
+function printValutazione(n)
+{
+    var i;
+    var out = "";
+    for(i=1; i<=5; i++)
+    {
+        if(i<=n)
+            out += '<img src="http://guidoantoniomatteo.altervista.org/tim/img/device/recensioni/gialla.png" />';
+        else
+            out += '<img src="http://guidoantoniomatteo.altervista.org/tim/img/device/recensioni/grigia.png" />';
+    }
+    return out;
+}
