@@ -119,6 +119,12 @@ p.big {
 .grey-menu img.center {
 	padding: 30px;
 }
+@media screen and (max-width: 768px) {
+
+    .grey-menu img.center {
+        padding: 0px;
+    }
+}
 
 .grey-red-menu {
 	background-color: #f0f0f0;

@@ -42,13 +42,13 @@
     var id = result;
     
     var xmlhttp = new XMLHttpRequest();
-    var url = "http://guidoantoniomatteo.altervista.org/components/device/getSingoloDevice.php?id=" + id;
+    var url = "http://guidoantoniomatteo.altervista.org/tim/components/device/getSingoloDevice.php?id=" + id;
     
     var foto = new XMLHttpRequest();
-    var pathfoto = "http://guidoantoniomatteo.altervista.org/components/device/getSingoloDeviceFoto.php?id=" + id;
+    var pathfoto = "http://guidoantoniomatteo.altervista.org/tim/components/device/getSingoloDeviceFoto.php?id=" + id;
     
     var promozioni = new XMLHttpRequest();
-    var pr = "http://guidoantoniomatteo.altervista.org/components/device/getSingoloDevicePromozioni.php?id=" + id;
+    var pr = "http://guidoantoniomatteo.altervista.org/tim/components/device/getSingoloDevicePromozioni.php?id=" + id;
     
     xmlhttp.onreadystatechange=function() 
     {
@@ -85,6 +85,9 @@
         $("#caratteristiche").html('<p>' +  decodeHTMLEntities(arr[0].descrizione) + '</p>');
         $("#prezzo").html(printPrezzo(arr[0].prezzo, arr[0].prezzoscontato));
         $("#menu-device").html(printMenuSecondario(id, arr[0].id_categoria));
+        $("#deviceplans").html('<a href="http://guidoantoniomatteo.altervista.org/tim/device/deviceplans.html?id='+ id +'&cat='+ arr[0].id_categoria +'">'+
+                        '<h3>Acquista con un piano</h3>'+
+                    '</a>');
     }
         
     function printFoto(response) 
@@ -169,7 +172,7 @@
                             </div>
                             <div class="col-sm-3 hidden-xs"></div>
                             <div class="col-sm-9 col-xs-12">
-                                <div><h2 class="titoloblu left">Caratteristiche</h2></div>
+                                <div><h2 class="titoloblu left">Caratteristiche:</h2></div>
                                 <div id="caratteristiche"></div>
                             </div>
                             <div class="col-sm-3 hidden-xs"></div>
@@ -179,7 +182,8 @@
                                 </div>
                                 <div id="prezzo"></div>
                             </div>
-                            <div class="col-md-4">Acquista con un piano</div> 
+                            <div class="col-sm-3 hidden-xs"></div>
+                            <div class="col-md-4 buttons blue" id ="deviceplans" style="border: 0px;"></div> 
                         </div>
                     </div>
                     <div class="col-sm-12" id="correlati"></div>

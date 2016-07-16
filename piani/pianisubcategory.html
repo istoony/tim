@@ -33,7 +33,9 @@
     var result = captured ? captured : 'id';
     var id = result;
     var url = "http://guidoantoniomatteo.altervista.org/components/piani/getPianiByCategory.php?id=" + id;
-
+    
+    printPlansMainCat();
+    
     xmlhttp.onreadystatechange=function() 
     {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
@@ -85,11 +87,12 @@
 
 		<div id="content" class="row">
             <div class="col-md-12">
+                    <div class="row blu-menu" id="barrablu"></div>
+            </div>
                 <div class="row">
                     <div class="col-md-12" id="presentationphoto"></div>
                 </div>
-                <div class="row" id="piani"></div>
-            </div>
+            <div class="row" id="piani"></div>
 		</div>
 
 		<div id="footer"></div>

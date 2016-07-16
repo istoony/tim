@@ -14,7 +14,7 @@
         if ($outp != "[") 
             $outp .= ",";
         $outp .= '{"id":"'  .$rs["id"]. '",';
-        $outp .= '"titolo":"'. $rs["nome"]. '",'; 
+        $outp .= '"titolo":"'. htmlentities(utf8_encode($rs["nome"]), 0, "UTF-8"). '",'; 
         $outp .= '"foto":"'. $rs["foto"]. '"}';
     }
     $outp .= "]";

@@ -32,11 +32,17 @@ function maincat(response)
     var out = "";
     for(i = 0; i < arr.length; i++) 
     {
-        out += "<div class=\"col-md-3\">" +
-                    "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/assubcategory.html?id=" + arr[i].id +"\">" + arr[i].titolo +
+        if(arr[i].titolo.length > 12)
+            out += "<div class=\"col-md-3\">";
+        else
+            out += "<div class=\"col-md-2\">";
+        out +="<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/assubcategory.html?id=" + arr[i].id +"\">" + arr[i].titolo +
                         "</a>";
         out += "</div>";
     }
+    out += "<div class=\"col-md-2\">" +
+                "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/assubcategory.html?id=0\">In Evidenza</a>";
+    out += "</div>";
     document.getElementById("categorie").innerHTML = out;
 } 
 
@@ -68,9 +74,9 @@ function secondMenuAs(response)
         barra_grigia += "<div class=\"col-md-3\">"+
                                 "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/faqassistenza.html?id=" + arr[0].id +"\">FAQ</a>"+
                         "</div>";
-    if(arr[0].numdisp> 0)
+    if(arr[0].numdev> 0)
         barra_grigia += "<div class=\"col-md-3\">"+
-                            "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/deviceassistenza.html?id=" + arr[0].id +"\">Dispositivi"+
+                            "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/deviceas.html?id=" + arr[0].id +"\">Dispositivi"+
                         "</a></div>";
     document.getElementById("barragrigia").innerHTML = barra_grigia;
 }
@@ -93,7 +99,13 @@ function plansMainCat(response)
     var arr = JSON.parse(response);
     var barra_grigia = "";
     for(var i = 0; i< arr.length; i++)
-        barra_grigia  += "<div class=\"col-md-4\"><a href=\"pianisubcategory.html?id="+ arr[i].id +"\">"+ arr[i].nome +"</a></div>";
+    {
+        if(i>0)  //il controllo su i è per disabilitare i link non cliccabili
+            barra_grigia += "<div class=\"col-md-4\"><a href=\"pianisubcategory.html?id="+ arr[i].id +"\" class=\"btn btn-large disabled\">";
+        else
+            barra_grigia += "<div class=\"col-md-4\"><a href=\"pianisubcategory.html?id="+ arr[i].id +"\">"
+        barra_grigia += arr[i].nome +"</a></div>";
+    }
     document.getElementById("barrablu").innerHTML = barra_grigia;
 }
 
@@ -110,7 +122,9 @@ var out ='<div class="col-md-12">'+
             '<div class="hidden-xs col-sm-4"><h1>'+ arr.nome +'</h1></div>'+
             '<div class="col-sm-4"><h2>'+ arr.prezzo +'</h2></div>'+
             '<div class="col-sm-2 buttons red"><h3>Acquista con device</h3></div>'+
-            '<a href="http://guidoantoniomatteo.altervista.org/tim/piani/buyplans.html?id=' + arr.id + '"><div class="col-sm-2 buttons blue"><h3>Attiva Immediatamente</h3></div></a>'+
+            '<a href="http://guidoantoniomatteo.altervista.org/tim/piani/buyplans.html?id=' + arr.id + '">'+
+                '<div class="col-sm-2 buttons blue"><h3>Attiva con un clik</h3></div>'+
+            '</a>'+
         '</div>'+
     '</div>'+
     '<div class="col-md-12 plans-description">';
