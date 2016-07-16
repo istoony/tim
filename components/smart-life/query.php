@@ -17,6 +17,10 @@
     	case "smartLifeMainCategories":
     		$query = "SELECT * FROM `categoriesmartlife`";
     		break;
+    	case "smartLifeSubCategories":
+    		$mainCategory = $_GET['mainCategory'];
+    		$query = "SELECT * FROM sottocategoriesmartlife WHERE categoria = " . $mainCategory;
+    		break;
     }
         
     $result = $conn->query($query);

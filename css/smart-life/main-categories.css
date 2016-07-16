@@ -1,34 +1,111 @@
-@CHARSET "ISO-8859-1";
-
 div.smart-life-box {
 	background: url('http://guidoantoniomatteo.altervista.org/tim/img/smart-life/main-categories.jpg') center repeat-x;
     background-size: auto 100%;
 }
 
-.smart-life-spot h3 {
-	text-align: left;
+div.smart-life-categories, .smart-life-spot h3  {
 	color: white;
-	padding: 20px;
 }
 
+@media (min-width: 495px) and (max-width: 767px) {
+		div.smart-life-categories {	
+			padding: 150px 0 0 0 !important;
+		}
+	}
+
 @media (max-width: 767px) {
+	
+	div.smart-life-categories div div  {
+	    background: white; /* For browsers that do not support gradients */
+	    background: -webkit-linear-gradient( rgba(0,72,144,0.8), rgba(0,72,144,1) ); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradientrgba( rgba(0,72,144,0.8), rgba(0,72,144,1) ); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient( rgba(0,72,144,0.8), rgba(0,72,144,1) ); /* For Firefox 3.6 to 15 */
+	    background: linear-gradient( rgba(0,72,144,0.8), rgba(0,72,144,1) ); /* Standard syntax */
+	}
+
+
+	div.smart-life-spot {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	div.smart-life-spot h3 {
+		padding: 15px;
+	}	
 	div.smart-life-box {
-		min-height: 350px;
+		min-height: 480px;
+	}
+	div.smart-life-categories {	
+		padding: 120px 0 0 0;
+	}
+	
+	div.smart-life-categories div{
+		margin:0;
+		padding: 0;
+		width: 100%;
+		height: 50px;
+	}
+	
+	div.smart-life-categories h3 {
+		font-size: 15px;
+		text-align: center;
+		padding-top: 15px;
+	}
+	div.smart-life-categories div div {
+		height: 50px;
+		min-height: auto;
+	}
+	div.smart-life-categories {
+		text-align: left;
+	}
+	
+}
+
+
+@media (min-width: 767px) {
+	div.smart-life-categories div div {
+		background-color: rgba(0,72,144,0.8);
+		padding: 0 15px;
+		height: 100%;
+		min-height: 150px;
+		width: 100%;
+	}
+	
+	div.smart-life-categories h3 {
+		text-align: center;
+		padding-top: 30%;
+	}
+	
+	.smart-life-spot > h3 {
+		text-align: left;
+		padding: 30px;
+	}
+	div.smart-life-categories {
+		text-align: middle;
 	}
 }
+
 @media (min-width: 768px) and (max-width: 991px) {
 	div.smart-life-box {
 		min-height: 400px;
+	}
+	div.smart-life-categories {
+		margin-top: 200px;
 	}
 }
 @media (min-width: 992px) and (max-width: 1199px) { 
 	div.smart-life-box {
 		min-height: 450px;
 	}
+	div.smart-life-categories {
+		margin-top: 250px;
+	}
 	
 }
 @media (min-width: 1200px) { 
 	div.smart-life-box {
 		min-height: 500px;
+	}
+	div.smart-life-categories {
+		margin-top: 300px;
 	}
 }}
