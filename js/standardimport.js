@@ -186,8 +186,9 @@ function asAssociati(response)
         for(var i = 0; i< arr.length; i++)
             out += '<div class=\"row grey-bar\">'+
                         '<div class=\"col-md-12\">' +
-                                '<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/assingola.html?id='+arr[i].id+'\">' + arr[i].nome + '</a>';
-                    out += '</div></div>';
+                                '<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/assingola.html?id='+arr[i].id+'\">' + arr[i].nome + '</a>'+
+                        '</div>'+
+                    '</div>';
         document.getElementById("asrelative").innerHTML = out;
     }
 }
