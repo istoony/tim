@@ -149,3 +149,12 @@ div.grey
 {
     background-color: #F0F0F0;
 }
+div.as-last div
+{
+    padding: 15px;
+    border-bottom: solid 2px #eb0028;
+}
+div.as-last a
+{
+    color: #000000;
+}

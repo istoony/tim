@@ -26,7 +26,7 @@
         if ($outp != "[") 
             $outp .= ",";
         $outp .= '{"id":"'  .$rs["id"]. '",';
-        $outp .= '"titolo":"'. $rs["nome"]. '",'; 
+        $outp .= '"titolo":"'. htmlentities(utf8_encode($rs["nome"]), 0, "UTF-8") . '",'; 
         $outp .= '"descrizione":"'. htmlentities(utf8_encode($rs["descrizione"]), 0, "UTF-8") .'",';
         if($num = $num_faq->fetch_array(MYSQLI_ASSOC))
             $outp .= '"numfaq":"'. $num['contatore'] .'",';

@@ -68,17 +68,17 @@ function printMenuSecondario(id, categoria)
         menu +='<div class="col-md-2 col-sm-4">';
     menu +='<a href="specifichedevice.html?id='+id+'">Caratteristiche</a></div>';
     
-    if(location.pathname == "/tim/device/recensionedispositivo.html")
+    if(location.pathname == "/tim/device/recensionedevice.html")
         menu +='<div class="col-md-2 col-sm-4 current-link">';
     else
         menu +='<div class="col-md-2 col-sm-4">';
-    menu +='<a href="recensionedispositivo.html?id='+ id +'">Recensioni</a>'+
+    menu +='<a href="recensionedevice.html?id='+ id +'">Recensioni</a>'+
         '</div>';
-    if(location.pathname == "/tim/device/asdispositivi.html")
+    if(location.pathname == "/tim/device/asdevice.html")
         menu +='<div class="col-md-3 col-sm-4 current-link">';
     else
         menu +='<div class="col-md-3 col-sm-4">';
-    menu +='<a href="asdispositivi.html?id='+ id +'&cat='+ categoria +'">Assistenza Tecnica</a></div>';
+    menu +='<a href="asdevice.html?id='+ id +'&cat='+ categoria +'">Assistenza Tecnica</a></div>';
     menu +='</div>';
     return menu;
 }

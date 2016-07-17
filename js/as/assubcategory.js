@@ -7,7 +7,7 @@
             var result = captured ? captured : 'id';
             var id = result;
             var xmlhttp = new XMLHttpRequest();
-            var url = "http://guidoantoniomatteo.altervista.org/components/as/getSubCategory.php?id=" + id;
+            var url = "http://guidoantoniomatteo.altervista.org/tim/components/as/getSubCategory.php?id=" + id;
             
             xmlhttp.onreadystatechange=function() 
             {
@@ -19,6 +19,11 @@
             
             function myFunction(response) 
             {
+                var url = location.href;
+                var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+                var result = captured ? captured : 'id';
+                var id = result;
+                
                 var arr = JSON.parse(response);
                 var i;
                                 
@@ -26,33 +31,33 @@
                 
                 for(i = 0; i < arr.length; i++) 
                 {
-                    out += "<div class=\"row grey-bar\">"+
-                                "<div class=\"col-md-12\">" +
-                                    "<a data-toggle=\"collapse\" href=\"#"+ arr[i].id +"\">" + arr[i].titolo + "</a>"+
+                    if(id!=0)
+                        out += "<div class=\"row grey-bar\">"+
+                                    "<div class=\"col-md-12\">" +
+                                        "<a data-toggle=\"collapse\" href=\"#"+ arr[i].id +"\">" + arr[i].titolo + "</a>"+
+                                    "</div>"+
                                 "</div>"+
-                            "</div>"+
-                            "<div class=\"row collapse\" id=\"" + arr[i].id+ "\"></div>";
+                                "<div class=\"row collapse as-last\" id=\"" + arr[i].id+ "\"></div>";
+                    else
+                        out += "<div class=\"row as-last\" id=\"" + arr[i].id+ "\"></div>";
                 }
                 
                 document.getElementById("sottocategorie").innerHTML = out;
-                
-                var url = location.href;
-                var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
-                var result = captured ? captured : 'id';
-                var id = result;
+            
                 var assingle = new XMLHttpRequest();
+                
                 if(id==0)
-                    document.getElementById("titolocategoria").innerHTML = "<h1 class=\"titolorosso\">In Evidenza</h1>";
+                    document.getElementById("titolocategoria").innerHTML = "<h1 class=\"titolorosso\">Domande frequenti:</h1>";
                 else
                     document.getElementById("titolocategoria").innerHTML = "<h1 class=\"titolorosso\">" + arr[0].catnome + "</h1>";
-                    var getastitle = "http://guidoantoniomatteo.altervista.org/components/as/getAsTitle.php?id=" +id;
+                
+                var getastitle = "http://guidoantoniomatteo.altervista.org/tim/components/as/getAsTitle.php?id=" +id;
                 assingle.open("GET", getastitle, true);
                 assingle.send();
-                
                 assingle.onreadystatechange=function() 
                 {
-                if (assingle.readyState == 4 && assingle.status == 200)
-                    stampaassingole(assingle.responseText);
+                    if (assingle.readyState == 4 && assingle.status == 200)
+                        stampaassingole(assingle.responseText);
                 }
             }
             
