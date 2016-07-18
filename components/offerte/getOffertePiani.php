@@ -17,7 +17,7 @@
 
         $result = $conn->query("SELECT nome, pianotariffario.descrizione AS descrizionepiano, pianotariffario.prezzoscontato AS prezzo, pianotariffario.attivazionesconto AS descrizioneattivazione FROM pianotariffario WHERE prezzoscontato IS NOT NULL LIMIT 2");
     } else  {
-        $result = $conn->query("SELECT nome, pianotariffario.descrizione AS descrizionepiano, pianotariffario.prezzoscontato AS prezzo, pianotariffario.attivazionesconto AS descrizioneattivazione FROM pianotariffario WHERE prezzoscontato IS NOT NULL AND categoria = "id"");
+        $result = $conn->query("SELECT id, categoria, nome, pianotariffario.descrizione AS descrizionepiano, pianotariffario.prezzoscontato AS prezzo, pianotariffario.attivazionesconto AS descrizioneattivazione FROM pianotariffario WHERE prezzoscontato IS NOT NULL AND categoria = $id");
     }
 
 
@@ -28,6 +28,8 @@
             $outp .= ",";
         $outp .= '{"nome":"'. $rs["nome"]. '",';
         $outp .= '"descrizionepiano":"'. htmlentities(utf8_encode($rs["descrizionepiano"]), 0, "UTF-8"). '",';
+        $outp .= '"id":"'. $rs["id"]. '",';
+        $outp .= '"categoria":"'. $rs["categoria"]. '",';
         $outp .= '"prezzo":"'. $rs["prezzo"]. '",';
         $outp .= '"descrizioneattivazione":"'. htmlentities(utf8_encode($rs["descrizioneattivazione"]), 0, "UTF-8"). '"}';
     }

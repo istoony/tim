@@ -54,7 +54,7 @@
                 var out="";
 
                 for(i = 0; i < arr.length; i++) {
-                    out+='<div class="row father-center marginforrow" style="background-color:#F0F0F0"><div class="col-md-2 nopaddingfull nomarginfull child-center"><img  src="' + arr[i].foto + '" style=""alt = "' + arr[i].descrizione + '"></div><div class="col-md-2 child-center nomarginLR nopadding"><h3 class="description-blu text-bold">' + arr[i].descrizione + '</h3></div><div id=' + arr[i].id + ' ></div><div class="col-md-1 child-center"><a href=""><img class="img-responsive child-center" src="img/offerte/next.png" alt="freccia tim"></a></div></div>';
+                    out+='<div class="row father-center marginforrow" style="background-color:#F0F0F0"><div class="col-md-2 nopaddingfull nomarginfull child-center"><img class="resize"  src="' + arr[i].foto + '" style=""alt = "' + arr[i].descrizione + '"></div><div class="col-md-2 child-center nomarginLR nopadding center-block"><h3 class="description-blu text-bold text-center">' + arr[i].descrizione + '</h3></div><div class="center-block" id=' + arr[i].id + ' ></div><div class="col-md-1 child-center"><a href="http://guidoantoniomatteo.altervista.org/tim/offerte/offerte'+ arr[i].id +'.html"><img class="img-responsive child-center arrowpromotion" src="img/offerte/next.png" alt="freccia tim"></a></div></div>';
                 }
                 document.getElementById("id01").innerHTML = out;
 
@@ -75,6 +75,15 @@
                 }
                 offerteDispositivi.open("GET", dispositivi, true);
                 offerteDispositivi.send();
+
+                var offerteSL = new XMLHttpRequest();
+                var smartlife = "http://guidoantoniomatteo.altervista.org/components/offerte/getOfferteSL.php?id=" + id;
+                offerteSL.onreadystatechange = function () {
+                if (offerteSL.readyState == 4 && offerteSL.status == 200)
+                    getOfferteSL(offerteSL.responseText);
+                }
+                offerteSL.open("GET", smartlife, true);
+                offerteSL.send();
 
 
             }
@@ -103,6 +112,18 @@
                 out+= '<div class="col-md-3 nomarginfull promotiontile"><img class="img-responsive devicesize center-block" src="' + arr[i].path + '" alt="' + arr[i].nome +'"><h2 class="nomargintop">' + arr[i].nome + '</h2><h1 class="nomargintop description-red">' + arr[i].prezzoscontato + '</h1> </div>';
             }
             document.getElementById(3).innerHTML = out;
+            }
+
+
+            function getOfferteSL(response) {
+            var arr = JSON.parse(response);
+            var i;
+            var out = "";
+            for(i = 0; i < arr.length; i++)
+            {
+                out+= '<div class="col-md-3 nomarginfull promotiontile"><div class="promotionbox3" ><img class="img-responsive SLsize" src="http://guidoantoniomatteo.altervista.org/tim/img/smart-life/single-SL/' + arr[i].id + '/logo.png" alt="' + arr[i].nome +'"><h2 class="description-black text-bold">' + arr[i].nome + '</h2><h1 class="nomargintop description-red">' + arr[i].prezzoscontato + '</h1><p class="description description-black text-lighter">' + arr[i].attivazionescontato + '</p></div></div>';
+            }
+            document.getElementById(2).innerHTML = out;
             }
 
         </script>
@@ -205,16 +226,6 @@
                     <div id="id01"></div>
                 </div>
             </div>
-                <div class="col-md-12">
-                    <div class="col-md-3">
-                        <div class="promotiontile">
-
-                            <div class="promotionbox3" >2</div>
-
-                        </div>
-                    </div>
-                </div>
-
 		</div>
 
 		<div id="footer" class="row middle-align"><!--

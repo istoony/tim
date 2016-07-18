@@ -22,8 +22,8 @@
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/menu.css">
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/style.css">
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/standardimport.css">
-<link rel="stylesheet" type="text/css" href="css/innovazione.css">
-<link rel="stylesheet" type="text/css" href="css/guido.css">
+<link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/innovazione.css">
+<link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/guido.css">
 
 
     <script>
@@ -44,37 +44,44 @@
             var arr = JSON.parse(response);
             var i;
             var out="";
-
+            var idcategoria =1;
             for(i = 0; i < arr.length; i++) {
-                out+='<div class="row father-center marginforrow" style="background-color:#F0F0F0"><div class="col-md-2 child-center nomarginLR nopadding"><h3 class="description-blu text-bold">' + arr[i].nome + '</h3></div><div id=' + arr[i].id + ' ></div><div class="col-md-1 child-center"></div></div>';
+
+                if(idcategoria != arr[i].id){
+                    alert("categoria:")
+                    alert(idcategoria);
+                    var offertePiani = new XMLHttpRequest();
+                    var piani = "http://guidoantoniomatteo.altervista.org/components/offerte/getOffertePiani.php?id=" + idcategoria;
+                    offertePiani.onreadystatechange = function () {
+                    if (offertePiani.readyState == 4 && offertePiani.status == 200)
+                        getOffertePiani(offertePiani.responseText, idcategoria);
+                    }
+                    offertePiani.open("GET", piani, true);
+                    offertePiani.send();
+                    idcategoria=arr[i].id;
+                }
+                out+='<div class="row father-center marginforrow" style="background-color:#F0F0F0"><div class="col-md-1 child-center nomarginLR nopadding"><h3 class="description-blu text-bold text-center">' + arr[i].nome + '</h3></div><div id=' + idcategoria + ' ></div><div class="col-md-1 child-center"></div></div>';
+
             }
             document.getElementById("id01").innerHTML = out;
-
-            var id=0;
-            var offertePiani = new XMLHttpRequest();
-            var piani = "http://guidoantoniomatteo.altervista.org/components/offerte/getOffertePiani.php?id=" + id;
-            offertePiani.onreadystatechange = function () {
-            if (offertePiani.readyState == 4 && offertePiani.status == 200)
-                getOffertePiani(offertePiani.responseText);
-            }
-            offertePiani.open("GET", piani, true);
-            offertePiani.send();
-
         }
 
 
 
 
 
-        function getOffertePiani(response) {
+        function getOffertePiani(response, idcategoria) {
             var arr = JSON.parse(response);
             var i;
             var out = "";
             for(i = 0; i < arr.length; i++)  {
 
-                out+= '<div class="col-md-3 nomarginfull promotiontile"><div class="promotionbox1" ><h3 class="description-white text-bold">' + arr[i].nome + '</h3><p class="description description-white text-lighter">' + arr[i].descrizionepiano + '</p></div><div class="promotionbox2" ></br><h1 class="description-red">' + arr[i].prezzo + '</h1><p class="description description-black">' + arr[i].descrizioneattivazione + '</p></div></div>'
+                out+= '<div class="col-md-3 nomarginfull promotiontile"><div class="promotionbox1" ><h3 class="description-white text-bold text">' + arr[i].nome + '</h3><p class="description description-white text-lighter">' + arr[i].descrizionepiano + '</p></div><div class="promotionbox2" ></br><h1 class="description-red">' + arr[i].prezzo + '</h1><p class="description description-black">' + arr[i].descrizioneattivazione + '</p></div></div>';
             }
-            document.getElementById(1).innerHTML = out;
+            alert("alert:");
+            alert(idcategoria);
+            document.getElementById(idcategoria).innerHTML = out;
+
         }
 
 
@@ -96,7 +103,7 @@
 				<div class="row marginforrow">
                     <div class="col-md-12 ">
 
-                        <img class=" img-responsive" src="img/offerte/piani/presentazione.jpg" style="width:100%;" alt="offerte piani tim">
+                        <img class=" img-responsive" src="http://guidoantoniomatteo.altervista.org/tim/img/offerte/piani/presentazione.jpg" style="width:100%;" alt="offerte piani tim">
                         <div class="row">
                             <div class="col-md-6 inner-presentation">
                                 <div>
