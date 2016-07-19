@@ -51,7 +51,7 @@ $( document ).ready(function() {
 		
 		$.each(result, function(index, element) {
 			
-			var link = 'http://guidoantoniomatteo.altervista.org/tim/smart-life/single-smart-life.html?id=' + element.id;
+			var link = 'smart-life-single.html?id=' + element.id;
 			var imgSrc = "http://guidoantoniomatteo.altervista.org/tim/img/smart-life/" + element.categoria +'/'+ element.sottocategoria + '/' + element.fotoprincipale; 
 			
 			

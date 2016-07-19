@@ -14,7 +14,7 @@
 						<div class="row">
 							<a class="col-lg-2" href="pianimaincategory.html">Piani</a>
 							<a class="col-lg-2" href="offerte.html?id=0">Offerte</a>
-							<a class="col-lg-3" href="main-categories.html">Smart Life</a>
+							<a class="col-lg-3" href="smart-life-main-categories.html">Smart Life</a>
 							<a class="col-lg-3" href="main-categories.html">Dispositivi</a> 
 							<a class="col-lg-2" href="asmaincategory.html">Assistenza</a>
 						</div>
@@ -56,7 +56,7 @@
 					<div>
 						<a href="pianimaincategory.html">PIANI</a>
 						<a href="offerte.html?id=0">OFFERTE</a>
-						<a href="main-categories.html">SMART LIFE</a>
+						<a href="smart-life-main-categories.html">SMART LIFE</a>
 						<a href="main-categories.html">DISPOSITIVI</a>
 						<a href="asmaincategory.html">ASSISTENZA</a>
 					</div>

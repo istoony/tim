@@ -7,6 +7,8 @@ var htmlSpotFaq;
 var htmlSpotRegole;
 var htmlMorePhotos;
 
+var htmlCompatibili;
+
 $(document).ready(function(){
 	
 	//GET ID
@@ -88,13 +90,31 @@ $(document).ready(function(){
 		htmlDescrizione = '<div>' + smartLife.descrizione + '</div>';		
 		$("#informazioni-content div").replaceWith(htmlDescrizione);
 		
+		//LOAD COMPATIBILI
+		$.ajax({
+			url: "http://guidoantoniomatteo.altervista.org/tim/components/smart-life/query.php?request=deviceCompatibili&id="+smartLife.id, 
+			dataType: "json",
+			success: function(result){		
+				if( result.length > 0) { 
+					htmlCompatibili = '<div id="related-smartphones" class="col-sm-4 cols-xs-12>">' +
+						'<a href="device-compatibili.html?id='+smartLife.id+'"><h3>Dispositivi</br>Compatibili</h3></a>' +
+					'</div>';
+				} 
+				else {
+					htmlCompatibili = '<div id="related-smartphones" class="col-sm-4 cols-xs-12>">' +
+						'<h3></h3>' +
+					'</div>';
+				}
+			}
+		});
+		
 		//LOAD PREV LINK
 		$.ajax({
 			url: "http://guidoantoniomatteo.altervista.org/tim/components/smart-life/query.php?request=singleSmartLifePrev&id="+id, 
 			dataType: "json",
 			success: function(result){
 				element = result[0];
-				var href = 'http://guidoantoniomatteo.altervista.org/tim/smart-life/single-smart-life.html?id=' + element.id;
+				var href = 'smart-life-single.html?id=' + element.id;
 				$("#prev-link").attr("href", href);
 			}
 		});
@@ -105,7 +125,7 @@ $(document).ready(function(){
 			dataType: "json",
 			success: function(result){
 				element = result[0];
-				var href = 'http://guidoantoniomatteo.altervista.org/tim/smart-life/single-smart-life.html?id=' + element.id;
+				var href = 'smart-life-single.html?id=' + element.id;
 				$("#next-link").attr("href", href);
 			}
 		});
@@ -203,7 +223,7 @@ $(document).ready(function(){
 				var i = 0;
 				
 				$.each(result, function(index, element) {
-					var link = 'http://guidoantoniomatteo.altervista.org/tim/piani/piano.html?id='+element.id;
+					var link = 'piano.html?id='+element.id;
 					html +=
 						'<div class="col-xs-6"><a href="'+ link + '">'+
 					    	'<img src="'+element.foto+'"/>'+
@@ -214,9 +234,7 @@ $(document).ready(function(){
 
 				html += '</div></div>';
 				
-				html += '<div id="related-smartphones" class="col-sm-4 cols-xs-12>">' +
-						'<h3>Dispositivi</br>Compatibili</h3>' +
-					'</div>';
+				html += htmlCompatibili;
 				
 
 				$("#related-content").append(html);

@@ -35,10 +35,10 @@ $( document ).ready(function() {
 			var link;
 			
 			if(element.idsmartlife == -1)
-				link = 'http://guidoantoniomatteo.altervista.org/tim/smart-life/selected-subcategory.html?mainCategory=' + mainCategory + "&subCategory=" + element.id;
+				link = 'smart-life-selected-subcategory.html?mainCategory=' + mainCategory + "&subCategory=" + element.id;
 			
 			else
-				link = 'http://guidoantoniomatteo.altervista.org/tim/smart-life/single-smart-life.html?id='+element.idsmartlife;
+				link = 'smart-life-single.html?id='+element.idsmartlife;
 			
 			if(i % 2 == 0) {
 				html += '<a href="' + link + '">' +
@@ -86,7 +86,7 @@ $( document ).ready(function() {
 		
 		$.each(result, function(index, element) {
 			
-			var link = 'http://guidoantoniomatteo.altervista.org/tim/smart-life/single-smart-life.html?id='+element.id;
+			var link = 'smart-life-single.html?id='+element.id;
 			
 			if(i % 2 == 0) {
 				html += '<a href="' + link + '">' +

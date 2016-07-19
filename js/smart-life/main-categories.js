@@ -15,7 +15,7 @@ $( document ).ready(function() {
 		
 		$.each(result, function(index, element) {		
 			
-			var link = 'http://guidoantoniomatteo.altervista.org/tim/smart-life/sub-categories.html?mainCategory=' + element.id;
+			var link = 'smart-life-sub-categories.html?mainCategory=' + element.id;
 			
 			myHtml += 
 				'<div class="col-xs-3"><div><h3>' + 
