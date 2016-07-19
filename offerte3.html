@@ -22,8 +22,8 @@
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/menu.css">
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/style.css">
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/standardimport.css">
-<link rel="stylesheet" type="text/css" href="css/innovazione.css">
-<link rel="stylesheet" type="text/css" href="css/guido.css">
+<link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/innovazione.css">
+<link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/guido.css">
 
 </head>
 
@@ -44,7 +44,7 @@
             var i;
             var out = "";
             for(i = 0; i < arr.length; i++){
-                out+= '<div class="col-md-3 promotiontile center-block"><img class="img-responsive devicesize center-block" src="' + arr[i].path + '" alt="' + arr[i].nome +'"><h2 class="nomargintop">' + arr[i].nome + '</h2><h1 class="nomargintop description-red">' + arr[i].prezzoscontato + '</h1> </div>';
+                out+= '<div class="col-md-3 promotiontile center-block"><a href="http://guidoantoniomatteo.altervista.org/tim/device/singolodevice.html?id='+ arr[i].dispositivo +'"><img class="img-responsive devicesize center-block" src="' + arr[i].path + '" alt="' + arr[i].nome +'"><h2 class="nomargintop">' + arr[i].nome + '</h2><h1 class="nomargintop description-red">' + arr[i].prezzoscontato + '</h1> </a></div>';
             }
             document.getElementById(1).innerHTML = out;
         }
@@ -67,7 +67,7 @@
                 <div class="row marginforrow">
                     <div class="col-md-12 ">
 
-                        <img class=" img-responsive" src="img/offerte/dispositivi/presentazione.jpg" alt="offerte dispositivi tim">
+                        <img class=" img-responsive" src="http://guidoantoniomatteo.altervista.org/tim/img/offerte/dispositivi/presentazione.jpg" alt="offerte dispositivi tim">
                         <div class="row">
                             <div class="col-md-6 inner-presentation">
                                 <div>
