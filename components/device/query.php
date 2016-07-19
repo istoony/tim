@@ -16,12 +16,35 @@
     switch ($request) {
     	case "deviceMainCategories":
     		$query = 'SELECT * FROM categoriedevice';
-    		break;   		
+    		break;
+    	case "deviceSingleCategory":
+    		$id = $_GET['id'];
+    		$query = 'SELECT * FROM categoriedevice WHERE id='.$id;
+    		break;    		
     	case "deviceOfCategory":
-    		echo $query;
     		$id = $_GET['id'];
     		$query = 'SELECT * FROM dispositivo WHERE id_categoria='.$id;
     		break;
+    	case "deviceBrand":
+    		$query = 'SELECT DISTINCT marcadispositivo.* FROM marcadispositivo, dispositivo WHERE marcadispositivo.id = dispositivo.id_marca ORDER BY marcadispositivo.nome';
+    		break; 
+    	case "deviceDisplay":
+    		$query = 'SELECT DISTINCT dispositivo.display FROM dispositivo ORDER BY dispositivo.display';
+    		break;
+    	case "getDevices":
+    		$display = '%';
+    		$brand = '%';
+    		if(isset($_GET['display']) & strcmp($_GET['display'],"")) 
+    			$display = $_GET['display'];
+    		if(isset($_GET['brand']) & strcmp($_GET['display'],"")) 
+    			$brand = $_GET['brand'];
+    		$query = 'SELECT dispositivo.id, dispositivo.nome, dispositivofoto.path, marcadispositivo.nome AS marca  FROM dispositivo, marcadispositivo, dispositivofoto WHERE id_marca LIKE "'.$brand.'" AND display LIKE "'.$display.'" AND marcadispositivo.id = dispositivo.id_marca AND dispositivofoto.id_dispositivo = dispositivo.id GROUP BY dispositivo.id';
+    		break;
+    	case "getDevicesCompatibili":
+    		$id = $_GET['id'];
+    		$query = 'SELECT dispositivo.id, dispositivo.nome, dispositivofoto.path, marcadispositivo.nome AS marca  FROM dispositivo, marcadispositivo, dispositivofoto, smartlifedispositivi WHERE smartlifedispositivi.idsmartlife='.$id.' AND smartlifedispositivi.iddispositivo=dispositivo.id  GROUP BY dispositivo.id';
+    		break;
+    		
     }
         
     $result = $conn->query($query);

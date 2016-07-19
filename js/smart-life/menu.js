@@ -24,14 +24,14 @@ function jsonMainMenuToHtml(result, idHtmlTag, idCurrentCategory) {
 				'<div class="col-xs-3"> </div>'+
 				'<div class="col-xs-6"><a href="">SMART LIFE</a></div>'+
 				'<div class="col-xs-3">'+
-					'<img src="../img/menu-mobile-closed-white.png" class="menu-closed"/>'+
-					'<img src="../img/menu-mobile-open-white.png" class="menu-open"/>'+
+					'<img src="http://guidoantoniomatteo.altervista.org/tim/img/menu-mobile-closed-white.png" class="menu-closed"/>'+
+					'<img src="http://guidoantoniomatteo.altervista.org/tim/img/menu-mobile-open-white.png" class="menu-open"/>'+
 				'</div>'+
 			'</div>';
 	
 	$.each(result, function(index, element) {	
 
-		var link = 'http://guidoantoniomatteo.altervista.org/tim/smart-life/sub-categories.html?mainCategory=' + element.id;
+		var link = 'smart-life-sub-categories.html?mainCategory=' + element.id;
 		
 		if(element.id == idCurrentCategory) {
 			myHtml +=
@@ -82,8 +82,8 @@ function jsonSubMenuToHtml(result, idHtmlTag, idCurrentCategory) {
 				'<div class="col-xs-3"> </div>'+
 				'<div class="col-xs-6"><a href="">TV & FUN</a></div>'+
 				'<div class="col-xs-3">'+
-					'<img src="../img/menu-mobile-closed-white.png" class="menu-closed"/>'+
-					'<img src="../img/menu-mobile-open-white.png" class="menu-open"/>'+
+					'<img src="http://guidoantoniomatteo.altervista.org/tim/img/menu-mobile-closed-white.png" class="menu-closed"/>'+
+					'<img src="http://guidoantoniomatteo.altervista.org/tim/img/menu-mobile-open-white.png" class="menu-open"/>'+
 				'</div>'+
 			'</div>';
 	
@@ -92,9 +92,9 @@ function jsonSubMenuToHtml(result, idHtmlTag, idCurrentCategory) {
 		var link;
 		
 		if(element.idsmartlife == -1)
-			link = 'http://guidoantoniomatteo.altervista.org/tim/smart-life/selected-subcategory.html?mainCategory='+element.categoria+'&subCategory=' + element.id;
+			link = 'smart-life-selected-subcategory.html?mainCategory='+element.categoria+'&subCategory=' + element.id;
 		else
-			link = 'http://guidoantoniomatteo.altervista.org/tim/smart-life/single-smart-life.html?id=' + element.idsmartlife;
+			link = 'smart-life-single.html?id=' + element.idsmartlife;
 		
 		var lenght;
 		

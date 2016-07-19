@@ -56,7 +56,10 @@
     		$id = $_GET['id'];
     		$query = "SELECT * FROM smartlifefotoulteriori WHERE idsmartlife = ".$id;
     		break;
-    		
+    	case "deviceCompatibili":
+    		$id = $_GET['id'];
+    		$query = "SELECT * FROM smartlifedispositivi WHERE iddispositivo=".$id;
+    		break;
     }
         
     $result = $conn->query($query);
