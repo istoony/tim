@@ -14,7 +14,7 @@ function printPrezzo(prezzo, prezzoscontato)
 function printCorrelati(id)
 {    
     var xmlhttp = new XMLHttpRequest();
-    var url = "http://guidoantoniomatteo.altervista.org/components/device/getSingoloDeviceCorrelati.php?id=" + id;
+    var url = "http://guidoantoniomatteo.altervista.org/tim/components/device/getSingoloDeviceCorrelati.php?id=" + id;
      xmlhttp.onreadystatechange=function() 
     {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)

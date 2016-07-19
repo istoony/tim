@@ -1,6 +1,6 @@
 $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js', function() { 
     var xmlhttp = new XMLHttpRequest();
-    var url = "http://guidoantoniomatteo.altervista.org/components/piani/getMainCategoryPiani.php";
+    var url = "http://guidoantoniomatteo.altervista.org/tim/components/piani/getMainCategoryPiani.php";
 
     xmlhttp.onreadystatechange=function() 
     {
