@@ -14,12 +14,11 @@
         return;
 
     if($id == 0){
-
-        $result = $conn->query("SELECT dispositivo.id AS dispositivo, nome, path, prezzoscontato FROM dispositivo, dispositivofoto WHERE prezzoscontato IS NOT NULL AND dispositivo.id = dispositivofoto.id_dispositivo GROUP BY dispositivo.id");
+        $result = $conn->query("SELECT dispositivo.id AS dispositivo, nome, path, prezzoscontato FROM dispositivo, dispositivofoto WHERE prezzoscontato IS NOT NULL AND dispositivo.id = dispositivofoto.id_dispositivo GROUP BY dispositivo.id LIMIT 2");
     } else if(id==-1) {
         $result = $conn->query("SELECT dispositivo.id AS dispositivo, nome, path, prezzoscontato FROM dispositivo, dispositivofoto WHERE prezzoscontato IS NOT NULL AND dispositivo.id = dispositivofoto.id_dispositivo GROUP BY dispositivo.id LIMIT 3");
     } else  {
-        $result = $conn->query("SELECT dispositivo.id AS dispositivo, nome, path, prezzoscontato FROM dispositivo, dispositivofoto WHERE prezzoscontato IS NOT NULL AND dispositivo.id = dispositivofoto.id_dispositivo GROUP BY dispositivo.id LIMIT 2");
+        $result = $conn->query("SELECT dispositivo.id AS dispositivo, nome, path, prezzoscontato FROM dispositivo, dispositivofoto WHERE prezzoscontato IS NOT NULL AND dispositivo.id = dispositivofoto.id_dispositivo GROUP BY dispositivo.id ");
     }
 
 
