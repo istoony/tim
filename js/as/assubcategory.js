@@ -76,7 +76,7 @@
                         id = arr[i].sottocategoria;
                     }
                     out += "<div class=\"col-md-12\">" +
-                                "<a href=\"http://guidoantoniomatteo.altervista.org/tim/as/assingola.html?id=" + arr[i].id +"\">" + arr[i].titolo + "</a>";
+                                "<a href=\"assingola.html?id=" + arr[i].id +"\">" + arr[i].titolo + "</a>";
                     out += "</div>";
                 }
                 document.getElementById(arr[i - 1].sottocategoria).innerHTML = out;  
