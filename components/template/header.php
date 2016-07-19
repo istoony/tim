@@ -4,7 +4,7 @@
     <div id="top-large" class="row hidden-xs">
 
 			<div id="logo-large" class="col-lg-2">
-				<img src="http://guidoantoniomatteo.altervista.org/tim/img/logo.png" />
+				<img id="link-home" src="http://guidoantoniomatteo.altervista.org/tim/img/logo.png" />
 			</div>
 
 			<div class="col-lg-10" >
@@ -12,11 +12,11 @@
 
 					<div class="col-lg-7 left">
 						<div class="row">
-							<a class="col-lg-2" href="pianimaincategory.html">Piani</a>
-							<a class="col-lg-2" href="offerte.html?id=0">Offerte</a>
-							<a class="col-lg-3" href="smart-life-main-categories.html">Smart Life</a>
-							<a class="col-lg-3" href="main-categories.html">Dispositivi</a> 
-							<a class="col-lg-2" href="asmaincategory.html">Assistenza</a>
+							<a class="col-lg-2" id="link-piani" href="pianimaincategory.html">Piani</a>
+							<a class="col-lg-2" id="link-offerte" href="offerte.html?id=0">Offerte</a>
+							<a class="col-lg-3" id="link-smartlife" href="smart-life-main-categories.html">Smart Life</a>
+							<a class="col-lg-3" id="link-dispositivi" href="main-categories.html">Dispositivi</a> 
+							<a class="col-lg-2" id="link-assistenza" href="asmaincategory.html">Assistenza</a>
 						</div>
 					</div>
 

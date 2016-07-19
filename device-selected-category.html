@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Page Title</title>
+<title>Dispositivi</title>
 
 <!-- Bootstrap: Latest compiled and minified CSS -->
 <link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -18,13 +18,15 @@
 <script src="http://guidoantoniomatteo.altervista.org/tim/js/menu.js"></script>
 <script src="http://guidoantoniomatteo.altervista.org/tim/js/small-menu.js"></script>
 <script src="http://guidoantoniomatteo.altervista.org/tim/js/template.js"></script>
-<script src="http://guidoantoniomatteo.altervista.org/tim/js/device/main-categories.js"></script>
+<script src="http://guidoantoniomatteo.altervista.org/tim/js/device/selected-category.js"></script>
 
 <!-- website CSS -->
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/menu.css">
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/style.css">
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/standardimport.css">
-<link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/device/main-categories.css">
+<link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/device/selected-category.css">
+<link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/antonio.css">
+
 
 </head>
 
@@ -35,21 +37,31 @@
 		<div id="header"></div>
 
 		<div id="content" class="row">
-		
-			<div class="col-md-12 hidden-xs" id="main-image">
-				<span><h3>DISPOSITIVI</h3>
-				Il meglio della tecnologia<br/>a tua disposizione</span>
-			</div>
-		
 			<div class="col-xs-12">
 				
-				<div id="main-categories" class="row">
+				<div id="main-image" class="row">
+					<div id="main-text" class="col-xs-6"></div>
 				</div>
 				
-				<div id="outlet" class="row">
-					<a href="">
-					<span><h3>VISITA IL NOSTRO OUTLET</h3>Scopri i nuovi prezzi</span>
-					</a>
+				<div id="devices-view" class="row">
+					
+					<div id="devices-menu" class="col-md-3 col-xs-12">
+						<div>
+							<span>Brand</span>
+							<div id="devices-brand"> 
+							</div>
+						</div>
+						<div>
+							<span>Display</span>
+							<div id="devices-display"> 
+							</div>
+						</div>
+					
+					</div>
+					
+					<div id="devices-list" class="col-md-9 col-xs-12">
+					</div>
+					
 				</div>
 				
 			</div>

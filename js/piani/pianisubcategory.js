@@ -6,7 +6,7 @@ $( document ).ready(function() {
     var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
     var result = captured ? captured : 'id';
     var id = result;
-    var url = "http://guidoantoniomatteo.altervista.org/components/piani/getPianiByCategory.php?id=" + id;
+    var url = "http://guidoantoniomatteo.altervista.org/tim/components/piani/getPianiByCategory.php?id=" + id;
     
     printPlansMainCat();
     

@@ -46,6 +46,10 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
 
     function myFunction(response) 
     {
+        var url = location.href;
+        var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+        var result = captured ? captured : 'id';
+        var id = result;
         var arr = JSON.parse(response);
         var i;
                 
@@ -53,7 +57,7 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
         $("#caratteristiche").html('<p>' +  decodeHTMLEntities(arr[0].descrizione) + '</p>');
         $("#prezzo").html(printPrezzo(arr[0].prezzo, arr[0].prezzoscontato));
         $("#menu-device").html(printMenuSecondario(id, arr[0].id_categoria));
-        $("#deviceplans").html('<a href="http://guidoantoniomatteo.altervista.org/tim/device/deviceplans.html?id='+ id +'&cat='+ arr[0].id_categoria +'">'+
+        $("#deviceplans").html('<a href="deviceplans.html?id='+ id +'&cat='+ arr[0].id_categoria +'">'+
                         '<h3>Acquista con un piano</h3>'+
                     '</a>');
     }

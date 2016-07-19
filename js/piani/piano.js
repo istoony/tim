@@ -8,7 +8,7 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
             var result = captured ? captured : 'id';
             var id = result;
             var xmlhttp = new XMLHttpRequest();
-        var url = "http://guidoantoniomatteo.altervista.org/components/piani/getSingoloPiano.php?id="+ id;
+            var url = "http://guidoantoniomatteo.altervista.org/tim/components/piani/getSingoloPiano.php?id="+ id;
                 
             xmlhttp.onreadystatechange=function() 
             {

@@ -27,7 +27,7 @@ $( document ).ready(function() {
 				myHtml += '<input type="checkbox" name="brand" value="'+element.id+'"/>'+element.nome+'<br/>';
 			});
 			
-			$("#devices-brand").append(myHtml); 
+			$("#devices-brand").html(myHtml); 
 			
 			setCheckbox("#devices-brand");
 		}
@@ -134,7 +134,7 @@ function updateQuery() {
                   '</div>';
 			});
             myHtml += '</div>';
-            $("#devices-list").append(myHtml); 
+            $("#devices-list").html(myHtml); 
 		}
 	});
 	

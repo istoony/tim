@@ -28,14 +28,19 @@ function deviceplans(response)
         var arr = JSON.parse(response);
         var i = 0; 
         var out = "";
-        $("#titolo-device").html(arr[0].marca +' - '+ arr[0].nomedevice)
-        for(i=0; i<arr.length;i++)
+        if(arr.length != 0)
         {
-            out +='<div class="row">';
-            out += createPlansInformation(arr[i]);
-            out +='</div>';
-            out +='<div class="row"><div class="col-md-12" style="height: 30px;"></div></div>';
+            $("#titolo-device").html(arr[0].marca +' - '+ arr[0].nomedevice)
+            for(i=0; i<arr.length;i++)
+            {
+                out +='<div class="row">';
+                out += createPlansInformation(arr[i]);
+                out +='</div>';
+                out +='<div class="row"><div class="col-md-12" style="height: 30px;"></div></div>';
+            }
+            $("#plans-information").html(out);
         }
-        $("#plans-information").html(out);
+        else
+            $("#titolo-device").html("Nessun piano disponibile")
 
 }

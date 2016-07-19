@@ -15,7 +15,7 @@ function decodeHTMLEntities(text)
 function printMainCat()
 {
     var maincategory = new XMLHttpRequest();
-    var main = "http://guidoantoniomatteo.altervista.org/components/as/getMainCategory.php";
+    var main = "http://guidoantoniomatteo.altervista.org/tim/components/as/getMainCategory.php";
     maincategory.onreadystatechange=function() 
     {
         if (maincategory.readyState == 4 && maincategory.status == 200)
@@ -49,7 +49,7 @@ function maincat(response)
 function printSecondCatAs(id)
 {
     var maincategory = new XMLHttpRequest();
-    var main = "http://guidoantoniomatteo.altervista.org/components/as/getSecondCat.php?id="+ id;
+    var main = "http://guidoantoniomatteo.altervista.org/tim/components/as/getSecondCat.php?id="+ id;
     maincategory.onreadystatechange=function() 
     {
         if (maincategory.readyState == 4 && maincategory.status == 200)
@@ -84,7 +84,7 @@ function secondMenuAs(response)
 function printPlansMainCat()
 {
     var maincategory = new XMLHttpRequest();
-    var main = "http://guidoantoniomatteo.altervista.org/components/piani/getMainCategoryPiani.php";
+    var main = "http://guidoantoniomatteo.altervista.org/tim/components/piani/getMainCategoryPiani.php";
     maincategory.onreadystatechange=function() 
     {
         if (maincategory.readyState == 4 && maincategory.status == 200)
@@ -176,7 +176,7 @@ var out ='<div class="col-md-12">'+
 function printAsAssociati(parametro, id)
 {
     var maincategory = new XMLHttpRequest();
-    var main = "http://guidoantoniomatteo.altervista.org/components/as/getAsAssociati.php";
+    var main = "http://guidoantoniomatteo.altervista.org/tim/components/as/getAsAssociati.php";
     maincategory.onreadystatechange=function() 
     {
         if (maincategory.readyState == 4 && maincategory.status == 200)
