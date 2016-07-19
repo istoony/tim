@@ -360,3 +360,8 @@ div.middle-align-block { /*used to vertically center all the contents in the foo
 
     text-align: center;
 }
+
+.background-blu{
+
+    background-color: #06377C;
+}
