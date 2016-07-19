@@ -41,6 +41,8 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
     promozioni.open("GET", pr, true);
     promozioni.send();
     
+    printCorrelati(id);
+    
 });
 });
 
@@ -101,6 +103,4 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
         out +='</div>'+'</div>';
         $("#promozioni").html(out);
     }
-    
-    printCorrelati(id);
     $("#menu-device").html(printMenuSecondario(id));

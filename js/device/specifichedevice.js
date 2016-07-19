@@ -31,7 +31,7 @@ var url = "http://guidoantoniomatteo.altervista.org/tim/components/device/getSpe
         var arr = JSON.parse(response);
         var i;
         var out= "";
-        $("#titolo").html(arr[0].marca + ' - ' + arr[0].nome + ' - Recensioni' );
+        $("#titolo").html(arr[0].marca + ' - ' + arr[0].nome + ' - Caratteristiche' );
         $("#specifiche").html(decodeHTMLEntities(arr[0].specifiche));  
         $("#menudevice").html(printMenuSecondario(id, arr[0].id_categoria));
     }

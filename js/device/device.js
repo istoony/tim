@@ -43,6 +43,7 @@ function corr(response)
                             '<div class="col-md-12">'+
                                 '<h3>'+arr[i].marca + ' - ' + arr[i].nome +'</h3>'+
                             '</div>'+
+                        '</div>'+
                   '</div>';
         }
         out +='</div>';
@@ -72,7 +73,7 @@ function printMenuSecondario(id, categoria)
         menu +='<div class="col-md-2 col-sm-4 current-link">';
     else
         menu +='<div class="col-md-2 col-sm-4">';
-    menu +='<a href="recensionedevice.html?id='+ id +'">Recensioni</a>'+
+    menu +='<a href="recensionedevice.html?id='+ id +'&cat='+ categoria +'">Recensioni</a>'+
         '</div>';
     if(location.pathname == "/tim/asdevice.html")
         menu +='<div class="col-md-3 col-sm-4 current-link">';

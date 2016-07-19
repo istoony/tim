@@ -1,5 +1,6 @@
 $( document ).ready(function() {
 $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js', function() {
+$.getScript('http://guidoantoniomatteo.altervista.org/tim/js/small-menu.js', function() {
     
             printPlansMainCat();
             
@@ -46,5 +47,7 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
                 document.getElementById("information-plans").innerHTML = createPlansInformation(arr[0]);
             }
             printAsAssociati("relazionepianiassistenza", id);
+            smallMenuLoaded();
         });
+     });
 });

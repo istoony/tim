@@ -23,6 +23,8 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
         var url = location.href;
         var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
         var result = captured ? captured : 'id';
+        var category = /cat=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+        var id_category = category ? category : 'cat';
         var id = result;
             /*
             *
@@ -32,18 +34,25 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
         var arr = JSON.parse(response);
         var i;
         var out= "";
-                
-        $("#titolo").html(arr[0].marca + ' - ' + arr[0].nome + ' - Recensioni' );
-        out += '<div class="row">';
-        for(i=0; i<arr.length; i++)
+        if(arr.length != 0)     
         {
-            out += '<div class="col-md-12">'+
-                        '<h2 class="titoloblu left">'+arr[i].utente+' - '+ arr[i].data +'</h2>'+
-                   '</div>'+
-                '<div class="col-md-12">'+ printValutazione(arr[i].valutazione) +'</div>'+
-                '<div class="col-md-12">'+ decodeHTMLEntities(arr[i].descrizione) +'</div>';
+            $("#titolo").html(arr[0].marca + ' - ' + arr[0].nome + ' - Recensioni' );
+            out += '<div class="row">';
+            for(i=0; i<arr.length; i++)
+            {
+                out += '<div class="col-md-12">'+
+                            '<h2 class="titoloblu left">'+arr[i].utente+' - '+ arr[i].data +'</h2>'+
+                       '</div>'+
+                    '<div class="col-md-12">'+ printValutazione(arr[i].valutazione) +'</div>'+
+                    '<div class="col-md-12">'+ decodeHTMLEntities(arr[i].descrizione) +'</div>';
+            }
+            out += '</div>';
+            $("#recensioni").html(out);  
+            $("#menudevice").html(printMenuSecondario(id, arr[0].id_categoria));  
         }
-        out += '</div>';
-        $("#recensioni").html(out);  
-        $("#menudevice").html(printMenuSecondario(id, arr[0].id_categoria));  
+        else
+        {
+            $("#titolo").html('Nessuna recensione');
+            $("#menudevice").html(printMenuSecondario(id, id_category)); 
+        }
     }
