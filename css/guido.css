@@ -365,3 +365,14 @@ div.middle-align-block { /*used to vertically center all the contents in the foo
 
     background-color: #06377C;
 }
+
+.promotion-image{
+
+    height: 300px;
+}
+
+.promotion-row{
+
+    background-color: white;
+    border: solid 2px #004890;
+}
