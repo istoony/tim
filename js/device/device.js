@@ -4,7 +4,7 @@ function printPrezzo(prezzo, prezzoscontato)
     if(prezzoscontato == undefined)
         out+= '<div class=\"col-md-12\"><h1 class="titolorosso left" style="padding-left: 10px;">'+ prezzo +'</h1></div>';
     else
-        out+= '<div class=\"col-md-3\"><h1 class="titolorosso left" style="padding-left: 10px;">'+ prezzoscontato +'</h1></div>'+
+        out+= '<div class=\"col-md-4\"><h1 class="titolorosso left" style="padding-left: 10px;">'+ prezzoscontato +'</h1></div>'+
             '<div class=\"col-md-6\">' +
                 '<h2 class="titoloblu left" style=\"text-decoration: line-through;\">' + prezzo + '</h2></div>';
     out += "</div>";
