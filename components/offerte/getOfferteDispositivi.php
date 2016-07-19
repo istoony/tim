@@ -15,9 +15,9 @@
 
     if($id == 0){
 
-        $result = $conn->query("SELECT nome, path, prezzoscontato FROM dispositivo, dispositivofoto WHERE prezzoscontato IS NOT NULL AND dispositivo.id = dispositivofoto.id_dispositivo GROUP BY dispositivo.id");
+        $result = $conn->query("SELECT dispositivo.id AS dispositivo, nome, path, prezzoscontato FROM dispositivo, dispositivofoto WHERE prezzoscontato IS NOT NULL AND dispositivo.id = dispositivofoto.id_dispositivo GROUP BY dispositivo.id");
     } else  {
-        $result = $conn->query("SELECT nome, path, prezzoscontato FROM dispositivo, dispositivofoto WHERE prezzoscontato IS NOT NULL AND dispositivo.id = dispositivofoto.id_dispositivo GROUP BY dispositivo.id LIMIT 2");
+        $result = $conn->query("SELECT dispositivo.id AS dispositivo, nome, path, prezzoscontato FROM dispositivo, dispositivofoto WHERE prezzoscontato IS NOT NULL AND dispositivo.id = dispositivofoto.id_dispositivo GROUP BY dispositivo.id LIMIT 2");
     }
 
 
@@ -28,6 +28,7 @@
             $outp .= ",";
         $outp .= '{"nome":"'. $rs["nome"]. '",';
         $outp .= '"path":"'. $rs["path"]. '",';
+        $outp .= '"dispositivo":"'. $rs["dispositivo"]. '",';
         $outp .= '"prezzoscontato":"'. $rs["prezzoscontato"]. '"}';
     }
     $outp .= "]";

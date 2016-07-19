@@ -22,9 +22,39 @@
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/menu.css">
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/style.css">
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/standardimport.css">
-<link rel="stylesheet" type="text/css" href="css/innovazione.css">
-<link rel="stylesheet" type="text/css" href="css/guido.css">
+<link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/innovazione.css">
+<link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/guido.css">
 
+
+    <script>
+
+        var offerteSL = new XMLHttpRequest();
+        var smartlife = "http://guidoantoniomatteo.altervista.org/components/offerte/getOfferteSL.php?id=" + 1;
+        offerteSL.onreadystatechange = function () {
+        if (offerteSL.readyState == 4 && offerteSL.status == 200)
+            getOfferteSL(offerteSL.responseText);
+        }
+        offerteSL.open("GET", smartlife, true);
+        offerteSL.send();
+
+
+
+        function getOfferteSL(response) {
+        var arr = JSON.parse(response);
+        var i;
+
+        var out = "";
+        for(i = 0; i < arr.length; i++)
+        {
+            out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="http://guidoantoniomatteo.altervista.org/tim/smart-life/single-smart-life.html?id=' + arr[i].id + '"><div class="promotionbox3" ><img class="img-responsive SLsize" src="http://guidoantoniomatteo.altervista.org/tim/img/smart-life/single-SL/' + arr[i].id + '/logo.png" alt="' + arr[i].nome +'"><h2 class="description-black text-bold">' + arr[i].nome + '</h2><h1 class="nomargintop description-red">' + arr[i].prezzoscontato + '</h1><p class="description description-black text-lighter">' + arr[i].attivazionescontato + '</p></div></a></div>';
+        }
+        document.getElementById(1).innerHTML = out;
+        }
+
+
+
+
+    </script>
 </head>
 
 <body>
@@ -40,7 +70,7 @@
 				<div class="row marginforrow">
                     <div class="col-md-12 ">
 
-                        <img class=" img-responsive" src="img/offerte/SL/presentazione.jpg" style="width:100%;" alt="offerte piani tim">
+                        <img class=" img-responsive" src="http://guidoantoniomatteo.altervista.org/tim/img/offerte/SL/presentazione.jpg" style="width:100%;" alt="offerte piani tim">
                         <div class="row">
                             <div class="col-md-6 inner-presentation">
                                 <div>
@@ -52,6 +82,10 @@
                             </div>
                             <div class="col-md-6"></div>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="1">
                     </div>
                 </div>
 
