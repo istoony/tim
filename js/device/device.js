@@ -37,7 +37,7 @@ function corr(response)
         {
             out+= '<div class="col-sm-3">'+
                         '<div class="row">'+
-                            '<div class="col-md-12">'+'<a href="http://guidoantoniomatteo.altervista.org/tim/device/singolodevice.html?id='+arr[i].id +'">'+
+                            '<div class="col-md-12">'+'<a href="singolodevice.html?id='+arr[i].id +'">'+
                                 '<img src="'+ arr[i].path +'" alt="'+ arr[i].nome+'" />'+
                             '</a></div>'+
                             '<div class="col-md-12">'+
@@ -54,7 +54,7 @@ function printMenuSecondario(id, categoria)
 {
     var menu = "";
     menu += '<div class="row grey-menu">'+
-        '<div class="col-md-3 col-sm-6"><a href="singolodevice.html">torna ai dispositivi</a></div>';
+        '<div class="col-md-3 col-sm-6"><a href="selected-category.html?id='+ categoria +'">torna ai dispositivi</a></div>';
     if(location.pathname == "/tim/device/singolodevice.html")
         menu +='<div class="col-md-2 col-sm-6 current-link">';
     else
