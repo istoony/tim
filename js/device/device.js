@@ -54,27 +54,27 @@ function printMenuSecondario(id, categoria)
 {
     var menu = "";
     menu += '<div class="row grey-menu">'+
-        '<div class="col-md-3 col-sm-6"><a href="selected-category.html?id='+ categoria +'">torna ai dispositivi</a></div>';
-    if(location.pathname == "/tim/device/singolodevice.html")
+        '<div class="col-md-3 col-sm-6"><a href="device-selected-category.html?id='+ categoria +'">torna ai dispositivi</a></div>';
+    if(location.pathname == "/tim/singolodevice.html")
         menu +='<div class="col-md-2 col-sm-6 current-link">';
     else
         menu +='<div class="col-md-2 col-sm-6">';
     menu +='<a href="singolodevice.html?id='+ id +'">Presentazione</a>'+
         '</div>';
     
-    if(location.pathname == "/tim/device/specifichedevice.html")
+    if(location.pathname == "/tim/specifichedevice.html")
         menu +='<div class="col-md-2 col-sm-4 current-link">';
     else
         menu +='<div class="col-md-2 col-sm-4">';
     menu +='<a href="specifichedevice.html?id='+id+'">Caratteristiche</a></div>';
     
-    if(location.pathname == "/tim/device/recensionedevice.html")
+    if(location.pathname == "/tim/recensionedevice.html")
         menu +='<div class="col-md-2 col-sm-4 current-link">';
     else
         menu +='<div class="col-md-2 col-sm-4">';
     menu +='<a href="recensionedevice.html?id='+ id +'">Recensioni</a>'+
         '</div>';
-    if(location.pathname == "/tim/device/asdevice.html")
+    if(location.pathname == "/tim/asdevice.html")
         menu +='<div class="col-md-3 col-sm-4 current-link">';
     else
         menu +='<div class="col-md-3 col-sm-4">';

@@ -31,7 +31,7 @@ $( document ).ready(function() {
 				'</div>';
         });
 		
-		$("#main-categories").append(myHtml);
+		$("#main-categories").html(myHtml);
 
 	}
 	
