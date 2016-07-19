@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-
+	
 	var url = location.href;
     var captured = /mainCategory=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
     var result = captured ? captured : 'mainCategory';

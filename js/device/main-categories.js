@@ -15,7 +15,7 @@ $( document ).ready(function() {
 		
 		$.each(result, function(index, element) {		
 			
-			var link = 'http://guidoantoniomatteo.altervista.org/tim/device/selected-category.html?id=' + element.id;
+			var link = 'device-selected-category.html?id=' + element.id;
 			var imgSrc = 'http://guidoantoniomatteo.altervista.org/tim/img/device/main-categories/' + element.foto;
 			
 			myHtml += 

@@ -9,6 +9,7 @@ var htmlMorePhotos;
 
 var htmlCompatibili;
 
+
 $(document).ready(function(){
 	
 	//GET ID
@@ -113,9 +114,11 @@ $(document).ready(function(){
 			url: "http://guidoantoniomatteo.altervista.org/tim/components/smart-life/query.php?request=singleSmartLifePrev&id="+id, 
 			dataType: "json",
 			success: function(result){
-				element = result[0];
-				var href = 'smart-life-single.html?id=' + element.id;
-				$("#prev-link").attr("href", href);
+				try {
+					element = result[0];
+					var href = 'smart-life-single.html?id=' + element.id;
+					$("#prev-link").attr("href", href);
+				} catch (err) {}
 			}
 		});
 		

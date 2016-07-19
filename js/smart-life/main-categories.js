@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+
+	setCurrentLink();
 	
 	$.ajax({
 		url: "http://guidoantoniomatteo.altervista.org/tim/components/smart-life/query.php?request=smartLifeMainCategories", 

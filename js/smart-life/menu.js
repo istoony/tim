@@ -1,4 +1,3 @@
-
 function printSmartLifeMainMenu(idHtmlTag, idCurrentCategory) {
 
 	$.ajax({
