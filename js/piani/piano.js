@@ -1,4 +1,6 @@
-$.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js', function() {         
+$( document ).ready(function() {
+$.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js', function() {
+    
             printPlansMainCat();
             
             var url = location.href;
@@ -15,7 +17,6 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
             }
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
-});
            
             function myFunction(response) 
             {   /**
@@ -45,3 +46,5 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
                 document.getElementById("information-plans").innerHTML = createPlansInformation(arr[0]);
             }
             printAsAssociati("relazionepianiassistenza", id);
+        });
+});

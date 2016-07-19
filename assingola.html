@@ -16,7 +16,7 @@
     <!-- website Javascript -->
     <script src="http://guidoantoniomatteo.altervista.org/tim/js/menu.js"></script>
     <script src="http://guidoantoniomatteo.altervista.org/tim/js/template.js"></script>
-    <script src="http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js"></script>    
+        <script src="http://guidoantoniomatteo.altervista.org/tim/js/as/assingola.js"></script>
         
     <!-- website CSS -->
         <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim//css/menu.css">
@@ -33,40 +33,7 @@
                 color: black;
                 text-align: left;
             }
-        </style>
-        
-        <script>
-            
-            printMainCat();
-            
-            var url = location.href;
-            var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
-            var result = captured ? captured : 'id';
-            var id = result;
-            var xmlhttp = new XMLHttpRequest();
-            var url = "http://guidoantoniomatteo.altervista.org/tim/components/as/getSingleAs.php?id="+ id;
-            
-            printSecondCatAs(id);
-           
-            
-            xmlhttp.onreadystatechange=function() 
-            {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    myFunction(xmlhttp.responseText);
-            }
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send();
-           
-            function myFunction(response) 
-            {
-                var arr = JSON.parse(response);
-                document.getElementById("titolocategoria").innerHTML = "<h1 class=\"titolorosso\" style=\"text-align: left;\">" + arr[0].titolo + "</h1>";
-                var out = "<p>" + decodeHTMLEntities(arr[0].descrizione) + "</p>";
-                document.getElementById("descrizione").innerHTML = out;
-            }
-            
-        </script>
-                
+        </style>                
     </head>
 
     <body>
