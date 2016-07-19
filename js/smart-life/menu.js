@@ -81,8 +81,8 @@ function jsonSubMenuToHtml(result, idHtmlTag, idCurrentCategory) {
 				'<div class="col-xs-3"> </div>'+
 				'<div class="col-xs-6"><a href="">TV & FUN</a></div>'+
 				'<div class="col-xs-3">'+
-					'<img src="http://guidoantoniomatteo.altervista.org/tim/img/menu-mobile-closed-white.png" class="menu-closed"/>'+
-					'<img src="http://guidoantoniomatteo.altervista.org/tim/img/menu-mobile-open-white.png" class="menu-open"/>'+
+					'<img src="http://guidoantoniomatteo.altervista.org/tim/img/menu-mobile-closed-blu.png" class="menu-closed"/>'+
+					'<img src="http://guidoantoniomatteo.altervista.org/tim/img/menu-mobile-open-blu.png" class="menu-open"/>'+
 				'</div>'+
 			'</div>';
 	

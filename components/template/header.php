@@ -57,7 +57,7 @@
 						<a href="pianimaincategory.html">PIANI</a>
 						<a href="offerte.html?id=0">OFFERTE</a>
 						<a href="smart-life-main-categories.html">SMART LIFE</a>
-						<a href="main-categories.html">DISPOSITIVI</a>
+						<a href="device-main-categories.html">DISPOSITIVI</a>
 						<a href="asmaincategory.html">ASSISTENZA</a>
 					</div>
 				</div>
