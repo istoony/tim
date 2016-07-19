@@ -4,28 +4,33 @@ var menu = [ {className:".blu-menu", isClosed : true},
              {className:".grey-red-menu", isClosed : true}];
 
 
-$(document).ready(function(){
+function smallMenuLoaded() {
 
 	chooseMenu();
 	
 	$(window).resize(chooseMenu);
 	
-	$(".blu-menu img").click(function() {
+
+	$(".blu-menu img").unbind('click');
+	$(".blu-menu img").on('click',function() {
 		menu[getIndex(".blu-menu")].isClosed = ! menu[getIndex(".blu-menu")].isClosed;
 		showMobileMenu(getIndex(".blu-menu"));
 	});
 	
-	$(".grey-menu img").click(function() {
+	$(".grey-menu img").unbind('click');
+	$(".grey-menu img").on('click',function() {
 		menu[getIndex(".grey-menu")].isClosed = ! menu[getIndex(".grey-menu")].isClosed;
 		showMobileMenu(getIndex(".grey-menu"));
 	});
 	
-	$(".grey-red-menu img").click(function() {
+
+	$(".grey-red-menu img").unbind('click');
+	$(".grey-red-menu img").on('click',function() {
 		menu[getIndex(".grey-red-menu")].isClosed = ! menu[getIndex(".grey-red-menu")].isClosed;
 		showMobileMenu(getIndex(".grey-red-menu"));
 	});
 	
-});
+}
 
 function getIndex(className) {
 	var index;
@@ -47,9 +52,15 @@ function chooseMenu() {
         	showMobileMenu(i);
     	}
 
+    } else {
+    	$(".blu-menu *").show();
+    	$(".grey-menu *").show();
+    	$(".grey-red-menu *").show();
     }
     
 }
+
+
 
 function showMobileMenu(index) {
 	

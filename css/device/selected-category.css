@@ -1,0 +1,35 @@
+#main-image {
+	background-image: url(http://guidoantoniomatteo.altervista.org/tim/img/device/single-category/titolo-device.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: auto 100%;
+	background-color: #015cab;
+}
+
+
+@media (max-width: 767px) {
+	#main-image {
+		height: 200px;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+
+	#main-image {
+		height: 250px;
+	}
+
+}
+@media (min-width: 992px) and (max-width: 1199px) { 
+
+	#main-image {
+		height: 300px;
+	}
+
+}
+@media (min-width: 1200px) { 
+
+	#main-image {
+		height: 350px;
+	}
+
+}

@@ -13,8 +13,16 @@ $( document ).ready(function() {
 
 		var myHtml = "";
 		
-		$.each(result, function(index, element) {			
-			myHtml += '<div class="col-xs-3"><div><h3>' + element.nome +'</h3></div></div>';
+		$.each(result, function(index, element) {		
+			
+			var link = 'http://guidoantoniomatteo.altervista.org/tim/smart-life/sub-categories.html?mainCategory=' + element.id;
+			
+			myHtml += 
+				'<div class="col-xs-3"><div><h3>' + 
+					'<a href="' + link + '">' +
+						element.nome +
+					'</a>' +
+				'</h3></div></div>';
         });
 		
 		$('.smart-life-categories').append(myHtml);

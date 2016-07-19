@@ -1,0 +1,66 @@
+.smart-life-sub-category {
+	background-repeat: no-repeat !important;
+	background-color: #F8F8F8 !important;
+	padding-top: 5%;
+	border-bottom: 15px solid #004890;	
+}
+
+.smart-life-sub-category div {
+	font-size: 18px;
+}
+
+#sub-categories a {
+	color: black !important;
+}
+
+.background-left {
+	background-position: left !important;
+	text-align: left;
+	padding-left: 30%;
+}
+
+.background-right {
+	background-position: right !important;
+	text-align: right;
+	padding-right: 30%; 
+}
+
+@media (max-width: 767px) {
+	.smart-life-sub-category {
+		height: 150px;
+		background-size: auto 150px !important;
+	}
+	.smart-life-sub-category div, .smart-life-sub-category span {
+		display: none;
+	}
+		
+	.background-left {
+		padding-left: 50%;
+	}
+	
+	.background-right {
+		padding-right: 50%; 
+	}
+	
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.smart-life-sub-category {
+		height: 300px;
+		background-size: auto 300px !important;
+		padding-top: 10%;
+	}
+
+}
+@media (min-width: 992px) and (max-width: 1199px) { 
+	.smart-life-sub-category {
+		height: 350px;
+		background-size: auto 350px !important;
+	}
+	
+}
+@media (min-width: 1200px) { 
+	.smart-life-sub-category {
+		height: 300px;
+		background-size: auto 300px !important;
+	}
+}

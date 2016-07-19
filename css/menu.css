@@ -59,6 +59,7 @@
     line-height: 5rem;
     height: 5rem;
     padding-bottom: 1rem;
+    z-index: 1;
 }
 
 @media (min-width:1200px) {

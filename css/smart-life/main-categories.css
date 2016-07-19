@@ -3,7 +3,7 @@ div.smart-life-box {
     background-size: auto 100%;
 }
 
-div.smart-life-categories, .smart-life-spot h3  {
+div.smart-life-categories, .smart-life-spot h3, .smart-life-categories a {
 	color: white;
 }
 
