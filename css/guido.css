@@ -43,6 +43,11 @@ div.middle-align-block { /*used to vertically center all the contents in the foo
 
 @media only screen and (max-width: 1199px) 
 {
+    .promotion-image{
+
+        height: auto !important;
+    }
+
     .inner-presentation h1
     { 
         font-size: 31px;
@@ -60,6 +65,23 @@ div.middle-align-block { /*used to vertically center all the contents in the foo
 }
 @media only screen and (max-width: 991px) 
 {
+
+    .promotionboxSLsmall1{
+
+        position: absolute !important;
+        margin: 25px 25px !important;
+        border-radius: 25px !important;
+        background-color: #FFFFFF !important;
+        height: 250px !important;
+        width: 250px !important;
+        text-align: center !important;
+        font-size: 40px !important;
+        z-index: 5 !important;
+    }
+    .promotion-image{
+
+        height: auto !important;
+    }
 
     .promotionbox1{
 
@@ -318,6 +340,11 @@ div.middle-align-block { /*used to vertically center all the contents in the foo
     color: #004890;
 }
 
+.description-gray{
+
+    color: #CCCCCC !important;
+}
+
 .text-bold{
 
     font-weight: bold;
@@ -375,4 +402,57 @@ div.middle-align-block { /*used to vertically center all the contents in the foo
 
     background-color: white;
     border: solid 2px #004890;
+}
+
+.no-padding-right-left{
+
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.promotionSL{
+
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.promotionboxSL{
+
+    position: absolute;
+    margin: 25px 25px;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+    height: 250px;
+    width: 615px;
+    text-align: center;
+    font-size: 40px;
+    z-index: 5;
+}
+
+.promotionboxSLsmall1{
+
+    position: absolute;
+    margin: 25px 25px;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+    height: 250px;
+    width: 400px;
+    text-align: center;
+    font-size: 40px;
+    z-index: 5;
+}
+
+.promotionboxSLsmall2{
+
+    position: absolute;
+    margin: 25px 380px;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+    padding-top: 80px;
+    height: 250px;
+    width: 200px;
+    text-align: center;
+    font-size: 40px;
+    z-index: 5;
 }
