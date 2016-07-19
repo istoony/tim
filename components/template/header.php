@@ -12,11 +12,11 @@
 
 					<div class="col-lg-7 left">
 						<div class="row">
-							<a class="col-lg-2" href="http://guidoantoniomatteo.altervista.org/tim/piani/pianimaincategory.html">Piani</a>
-							<a class="col-lg-2" href="http://guidoantoniomatteo.altervista.org/tim/offerte/offerte.html?id=0">Offerte</a>
-							<a class="col-lg-3" href="http://guidoantoniomatteo.altervista.org/tim/smart-life/main-categories.html">Smart Life</a>
-							<a class="col-lg-3" href="http://guidoantoniomatteo.altervista.org/tim/device/main-categories.html">Dispositivi</a> 
-							<a class="col-lg-2" href="http://guidoantoniomatteo.altervista.org/tim/as/asmaincategory.html">Assistenza</a>
+							<a class="col-lg-2" href="piani/pianimaincategory.html">Piani</a>
+							<a class="col-lg-2" href="offerte/offerte.html?id=0">Offerte</a>
+							<a class="col-lg-3" href="smart-life/main-categories.html">Smart Life</a>
+							<a class="col-lg-3" href="device/main-categories.html">Dispositivi</a> 
+							<a class="col-lg-2" href="as/asmaincategory.html">Assistenza</a>
 						</div>
 					</div>
 
@@ -54,11 +54,11 @@
 			<div id="top-menu-small">
 				<div class="first-menu">
 					<div>
-						<a href="http://guidoantoniomatteo.altervista.org/tim/piani/pianimaincategory.html">PIANI</a>
-						<a href="http://guidoantoniomatteo.altervista.org/tim/offerte/offerte.html?id=0">OFFERTE</a>
-						<a href="http://guidoantoniomatteo.altervista.org/tim/smart-life/main-categories.html">SMART LIFE</a>
-						<a href="http://guidoantoniomatteo.altervista.org/tim/device/main-categories.html">DISPOSITIVI</a>
-						<a href="http://guidoantoniomatteo.altervista.org/tim/piani/asmaincategory.html">ASSISTENZA</a>
+						<a href="piani/pianimaincategory.html">PIANI</a>
+						<a href="offerte/offerte.html?id=0">OFFERTE</a>
+						<a href="smart-life/main-categories.html">SMART LIFE</a>
+						<a href="device/main-categories.html">DISPOSITIVI</a>
+						<a href="piani/asmaincategory.html">ASSISTENZA</a>
 					</div>
 				</div>
 				<div class="second-menu">
