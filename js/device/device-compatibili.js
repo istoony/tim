@@ -1,53 +1,21 @@
+var idSL;
+
 $( document ).ready(function() {
 	
 	var url = location.href;
     var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
     var id = captured ? captured : 'id';
     
+    idSL = id;
+    
     //GET CATEGORY NAME
     $.ajax({
-		url: "http://guidoantoniomatteo.altervista.org/tim/components/device/query.php?request=deviceSingleCategory&id="+id, 
+		url: "http://guidoantoniomatteo.altervista.org/tim/components/smart-life/query.php?request=singleSmartLife&id="+id, 
 		dataType: "json",
 		success: function(result){
 			var element = result[0];
-			var myHtml = "<div><h3>SCEGLI<br/>IL TUO "+element.nome+'</h3></div>';
+			var myHtml = "<div><h3>DISPOSITIVI COMPATIBILI CON<br/>"+element.nome+'</h3></div>';
 			$("#main-text").append(myHtml);
-		}
-	});
-    
-    //GET BRAND
-    $.ajax({
-		url: "http://guidoantoniomatteo.altervista.org/tim/components/device/query.php?request=deviceBrand", 
-		dataType: "json",
-		success: function(result){
-
-			var myHtml ="";
-			
-			$.each(result, function(index, element) {					
-				myHtml += '<input type="checkbox" name="brand" value="'+element.id+'"/>'+element.nome+'<br/>';
-			});
-			
-			$("#devices-brand").append(myHtml); 
-			
-			setCheckbox("#devices-brand");
-		}
-	});
-    
-    //GET DISPLAY
-    $.ajax({
-		url: "http://guidoantoniomatteo.altervista.org/tim/components/device/query.php?request=deviceDisplay", 
-		dataType: "json",
-		success: function(result){
-
-			var myHtml ="";
-			
-			$.each(result, function(index, element) {					
-				myHtml += '<input type="checkbox" name="brand" value="'+element.display+'"/>'+element.display+'<br/>';
-			});
-			
-			$("#devices-display").append(myHtml); 
-			
-			setCheckbox("#devices-display");
 		}
 	});
     
@@ -113,7 +81,7 @@ function updateQuery() {
 	if(brand === undefined)
 		brand = "";
 	
-	var urlTemp = "http://guidoantoniomatteo.altervista.org/tim/components/device/query.php?request=getDevices&display="+display+'&brand='+brand;
+	var urlTemp = "http://guidoantoniomatteo.altervista.org/tim/components/device/query.php?request=getDevicesCompatibili&id="+idSL;
 	
 	$.ajax({
 		url: urlTemp, 

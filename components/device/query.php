@@ -40,6 +40,11 @@
     			$brand = $_GET['brand'];
     		$query = 'SELECT dispositivo.id, dispositivo.nome, dispositivofoto.path, marcadispositivo.nome AS marca  FROM dispositivo, marcadispositivo, dispositivofoto WHERE id_marca LIKE "'.$brand.'" AND display LIKE "'.$display.'" AND marcadispositivo.id = dispositivo.id_marca AND dispositivofoto.id_dispositivo = dispositivo.id GROUP BY dispositivo.id';
     		break;
+    	case "getDevicesCompatibili":
+    		$id = $_GET['id'];
+    		$query = 'SELECT dispositivo.id, dispositivo.nome, dispositivofoto.path, marcadispositivo.nome AS marca  FROM dispositivo, marcadispositivo, dispositivofoto, smartlifedispositivi WHERE smartlifedispositivi.idsmartlife='.$id.' AND smartlifedispositivi.iddispositivo=dispositivo.id  GROUP BY dispositivo.id';
+    		break;
+    		
     }
         
     $result = $conn->query($query);
