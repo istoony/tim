@@ -1,4 +1,7 @@
-<div id="top-large" class="row hidden-xs">
+<?php
+    header("Access-Control-Allow-Origin: *");
+?>
+    <div id="top-large" class="row hidden-xs">
 
 			<div id="logo-large" class="col-lg-2">
 				<img src="http://guidoantoniomatteo.altervista.org/tim/img/logo.png" />
@@ -10,9 +13,9 @@
 					<div class="col-lg-7 left">
 						<div class="row">
 							<a class="col-lg-2" href="http://guidoantoniomatteo.altervista.org/tim/piani/pianimaincategory.html">Piani</a>
-							<a class="col-lg-2" href="offerte">Offerte</a>
-							<a class="col-lg-3" href="smart-life">Smart Life</a>
-							<a class="col-lg-3" href="dispositi">Dispositivi</a>
+							<a class="col-lg-2" href="http://guidoantoniomatteo.altervista.org/tim/offerte/offerte.html?id=0">Offerte</a>
+							<a class="col-lg-3" href="http://guidoantoniomatteo.altervista.org/tim/smart-life/main-categories.html">Smart Life</a>
+							<a class="col-lg-3" href="http://guidoantoniomatteo.altervista.org/tim/device/main-categories.html">Dispositivi</a> 
 							<a class="col-lg-2" href="http://guidoantoniomatteo.altervista.org/tim/as/asmaincategory.html">Assistenza</a>
 						</div>
 					</div>
@@ -23,7 +26,7 @@
 
 					<div class="col-lg-3 right">
 						<div class="row">
-							<a class="col-lg-6" href="chi-siamo">Chi Siamo</a>
+							<a class="col-lg-6" href="http://guidoantoniomatteo.altervista.org/tim/chisiamo/innovazione.html">Chi Siamo</a>
 							<a class="col-lg-6" href="gruppo">Gruppo</a>
 						</div>
 					</div>
@@ -52,9 +55,9 @@
 				<div class="first-menu">
 					<div>
 						<a href="http://guidoantoniomatteo.altervista.org/tim/piani/pianimaincategory.html">PIANI</a>
-						<a href="offerte">OFFERTE</a>
-						<a href="smart-life">SMART LIFE</a>
-						<a href="dispositi">DISPOSITIVI</a>
+						<a href="http://guidoantoniomatteo.altervista.org/tim/offerte/offerte.html?id=0">OFFERTE</a>
+						<a href="http://guidoantoniomatteo.altervista.org/tim/smart-life/main-categories.html">SMART LIFE</a>
+						<a href="http://guidoantoniomatteo.altervista.org/tim/device/main-categories.html">DISPOSITIVI</a>
 						<a href="http://guidoantoniomatteo.altervista.org/tim/piani/asmaincategory.html">ASSISTENZA</a>
 					</div>
 				</div>

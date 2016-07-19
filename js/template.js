@@ -6,6 +6,7 @@ $( document ).ready(function() {
 		url: "http://guidoantoniomatteo.altervista.org/tim/components/template/header.php", 
 		success: function(result){
         $("#header").replaceWith(result);
+        loadMainMenu();
     }});
 	
 	$.ajax({url: "http://guidoantoniomatteo.altervista.org/tim/components/template/footer.php",

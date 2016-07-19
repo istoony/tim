@@ -1,6 +1,4 @@
 $( document ).ready(function() {
-
-	$html = "";
 	
 	$.ajax({
 		url: "http://guidoantoniomatteo.altervista.org/tim/components/smart-life/query.php?request=smartLifeMainCategories", 
@@ -13,17 +11,21 @@ $( document ).ready(function() {
 	
 	function showCategories(result) {
 
-		var html = [];
+		var myHtml = "";
 		
-		$.each(result, function(index, element) {
-            /*$('body').append($('<div>', {
-                text: element.name
-            }));*/
+		$.each(result, function(index, element) {		
 			
-			html.push('<div class="col-xs-3">' + element.nome +'</div>');
+			var link = 'http://guidoantoniomatteo.altervista.org/tim/smart-life/sub-categories.html?mainCategory=' + element.id;
 			
+			myHtml += 
+				'<div class="col-xs-3"><div><h3>' + 
+					'<a href="' + link + '">' +
+						element.nome +
+					'</a>' +
+				'</h3></div></div>';
         });
 		
+		$('.smart-life-categories').append(myHtml);
 		
 	}
 	

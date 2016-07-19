@@ -1,3 +1,6 @@
+<?php
+    header("Access-Control-Allow-Origin: *");
+?>
 <div id="footer" class="row"><!--
                 
 			--><div id="footer-logo" class="col-sm-2 hidden-xs" >

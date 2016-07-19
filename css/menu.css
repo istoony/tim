@@ -12,11 +12,11 @@
 	margin-bottom: -0.8rem;
 }
 
-@media (max-width:1200px) and (min-width:768px) {
+/*@media (max-width:1200px) and (min-width:768px) {
 	#top-large div a:first-child {
 		margin-left: 2rem;
 	}
-}
+}*/
 
 /* BACKGROUND AND POSITIONS */
 #logo-large {
@@ -59,6 +59,7 @@
     line-height: 5rem;
     height: 5rem;
     padding-bottom: 1rem;
+    z-index: 1;
 }
 
 @media (min-width:1200px) {
