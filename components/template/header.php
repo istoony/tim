@@ -1,4 +1,7 @@
-		<div id="top-large" class="row hidden-xs">
+<?php
+    header("Access-Control-Allow-Origin: *");
+?>
+    <div id="top-large" class="row hidden-xs">
 
 			<div id="logo-large" class="col-lg-2">
 				<img src="http://guidoantoniomatteo.altervista.org/tim/img/logo.png" />
