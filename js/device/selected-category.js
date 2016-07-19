@@ -119,8 +119,22 @@ function updateQuery() {
 		url: urlTemp, 
 		dataType: "json",
 		success: function(result){
-
-			alert("p");
+            var myHtml = "";
+            myHtml += '<div class="row correlati">';
+            $.each(result, function(index, element) 
+            {					
+				myHtml += '<div class="col-sm-3">'+
+                        '<div class="row">'+
+                            '<div class="col-md-12">'+'<a href="singolodevice.html?id='+element.id +'">'+
+                                '<img src="'+ element.path +'" alt="'+ element.nome+'" />'+
+                            '</a></div>'+
+                            '<div class="col-md-12">'+
+                                '<h3>'+ element.marca + ' - ' + element.nome +'</h3>'+
+                            '</div></div>'+
+                  '</div>';
+			});
+            myHtml += '</div>';
+            $("#devices-list").append(myHtml); 
 		}
 	});
 	
