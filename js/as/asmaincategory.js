@@ -25,7 +25,7 @@
                         "<a href=\"assubcategory.html?id=" + arr[i].id + "\" >" +
                             arr[i].titolo + 
                         "</a></div>"; 
-                    out2 += "<div class=\"col-sm-3\" style=\"height: inherit !important;\">" +
+                    out2 += "<div class=\"col-sm-3 hidden-xs\" style=\"height: inherit !important;\">" +
                             "<a href=\"assubcategory.html?id=" + arr[i].id + "\" >" +
                                     "<img src=\"" + arr[i].foto + "\" class=\"center\"/>"+
                                 "</a>"+
