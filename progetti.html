@@ -15,7 +15,9 @@
 <!-- Bootstrap library -->
 <script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <!-- website Javascript -->
+<script>var MENULINK = "#link-chisiamo";</script>
 <script src="http://guidoantoniomatteo.altervista.org/tim/js/menu.js"></script>
+<script src="http://guidoantoniomatteo.altervista.org/tim/js/small-menu.js"></script>
 <script src="http://guidoantoniomatteo.altervista.org/tim/js/template.js"></script>
 <script src="http://guidoantoniomatteo.altervista.org/tim/js/chi-siamo/progetti.js"></script>
 
@@ -25,6 +27,16 @@
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/standardimport.css">
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/innovazione.css">
 <link rel="stylesheet" type="text/css" href="http://guidoantoniomatteo.altervista.org/tim/css/guido.css">
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.carousel').carousel({
+        interval: 3000
+    });
+
+    $('.carousel').carousel('cycle');
+});
+</script>
 
 <style>
     .carousel-inner > .item > img,
@@ -44,41 +56,48 @@
 
 <body>
 
-	<div id="page" class="container">
+    <div id="page" class="container">
 
-		<div id="header"></div>
+        <div id="header"></div>
 
-		<div id="content" class="row">
-			<div class="col-xs-12">
+        <div id="content" class="row">
+            <div class="col-xs-12">
 
 
-				<div class="row grey-menu">
+                <div class="row grey-menu">
+                    <div class="menu-header hidden-sm hidden-md hidden-lg" style="display: block;">
+                        <div class="col-xs-3"> </div>
+                        <div class="col-xs-6"><a href="">CHI SIAMO</a></div>
+                        <div class="col-xs-3"><img src="http://guidoantoniomatteo.altervista.org/tim/img/menu-mobile-closed-blu.png" class="menu-closed"><img src="http://guidoantoniomatteo.altervista.org/tim/img/menu-mobile-open-blu.png" class="menu-open" style="display: inline;"></div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 menu-link" style="display: block;"><a href="innovazione.html">INNOVAZIONE</a></div>
+                    <div class="col-sm-4 col-xs-12 menu-link" style="display: block;"><a href="testimonial.html">TESTIMONIAL</a></div>
+                    <div class="col-sm-4 col-xs-12 menu-link current-link" style="display: block;"><a href="progetti.html">PROGETTI</a></div>
+                </div>
 
-                <div class="col-xs-4 "><a href="innovazione.html">INNOVAZIONE</a></div>
-                <div class="col-xs-4 current-link"><a href="testimonial.html">TESTIMONIAL</a></div>
-                <div class="col-xs-4 "><a href="progetti.html">PROGETTI</a></div>
+                <div class="row">
+                    <div class="col-md-12 nopadding">
 
-            </div>
-
-            <div class="row">
-                <div class="col-md-12 nopadding">
-
-                    <img class=" img-responsive" src="img/progetti/progetti.jpg" alt="progetti tim">
-
-                    <div style=" padding-bottom:10%;" class="inner-center">
-                        <h1>I progetti TIM disegnano il futuro che immaginiamo.</h1>
+                    <img class=" img-responsive" src="http://guidoantoniomatteo.altervista.org/tim/img/progetti/progetti.jpg" alt="offerte tim">
+                    <div class="row">
+                        <div class="col-md-6 inner-presentation">
+                            <div>
+                                <h1 class="text-left">I progetti TIM disegnano il futuro che immaginiamo.</h1>
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
                     </div>
                 </div>
+                </div>
+                <div id="id01"></div>
+
             </div>
-            <div id="id01"></div>
 
-			</div>
+        </div>
 
-		</div>
+        <div id="footer"></div>
 
-		<div id="footer"></div>
-
-	</div>
+    </div>
 
 </body>
 

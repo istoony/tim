@@ -15,7 +15,7 @@
 
     if($id == 0){
 
-        $result = $conn->query("SELECT nome, pianotariffario.descrizione AS descrizionepiano, pianotariffario.prezzoscontato AS prezzo, pianotariffario.attivazionesconto AS descrizioneattivazione FROM pianotariffario WHERE prezzoscontato IS NOT NULL LIMIT 2");
+        $result = $conn->query("SELECT id, nome, pianotariffario.descrizione AS descrizionepiano, pianotariffario.prezzoscontato AS prezzo, pianotariffario.attivazionesconto AS descrizioneattivazione FROM pianotariffario WHERE prezzoscontato IS NOT NULL LIMIT 2");
     } else if($id==-1) {
         $result = $conn->query("SELECT id, categoria, nome, pianotariffario.descrizione AS descrizionepiano, pianotariffario.prezzoscontato AS prezzo, pianotariffario.attivazionesconto AS descrizioneattivazione FROM pianotariffario WHERE prezzoscontato IS NOT NULL AND categoria = 1 LIMIT 1");
     } else {
