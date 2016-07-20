@@ -120,7 +120,10 @@ function createPlansInformation(arr)
 var out ='<div class="col-md-12">'+
         '<div class="row plans-review">'+
             '<div class="hidden-xs col-sm-4"><h1><a href="piano.html?id='+ arr.id +'">'+ arr.nome +'</a></h1></div>'+
-            '<div class="col-sm-4"><h2>'+ arr.prezzo +'</h2></div>'+
+            '<div class="col-sm-4"><h2>'+ arr.prezzo;
+    if(arr.prezzoscontato != (""))
+        out += " ora a " + arr.prezzoscontato;
+    out +='</h2></div>'+
             '<div class="col-sm-2 buttons red"><h3>Acquista con device</h3></div>'+
             '<a href="buyplans.html?id=' + arr.id + '">'+
                 '<div class="col-sm-2 buttons blue"><h3>Attiva con un clik</h3></div>'+
