@@ -34,12 +34,13 @@
     	case "getDevices":
     		$display = '%';
     		$brand = '%';
-    		if(isset($_GET['display']) & strcmp($_GET['display'],"")) 
+            $empty ="";
+    		if(isset($_GET['display']) && strcmp($_GET['display'], "")>0) 
     			$display = $_GET['display'];
-    		if(isset($_GET['brand']) & strcmp($_GET['display'],"")) 
+    		if(isset($_GET['brand']) && strcmp($_GET['brand'],"")>0) 
     			$brand = $_GET['brand'];
     		$query = 'SELECT dispositivo.id, dispositivo.nome, dispositivofoto.path, marcadispositivo.nome AS marca  FROM dispositivo, marcadispositivo, dispositivofoto WHERE id_marca LIKE "'.$brand.'" AND display LIKE "'.$display.'" AND marcadispositivo.id = dispositivo.id_marca AND dispositivofoto.id_dispositivo = dispositivo.id GROUP BY dispositivo.id';
-    		break;
+            break;
     	case "getDevicesCompatibili":
     		$id = $_GET['id'];
     		$query = 'SELECT dispositivo.id, dispositivo.nome, dispositivofoto.path, marcadispositivo.nome AS marca  FROM dispositivo, marcadispositivo, dispositivofoto, smartlifedispositivi WHERE smartlifedispositivi.idsmartlife='.$id.' AND smartlifedispositivi.iddispositivo=dispositivo.id  GROUP BY dispositivo.id';

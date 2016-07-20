@@ -4,7 +4,7 @@ function printPrezzo(prezzo, prezzoscontato)
     if(prezzoscontato == undefined)
         out+= '<div class=\"col-md-12\"><h1 class="titolorosso left" style="padding-left: 10px;">'+ prezzo +'</h1></div>';
     else
-        out+= '<div class=\"col-md-3\"><h1 class="titolorosso left" style="padding-left: 10px;">'+ prezzoscontato +'</h1></div>'+
+        out+= '<div class=\"col-md-4\"><h1 class="titolorosso left" style="padding-left: 10px;">'+ prezzoscontato +'</h1></div>'+
             '<div class=\"col-md-6\">' +
                 '<h2 class="titoloblu left" style=\"text-decoration: line-through;\">' + prezzo + '</h2></div>';
     out += "</div>";
@@ -43,6 +43,7 @@ function corr(response)
                             '<div class="col-md-12">'+
                                 '<h3>'+arr[i].marca + ' - ' + arr[i].nome +'</h3>'+
                             '</div>'+
+                        '</div>'+
                   '</div>';
         }
         out +='</div>';
@@ -72,7 +73,7 @@ function printMenuSecondario(id, categoria)
         menu +='<div class="col-md-2 col-sm-4 current-link">';
     else
         menu +='<div class="col-md-2 col-sm-4">';
-    menu +='<a href="recensionedevice.html?id='+ id +'">Recensioni</a>'+
+    menu +='<a href="recensionedevice.html?id='+ id +'&cat='+ categoria +'">Recensioni</a>'+
         '</div>';
     if(location.pathname == "/tim/asdevice.html")
         menu +='<div class="col-md-3 col-sm-4 current-link">';
