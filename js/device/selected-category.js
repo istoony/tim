@@ -69,7 +69,7 @@ $( document ).ready(function() {
 	}
 	
 	function setCheckbox(id) {
-		$(id+" input:checkbox").on('click', function() {
+		$(id+" input:checkbox").change(function() {
 			  // in the handler, 'this' refers to the box clicked on
 			  var $box = $(this);
 			  if ($box.is(":checked")) {
@@ -78,10 +78,12 @@ $( document ).ready(function() {
 			    var group = id+" input:checkbox[name='" + $box.attr("name") + "']";
 			    // the checked state of the group/box on the other hand will change
 			    // and the current value is retrieved using .prop() method
+                //$(group).removeAttr('checked');
 			    $(group).prop("checked", false);
 			    $box.prop("checked", true);
 			  } else {
 			    $box.prop("checked", false);
+                //$box.removeAttr('checked');
 			  }
 			});
 		

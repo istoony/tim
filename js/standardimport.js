@@ -238,7 +238,7 @@ function SLAssociati(response)
                     '<div class="row">';
         for(var i = 0; i< arr.length; i++)
         {
-            out += '<div class="col-sm-2">'+
+            out += '<div class="col-sm-2 hidden-xs">'+
                         '<a href="smart-life-single.html?id='+arr[i].id+'">' +
                             '<img class="img-responsive" src="http://guidoantoniomatteo.altervista.org/tim/img/smart-life/single-SL/' + arr[i].id + '/logo.png" alt="' + arr[i].nome +'">'+
                         '</a>'+

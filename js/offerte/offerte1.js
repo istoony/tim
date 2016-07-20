@@ -56,7 +56,7 @@ $( document ).ready(function() {
         var out = "";
         for(i = 0; i < arr.length; i++)  {
 
-            out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="http://guidoantoniomatteo.altervista.org/tim/piano.html?id='+ arr[i].id +'"><div class="promotionbox1" ><h3 class="description-white text-bold text">' + arr[i].nome + '</h3><p class="description description-white text-lighter">' + arr[i].descrizionepiano + '</p></div><div class="promotionbox2" ></br><h1 class="description-red">' + arr[i].prezzo + '</h1><p class="description description-black">' + arr[i].descrizioneattivazione + '</p></div></a></div>';
+            out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="piano.html?id='+ arr[i].id +'"><div class="promotionbox1" ><h3 class="description-white text-bold text">' + arr[i].nome + '</h3><p class="description description-white text-lighter">' + arr[i].descrizionepiano + '</p></div><div class="promotionbox2" ></br><h1 class="description-red">' + arr[i].prezzo + '</h1><p class="description description-black">' + arr[i].descrizioneattivazione + '</p></div></a></div>';
         }
         if(arr.length == 0){
 
@@ -71,7 +71,7 @@ $( document ).ready(function() {
         var out = "";
         for(i = 0; i < arr.length; i++)  {
 
-            out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="http://guidoantoniomatteo.altervista.org/tim/piano.html?id='+ arr[i].id +'"><div class="promotionbox1" ><h3 class="description-white text-bold text">' + arr[i].nome + '</h3><p class="description description-white text-lighter">' + arr[i].descrizionepiano + '</p></div><div class="promotionbox2" ></br><h1 class="description-red">' + arr[i].prezzo + '</h1><p class="description description-black">' + arr[i].descrizioneattivazione + '</p></div></a></div>';
+            out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="piano.html?id='+ arr[i].id +'"><div class="promotionbox1" ><h3 class="description-white text-bold text">' + arr[i].nome + '</h3><p class="description description-white text-lighter">' + arr[i].descrizionepiano + '</p></div><div class="promotionbox2" ></br><h1 class="description-red">' + arr[i].prezzo + '</h1><p class="description description-black">' + arr[i].descrizioneattivazione + '</p></div></a></div>';
         }
         if(arr.length == 0){
 
@@ -86,7 +86,7 @@ $( document ).ready(function() {
         var out = "";
         for(i = 0; i < arr.length; i++)  {
 
-            out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="http://guidoantoniomatteo.altervista.org/tim/piano.html?id='+ arr[i].id +'"><div class="promotionbox1" ><h3 class="description-white text-bold text">' + arr[i].nome + '</h3><p class="description description-white text-lighter">' + arr[i].descrizionepiano + '</p></div><div class="promotionbox2" ></br><h1 class="description-red">' + arr[i].prezzo + '</h1><p class="description description-black">' + arr[i].descrizioneattivazione + '</p></div></a></div>';
+            out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="piano.html?id='+ arr[i].id +'"><div class="promotionbox1" ><h3 class="description-white text-bold text">' + arr[i].nome + '</h3><p class="description description-white text-lighter">' + arr[i].descrizionepiano + '</p></div><div class="promotionbox2" ></br><h1 class="description-red">' + arr[i].prezzo + '</h1><p class="description description-black">' + arr[i].descrizioneattivazione + '</p></div></a></div>';
         }
         if(arr.length == 0){
 
