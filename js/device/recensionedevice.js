@@ -59,7 +59,8 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
         }
     }
 
-$('#review-form').submit(function(){
+function writeform()
+{
     var url = location.href;
     var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
     var result = captured ? captured : 'id';
@@ -71,10 +72,18 @@ $('#review-form').submit(function(){
     var value = $('#value').val();
     var review = $('#review-text').val();
     
-    $.getJSON('http:guidoantoniomatteo.altervista.org/components/device/newReview.php',
-        { id: id, nome: nome, value: value, review: review },
-        function(json) {
-            window.location.replace("recensionedevice.html?id="+ id +"&cat="+ id_category);
-        });
-    window.location.replace("recensionedevice.html?id="+ id +"&cat="+ id_category);
-    });
+    var form = new XMLHttpRequest();
+    var url = "http://guidoantoniomatteo.altervista.org/tim/components/device/newReview.php?id=" + id + "&value=" + value +  "&nome=" + nome +  "&review=" + review;
+
+    form.onreadystatechange=function() 
+    {
+        if (form.readyState == 4 && form.status == 200)
+                formfunctions(form.responseText);
+    }
+    form.open("GET", url, true);
+    form.send();
+}
+    function formfunctions(response)
+    {  
+        location.reload();
+    }
