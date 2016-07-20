@@ -42,9 +42,9 @@ $( document ).ready(function() {
                         "</a></div></div>"+
                         "<div class='row'><div class='col-md-12'>"+
                             "<a href=\"piano.html?id=" + arr[i].id + "\" >" + 
-                                arr[i].titolo +
+                                '<h2>' + arr[i].titolo + '</h2>'+
                         "</a></div></div>"+
-                        arr[i].prezzo +
+                        '<h3 class="titolorosso">' +arr[i].prezzo + '</h3>'+
                     "</div>";
         }
                 

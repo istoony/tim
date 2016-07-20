@@ -105,6 +105,10 @@ function updateQuery() {
 	    selected.push($(this).attr('name'), $(this).attr('value'));
 	});
 	alert(selected.brand);*/
+    
+    var url = location.href;
+    var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+    var id = captured ? captured : 'id';
 	
 	var display = $('#devices-display input:checked').attr('value') ;
 	if(display === undefined)
@@ -113,7 +117,7 @@ function updateQuery() {
 	if(brand === undefined)
 		brand = "";
 	
-	var urlTemp = "http://guidoantoniomatteo.altervista.org/tim/components/device/query.php?request=getDevices&display="+display+'&brand='+brand;
+	var urlTemp = "http://guidoantoniomatteo.altervista.org/tim/components/device/query.php?request=getDevices&display="+display+'&brand='+brand+'&cat='+id;
 	
 	$.ajax({
 		url: urlTemp, 
