@@ -43,7 +43,9 @@
 		<div id="top-small" class="row hidden-sm hidden-md hidden-lg">
 
 			<div id="logo-small" class="col-xs-4">
-				<img src="http://guidoantoniomatteo.altervista.org/tim/img/logo.png" />
+                <a href="index.html">
+				    <img src="http://guidoantoniomatteo.altervista.org/tim/img/logo.png" />
+                </a>
 			</div>
 
 			<div id="top-menu-button-small" class="col-xs-2 col-xs-offset-5">

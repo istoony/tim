@@ -158,3 +158,23 @@ div.as-last a
 {
     color: #000000;
 }
+.form-recensioni input
+{
+    border: solid 2px #004890;
+    padding: 10px;
+    width: 100%;
+}
+.form-recensioni div textarea
+{
+    border: solid 2px #004890;
+    padding: 10px;
+    width: 100%;
+    height: 100px;
+}
+.form-recensioni select
+{
+    border: solid 2px #004890;
+    padding: 10px;
+    width: 130px;
+
+}
