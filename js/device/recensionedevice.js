@@ -4,6 +4,8 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
     var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
     var result = captured ? captured : 'id';
     var id = result;
+    var category = /cat=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+    var id_category = category ? category : 'cat';
     
     var xmlhttp = new XMLHttpRequest();
     var url = "http://guidoantoniomatteo.altervista.org/tim/components/device/getRecensioni.php?id=" + id;
@@ -55,4 +57,33 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
             $("#titolo").html('Nessuna recensione');
             $("#menudevice").html(printMenuSecondario(id, id_category)); 
         }
+    }
+
+function writeform()
+{
+    var url = location.href;
+    var captured = /id=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+    var result = captured ? captured : 'id';
+    var id = result;
+    var category = /cat=([^&]+)/.exec(url)[1]; // Value is in [1] ('384' in our case)
+    var id_category = category ? category : 'cat';
+    
+    var nome = $('#nome').val();
+    var value = $('#value').val();
+    var review = $('#review-text').val();
+    
+    var form = new XMLHttpRequest();
+    var url = "http://guidoantoniomatteo.altervista.org/tim/components/device/newReview.php?id=" + id + "&value=" + value +  "&nome=" + nome +  "&review=" + review;
+
+    form.onreadystatechange=function() 
+    {
+        if (form.readyState == 4 && form.status == 200)
+                formfunctions(form.responseText);
+    }
+    form.open("GET", url, true);
+    form.send();
+}
+    function formfunctions(response)
+    {  
+        location.reload();
     }
