@@ -66,6 +66,11 @@ div.middle-align-block { /*used to vertically center all the contents in the foo
 @media only screen and (max-width: 991px) 
 {
 
+    .resizeinverse{
+
+        display:block !important;
+    }
+
     .cn{
 
         display:block !important;
@@ -472,9 +477,13 @@ div.middle-align-block { /*used to vertically center all the contents in the foo
     margin-left: 35px;
 }
 
-.btn-spot {
-  .button-variant(#004890; white; #004890);
+.paddingfixer{
+
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
-.btn-intervista {
-  .button-variant(#004890; white; #004890);
+
+.resizeinverse{
+
+    display:none;
 }

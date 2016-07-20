@@ -63,7 +63,7 @@
 				</div>
 				<div class="second-menu">
 					<div>
-						<a href="chi-siamo">CHI SIAMO</a>
+						<a href="innovazione.html">CHI SIAMO</a>
 						<a href="gruppo">GRUPPO</a>
 					</div>
 				</div>
