@@ -21,7 +21,7 @@ $( document ).ready(function() {
                 var out="";
 
                 for(i = 0; i < arr.length; i++) {
-                    out+='<div class="row father-center marginforrow" style="background-color:#F0F0F0"><div class="col-md-2 nopaddingfull nomarginfull child-center"><img class="resize"  src="http://guidoantoniomatteo.altervista.org/tim/' + arr[i].foto + '" style=""alt = "' + arr[i].descrizione + '"></div><div class="col-md-2 child-center nomarginLR nopadding center-block"><h3 class="description-blu text-bold text-center">' + arr[i].descrizione + '</h3></div><div class="center-block" id=' + arr[i].id + ' ></div><div class="col-md-1 child-center"><a href="http://guidoantoniomatteo.altervista.org/tim/offerte/offerte'+ arr[i].id +'.html"><img class="img-responsive child-center arrowpromotion" src="http://guidoantoniomatteo.altervista.org/tim/img/offerte/next.png" alt="freccia tim"></a></div></div>';
+                    out+='<div class="row father-center marginforrow" style="background-color:#F0F0F0"><div class="col-md-2 nopaddingfull nomarginfull child-center"><img class="resize"  src="http://guidoantoniomatteo.altervista.org/tim/' + arr[i].foto + '" style=""alt = "' + arr[i].descrizione + '"></div><div class="col-md-2 child-center nomarginLR nopadding center-block"><h3 class="description-blu text-bold text-center">' + arr[i].descrizione + '</h3></div><div class="center-block" id=' + arr[i].id + ' ></div><div class="col-md-1 child-center"><a href="offerte'+ arr[i].id +'.html"><img class="img-responsive child-center arrowpromotion" src="http://guidoantoniomatteo.altervista.org/tim/img/offerte/next.png" alt="freccia tim"></a></div></div>';
                 }
                 document.getElementById("id01").innerHTML = out;
 
@@ -64,7 +64,7 @@ $( document ).ready(function() {
             for(i = 0; i < arr.length; i++)
             {
 
-                out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="http://guidoantoniomatteo.altervista.org/tim/piani/piano.html?id='+ arr[i].id +'"><div class="promotionbox1" ><h3 class="description-white text-bold">' + arr[i].nome + '</h3><p class="description description-white text-lighter">' + arr[i].descrizionepiano + '</p></div><div class="promotionbox2" ></br><h1 class="description-red">' + arr[i].prezzo + '</h1><p class="description description-black">' + arr[i].descrizioneattivazione + '</p></div></a></div>'
+                out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="piano.html?id='+ arr[i].id +'"><div class="promotionbox1" ><h3 class="description-white text-bold">' + arr[i].nome + '</h3><p class="description description-white text-lighter">' + arr[i].descrizionepiano + '</p></div><div class="promotionbox2" ></br><h1 class="description-red">' + arr[i].prezzo + '</h1><p class="description description-black">' + arr[i].descrizioneattivazione + '</p></div></a></div>'
             }
             document.getElementById(1).innerHTML = out;
             }
@@ -76,7 +76,7 @@ $( document ).ready(function() {
             var out = "";
             for(i = 0; i < arr.length; i++)
             {
-                out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="http://guidoantoniomatteo.altervista.org/tim/device/singolodevice.html?id='+ arr[i].dispositivo +'"><img class="img-responsive devicesize center-block" src="' + arr[i].path + '" alt="' + arr[i].nome +'"><h2 class="nomargintop">' + arr[i].nome + '</h2><h1 class="nomargintop description-red">' + arr[i].prezzoscontato + '</h1></a></div>';
+                out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="singolodevice.html?id='+ arr[i].dispositivo +'"><img class="img-responsive devicesize center-block" src="' + arr[i].path + '" alt="' + arr[i].nome +'"><h2 class="nomargintop">' + arr[i].nome + '</h2><h1 class="nomargintop description-red">' + arr[i].prezzoscontato + '</h1></a></div>';
             }
             document.getElementById(3).innerHTML = out;
             }
@@ -89,7 +89,7 @@ $( document ).ready(function() {
             var out = "";
             for(i = 0; i < arr.length; i++)
             {
-                out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="http://guidoantoniomatteo.altervista.org/tim/smart-life/single-smart-life.html?id=' + arr[i].id + '"><div class="promotionbox3" ><img class="img-responsive SLsize" src="http://guidoantoniomatteo.altervista.org/tim/img/smart-life/single-SL/' + arr[i].id + '/logo.png" alt="' + arr[i].nome +'"><h2 class="description-black text-bold">' + arr[i].nome + '</h2><h1 class="nomargintop description-red">' + arr[i].prezzoscontato + '</h1><p class="description description-black text-lighter">' + arr[i].attivazionescontato + '</p></div></a></div>';
+                out+= '<div class="col-md-3 nomarginfull promotiontile"><a href="single-smart-life.html?id=' + arr[i].id + '"><div class="promotionbox3" ><img class="img-responsive SLsize" src="http://guidoantoniomatteo.altervista.org/tim/img/smart-life/single-SL/' + arr[i].id + '/logo.png" alt="' + arr[i].nome +'"><h2 class="description-black text-bold">' + arr[i].nome + '</h2><h1 class="nomargintop description-red">' + arr[i].prezzoscontato + '</h1><p class="description description-black text-lighter">' + arr[i].attivazionescontato + '</p></div></a></div>';
             }
             document.getElementById(2).innerHTML = out;
             }

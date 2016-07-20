@@ -26,7 +26,7 @@
 
 					<div class="col-lg-3 right">
 						<div class="row">
-							<a class="col-lg-6" href="innovazione.html">Chi Siamo</a>
+							<a class="col-lg-6" id="link-chisiamo" href="innovazione.html">Chi Siamo</a>
 							<a class="col-lg-6" href="gruppo">Gruppo</a>
 						</div>
 					</div>

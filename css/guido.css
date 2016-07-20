@@ -66,6 +66,16 @@ div.middle-align-block { /*used to vertically center all the contents in the foo
 @media only screen and (max-width: 991px) 
 {
 
+    .cn{
+
+        display:block !important;
+    }
+
+    .tocenter{
+
+        margin-left: 10px !important;
+    }
+
     .promotionboxSLsmall1{
 
         position: absolute !important;
@@ -455,4 +465,16 @@ div.middle-align-block { /*used to vertically center all the contents in the foo
     text-align: center;
     font-size: 40px;
     z-index: 5;
+}
+
+.tocenter{
+
+    margin-left: 35px;
+}
+
+.btn-spot {
+  .button-variant(#004890; white; #004890);
+}
+.btn-intervista {
+  .button-variant(#004890; white; #004890);
 }
