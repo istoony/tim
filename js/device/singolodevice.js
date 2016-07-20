@@ -42,6 +42,7 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/standardimport.js',
     promozioni.send();
     
     printCorrelati(id);
+    printSLAssociati(id, "smartlifedispositivi");
     $("#menu-device").html(printMenuSecondario(id));
     
 });

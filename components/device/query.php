@@ -43,7 +43,7 @@
             break;
     	case "getDevicesCompatibili":
     		$id = $_GET['id'];
-    		$query = 'SELECT dispositivo.id, dispositivo.nome, dispositivofoto.path, marcadispositivo.nome AS marca  FROM dispositivo, marcadispositivo, dispositivofoto, smartlifedispositivi WHERE smartlifedispositivi.idsmartlife='.$id.' AND smartlifedispositivi.iddispositivo=dispositivo.id  GROUP BY dispositivo.id';
+    		$query = 'SELECT dispositivo.id, dispositivo.nome, dispositivofoto.path, marcadispositivo.nome AS marca  FROM dispositivo, marcadispositivo, dispositivofoto, smartlifedispositivi WHERE smartlifedispositivi.idsmartlife='.$id.' AND smartlifedispositivi.iddispositivo=dispositivo.id AND dispositivofoto.id_dispositivo = dispositivo.id AND marcadispositivo.id = dispositivo.id_marca  GROUP BY dispositivo.id';
     		break;
     		
     }

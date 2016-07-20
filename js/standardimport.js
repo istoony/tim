@@ -206,3 +206,48 @@ function asAssociati(response)
         document.getElementById("asrelative").innerHTML = out;
     }
 }
+
+function printSLAssociati(id, parameter)
+{
+    var sl = new XMLHttpRequest();
+    var main = "http://guidoantoniomatteo.altervista.org/tim/components/device/getSlAssociati.php?id="+id+"&param="+parameter+"";
+    sl.onreadystatechange=function() 
+    {
+        if (sl.readyState == 4 && sl.status == 200)
+                SLAssociati(sl.responseText);
+    }
+    sl.open("GET", main, true);
+    sl.send();
+}
+function SLAssociati(response)
+{
+    var arr = JSON.parse(response);
+    var out = "";
+    var out2 = '';
+    if(arr.length > 0)
+    {
+        out += '<div class="col-md-12">'+
+                    '<h1 class="titolorosso" style="text-align: left;">Smart Life</h1>'+
+               '</div>';
+        out +='<div class="col-md-12">'+
+                    '<div class="row">';
+        out2 +='<div class="col-md-12">'+
+                    '<div class="row">';
+        for(var i = 0; i< arr.length; i++)
+        {
+            out += '<div class="col-sm-2">'+
+                        '<a href="smart-life-single.html?id='+arr[i].id+'">' +
+                            '<img class="img-responsive" src="http://guidoantoniomatteo.altervista.org/tim/img/smart-life/single-SL/' + arr[i].id + '/logo.png" alt="' + arr[i].nome +'">'+
+                        '</a>'+
+                    '</div>';
+            out2 += '<div class="col-sm-2 blu-menu">'+
+                        '<a href="smart-life-single.html?id='+arr[i].id+'"><h3>'+arr[i].nome+'</h3></a>'+
+                    '</div>';
+        }
+        out += '</div>'+
+                    '</div>';
+        out2 +='</div>'+
+                    '</div>';
+        document.getElementById("slrelativi").innerHTML = out + out2;
+    }
+}

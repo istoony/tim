@@ -21,7 +21,7 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/small-menu.js', fun
            
             function myFunction(response) 
             {   /**
-                *   id, nome, chiamate, messaggi, internet, categoria, foto, prezzo, fotogrande
+                *   id, nome, chiamate, messaggi, internet, categoria, foto, prezzo, prezzoscontato, fotogrande
                 *   [N] descrizione, titolo [N]
                 */
                 var arr = JSON.parse(response);
@@ -48,6 +48,7 @@ $.getScript('http://guidoantoniomatteo.altervista.org/tim/js/small-menu.js', fun
             }
             printAsAssociati("relazionepianiassistenza", id);
             smallMenuLoaded();
+            printSLAssociati(id, "relazionepianismartlife");
         });
      });
 });
